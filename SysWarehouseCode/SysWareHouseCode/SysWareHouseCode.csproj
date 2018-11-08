@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F8C6A1C-411D-42AF-842A-FC4CAB843B2C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SysWareHouseCode</RootNamespace>
+    <AssemblyName>SysWareHouseCode</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroCliente.Designer.cs">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CadastroFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroFornecedor.Designer.cs">
+      <DependentUpon>CadastroFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroFuncionario.Designer.cs">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CadastroProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroProduto.Designer.cs">
+      <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Editar.Designer.cs">
+      <DependentUpon>Editar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditarCliente.Designer.cs">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditarFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditarFornecedor.Designer.cs">
+      <DependentUpon>EditarFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditarFuncionario.Designer.cs">
+      <DependentUpon>EditarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditarProduto.Designer.cs">
+      <DependentUpon>EditarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Emprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Emprestimo.Designer.cs">
+      <DependentUpon>Emprestimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LancamentoContas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LancamentoContas.Designer.cs">
+      <DependentUpon>LancamentoContas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pesquisa.Designer.cs">
+      <DependentUpon>Pesquisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RecuperarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RecuperarSenha.Designer.cs">
+      <DependentUpon>RecuperarSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RedefinirSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RedefinirSenha.Designer.cs">
+      <DependentUpon>RedefinirSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio.Designer.cs">
+      <DependentUpon>Relatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaPrincipalAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TelaPrincipalAdm.Designer.cs">
+      <DependentUpon>TelaPrincipalAdm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaPrincipalFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TelaPrincipalFuncionario.Designer.cs">
+      <DependentUpon>TelaPrincipalFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Venda.Designer.cs">
+      <DependentUpon>Venda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VendaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VendaCliente.Designer.cs">
+      <DependentUpon>VendaCliente.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\CadastroCliente.resx">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroFornecedor.resx">
+      <DependentUpon>CadastroFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroFuncionario.resx">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroProduto.resx" />
+    <EmbeddedResource Include="View\Editar.resx" />
+    <EmbeddedResource Include="View\EditarCliente.resx" />
+    <EmbeddedResource Include="View\EditarFornecedor.resx" />
+    <EmbeddedResource Include="View\EditarFuncionario.resx" />
+    <EmbeddedResource Include="View\EditarProduto.resx" />
+    <EmbeddedResource Include="View\Emprestimo.resx" />
+    <EmbeddedResource Include="View\LancamentoContas.resx" />
+    <EmbeddedResource Include="View\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pesquisa.resx" />
+    <EmbeddedResource Include="View\RecuperarSenha.resx" />
+    <EmbeddedResource Include="View\RedefinirSenha.resx" />
+    <EmbeddedResource Include="View\Relatorio.resx" />
+    <EmbeddedResource Include="View\TelaPrincipalAdm.resx" />
+    <EmbeddedResource Include="View\TelaPrincipalFuncionario.resx" />
+    <EmbeddedResource Include="View\Venda.resx" />
+    <EmbeddedResource Include="View\VendaCliente.resx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
