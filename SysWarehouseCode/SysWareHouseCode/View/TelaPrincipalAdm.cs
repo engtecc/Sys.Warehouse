@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SysWareHouseCode.View
+namespace SistemaJanuário
 {
     public partial class TelaPrincipalAdm : Form
     {
@@ -43,7 +43,7 @@ namespace SysWareHouseCode.View
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            VendaRapida janela = new VendaRapida();
+            Venda janela = new Venda();
             janela.ShowDialog();
         }
 
@@ -103,4 +103,3 @@ namespace SysWareHouseCode.View
         }
     }
 }
-

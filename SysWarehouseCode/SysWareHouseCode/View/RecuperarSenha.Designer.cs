@@ -1,4 +1,4 @@
-﻿namespace SysWareHouseCode.View
+﻿namespace SistemaJanuário
 {
     partial class RecuperarSenha
     {

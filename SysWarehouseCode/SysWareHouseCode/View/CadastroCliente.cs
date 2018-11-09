@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SysWareHouseCode.View
+namespace SistemaJanuário
 {
     public partial class CadastroCliente : Form
     {

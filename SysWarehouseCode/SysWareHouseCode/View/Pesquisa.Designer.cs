@@ -1,4 +1,4 @@
-﻿namespace SysWareHouseCode.View
+﻿namespace SistemaJanuário
 {
     partial class Pesquisa
     {
@@ -55,7 +55,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -223,10 +222,10 @@
             this.radioButton5.ForeColor = System.Drawing.Color.Black;
             this.radioButton5.Location = new System.Drawing.Point(22, 28);
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(143, 24);
+            this.radioButton5.Size = new System.Drawing.Size(74, 24);
             this.radioButton5.TabIndex = 223;
             this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Contas Pendentes:";
+            this.radioButton5.Text = "Contas:";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -254,7 +253,7 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(171, 28);
+            this.comboBox1.Location = new System.Drawing.Point(102, 28);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(214, 24);
             this.comboBox1.TabIndex = 214;
@@ -285,7 +284,6 @@
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.comboBox4);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
@@ -342,10 +340,10 @@
             this.radioButton1.ForeColor = System.Drawing.Color.Black;
             this.radioButton1.Location = new System.Drawing.Point(21, 26);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(96, 24);
+            this.radioButton1.Size = new System.Drawing.Size(92, 24);
             this.radioButton1.TabIndex = 222;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Devedores:";
+            this.radioButton1.Text = "Devedores";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker2
@@ -396,15 +394,6 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(0, 20);
             this.label12.TabIndex = 217;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(123, 24);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(138, 24);
-            this.comboBox4.TabIndex = 214;
             // 
             // button2
             // 
@@ -540,7 +529,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.DataGridView dataGridView1;

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaJanuário
 {
-    public partial class EditarFornecedor : Form
+    public partial class VendaFuncionario : Form
     {
-        public EditarFornecedor()
+        public VendaFuncionario()
         {
             InitializeComponent();
         }
