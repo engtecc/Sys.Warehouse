@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SistemaJanuário
+namespace SysWareHouseCode.View
 {
     partial class CadastroFuncionario
     {
@@ -30,6 +30,7 @@ namespace SistemaJanuário
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Panel painelFuncionario;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroFuncionario));
             this.dropEstado = new System.Windows.Forms.ComboBox();
@@ -61,11 +62,20 @@ namespace SistemaJanuário
             this.label2 = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.fotoFundo = new System.Windows.Forms.PictureBox();
+            this.januDataSet = new SysWareHouseCode.januDataSet();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteTableAdapter = new SysWareHouseCode.januDataSetTableAdapters.clienteTableAdapter();
+            this.tableAdapterManager = new SysWareHouseCode.januDataSetTableAdapters.TableAdapterManager();
+            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionariosTableAdapter = new SysWareHouseCode.januDataSetTableAdapters.funcionariosTableAdapter();
             painelFuncionario = new System.Windows.Forms.Panel();
             painelFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoFundo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.januDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // painelFuncionario
@@ -102,9 +112,9 @@ namespace SistemaJanuário
             painelFuncionario.Controls.Add(this.txtNome);
             painelFuncionario.Controls.Add(this.label2);
             painelFuncionario.Controls.Add(this.txtLogin);
-            painelFuncionario.Location = new System.Drawing.Point(384, 163);
+            painelFuncionario.Location = new System.Drawing.Point(384, 167);
             painelFuncionario.Name = "painelFuncionario";
-            painelFuncionario.Size = new System.Drawing.Size(633, 411);
+            painelFuncionario.Size = new System.Drawing.Size(642, 415);
             painelFuncionario.TabIndex = 5;
             // 
             // dropEstado
@@ -242,6 +252,7 @@ namespace SistemaJanuário
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 33;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnCadastrar
             // 
@@ -400,22 +411,67 @@ namespace SistemaJanuário
             this.fotoFundo.TabIndex = 6;
             this.fotoFundo.TabStop = false;
             // 
+            // januDataSet
+            // 
+            this.januDataSet.DataSetName = "januDataSet";
+            this.januDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "cliente";
+            this.clienteBindingSource.DataSource = this.januDataSet;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
+            this.tableAdapterManager.compraTableAdapter = null;
+            this.tableAdapterManager.emprestimoTableAdapter = null;
+            this.tableAdapterManager.enderecoTableAdapter = null;
+            this.tableAdapterManager.entrada_produtoTableAdapter = null;
+            this.tableAdapterManager.fornecedorTableAdapter = null;
+            this.tableAdapterManager.funcionariosTableAdapter = this.funcionariosTableAdapter;
+            this.tableAdapterManager.pagamentoTableAdapter = null;
+            this.tableAdapterManager.pessoaTableAdapter = null;
+            this.tableAdapterManager.produtoTableAdapter = null;
+            this.tableAdapterManager.referencia_comercialTableAdapter = null;
+            this.tableAdapterManager.saida_produtoTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = SysWareHouseCode.januDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.vendasTableAdapter = null;
+            // 
+            // funcionariosBindingSource
+            // 
+            this.funcionariosBindingSource.DataMember = "funcionarios";
+            this.funcionariosBindingSource.DataSource = this.januDataSet;
+            // 
+            // funcionariosTableAdapter
+            // 
+            this.funcionariosTableAdapter.ClearBeforeFill = true;
+            // 
             // CadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 701);
+            this.ClientSize = new System.Drawing.Size(1370, 708);
             this.Controls.Add(painelFuncionario);
             this.Controls.Add(this.fotoFundo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroFuncionario";
             this.Text = "Cadastrar Funcionário";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.CadastroFuncionario_Load);
             painelFuncionario.ResumeLayout(false);
             painelFuncionario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoFundo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.januDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,5 +516,11 @@ namespace SistemaJanuário
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox fotoFundo;
+        private SysWareHouseCode.januDataSet januDataSet;
+        private System.Windows.Forms.BindingSource clienteBindingSource;
+        private SysWareHouseCode.januDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
+        private SysWareHouseCode.januDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private SysWareHouseCode.januDataSetTableAdapters.funcionariosTableAdapter funcionariosTableAdapter;
+        private System.Windows.Forms.BindingSource funcionariosBindingSource;
     }
 }

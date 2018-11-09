@@ -1,4 +1,4 @@
-﻿namespace SistemaJanuário
+﻿namespace SysWareHouseCode.View
 {
     partial class TelaPrincipalAdm
     {

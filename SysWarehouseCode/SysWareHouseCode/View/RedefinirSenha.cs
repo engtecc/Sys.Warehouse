@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaJanuário
+namespace SysWareHouseCode.View
 {
     public partial class RedefinirSenha : Form
     {
