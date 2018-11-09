@@ -19,12 +19,12 @@ namespace SysWareHouseCode.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            this.Close()
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void clienteBindingNavigatorSaveItem_Click(object sender, EventArgs e)
