@@ -1,0 +1,98 @@
+/* Formulario*/
+
+/* Margin da row ao banner */
+.rowForm
+{
+    margin-top:25px;
+}
+/* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
+.lblAl
+{
+    text-align: right;
+    vertical-align: center;
+}
+
+
+/* Inputs text do formulário */ 
+input:focus
+{
+    border: solid 0.5px #31b0d5;
+}
+#txtNome
+{
+    width:520px;
+    height:25px;
+    margin-left:0px;
+    
+}
+
+#txtLogin
+{
+    width: 130px;
+    height: 25px;
+}
+
+#txtSenha
+{
+    width: 130px;
+    height: 25px;
+    margin-left: -7px; 
+}
+
+#txtConfirmarSenha
+{
+    width: 130px;
+    height: 25px;
+    margin-left: -30px;   
+}
+#btnCancelar
+{
+    margin-right:-263px;
+}
+
+#txtCpf
+{
+    width:230px;
+    height:25px;
+}
+#txtRG
+{
+    width:234px;
+    height:25px;
+}
+#txtRua
+{
+    width:520px;
+    height:25px;
+}
+
+#txtNumero
+{
+    width:80px;
+    height:25px;
+}
+
+#txtBairro
+{
+    width:160px;
+    height:25px;
+    margin-left:10px;
+}
+#txtCidade
+{
+    width:211px;
+    height:25px;
+}
+
+#slcEstado
+{
+    width:200px;
+    height: 25px;
+    text-align: center;
+    margin-left:32px;
+}
+#txtTelefone
+{
+    width:211px;
+    height:25px;
+}
