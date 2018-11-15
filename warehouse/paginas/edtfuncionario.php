@@ -12,13 +12,11 @@
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
 		<link rel="stylesheet" type="text/css" href="../css/lightbox.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/cadfuncionario.css">
-
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/lightbox-plus-jquery.min.js"></script>
 		<script src="../js/script.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 </head>
-
 	<body>
 		<nav class="site-header">
 			<div class = "jumbotron text-center removerMargem">
@@ -27,6 +25,7 @@
 			</div>
 		</nav>
 		<div class="container">
+			<h2 class="subTitulo">Editar funcionário</h2>
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-6 mt-3">
@@ -173,4 +172,4 @@
 			</div>
 		</div>
 	</body>
-</html>
+</html> 

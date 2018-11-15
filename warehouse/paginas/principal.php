@@ -19,10 +19,13 @@
 </head>
 
 	<body>
-		<div class = "jumbotron text-center removerMargem">
-			<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
-			<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
-		</div>
+		<nav class="site-header">
+			<div class = "jumbotron text-center removerMargem">
+				<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
+				<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
+			</div>
+		</nav>
+	
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-4 mt-3">
@@ -51,7 +54,7 @@
 								<a class="text-opcoes" href="contas.php"><img class="rounded-circle" src="../imagens/contas.png" alt="Generic placeholder image" width="100" height="100"><h5>Lançar<br>contas</h5></a>
 							</div>
 							<div class="col-lg-4 espacamento">
-								<a class="text-opcoes" href="pesquisar_editar.php"><img class="rounded-circle" src="../imagens/Alterar.png" alt="Generic placeholder image" width="100" height="100"><h5>Alterar<br>Cadastros</h5></a>
+								<a class="text-opcoes" href="alterar.php"><img class="rounded-circle" src="../imagens/Alterar.png" alt="Generic placeholder image" width="100" height="100"><h5>Alterar<br>Cadastros</h5></a>
 							</div>
 							<div class="col-lg-4 espacamento">
 								<a class="text-opcoes" href="relatorios.php"><img class="rounded-circle" src="../imagens/relatorios.png" alt="Generic placeholder image" width="100" height="100"><h5>Relatórios</h5></a>

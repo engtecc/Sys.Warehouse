@@ -1,5 +1,4 @@
 /* Formulario*/
-
 /* Margin da row ao banner */
 .rowForm
 {
@@ -11,8 +10,6 @@
     text-align: right;
     vertical-align: center;
 }
-
-
 /* Inputs text do formulário */ 
 input:focus
 {
@@ -29,7 +26,6 @@ input:focus
 {
     margin-right:-263px;
 }
-
 #txtCpf
 {
     width:230px;
@@ -45,13 +41,11 @@ input:focus
     width:520px;
     height:25px;
 }
-
 #txtNumero
 {
     width:80px;
     height:25px;
 }
-
 #txtBairro
 {
     width:160px;
@@ -63,7 +57,6 @@ input:focus
     width:211px;
     height:25px;
 }
-
 #slcEstado
 {
     width:200px;
@@ -76,7 +69,6 @@ input:focus
     width:120px;
     height:25px;
 }
-
 #dateNascimento
 {
     height:25px;
@@ -103,10 +95,9 @@ input:focus
     margin-left:30px;
     margin-top:15px;
 }
-
 #txtLimite
 {
     width:200px;
     height:25px;
     margin-top:15px;
-}
+} 

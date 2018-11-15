@@ -1,5 +1,4 @@
 /* Formulario*/
-
 /* Margin da row ao banner */
 .rowForm
 {
@@ -11,8 +10,6 @@
     text-align: right;
     vertical-align: center;
 }
-
-
 /* Inputs text do formulário */ 
 input:focus
 {
@@ -25,20 +22,17 @@ input:focus
     margin-left:0px;
     
 }
-
 #txtLogin
 {
     width: 130px;
     height: 25px;
 }
-
 #txtSenha
 {
     width: 130px;
     height: 25px;
     margin-left: -7px; 
 }
-
 #txtConfirmarSenha
 {
     width: 130px;
@@ -49,7 +43,6 @@ input:focus
 {
     margin-right:-263px;
 }
-
 #txtCpf
 {
     width:230px;
@@ -65,13 +58,11 @@ input:focus
     width:520px;
     height:25px;
 }
-
 #txtNumero
 {
     width:80px;
     height:25px;
 }
-
 #txtBairro
 {
     width:160px;
@@ -83,7 +74,6 @@ input:focus
     width:211px;
     height:25px;
 }
-
 #slcEstado
 {
     width:200px;

@@ -1,5 +1,4 @@
 /* Formulario*/
-
 /* Margin da row ao banner */
 .rowForm
 {
@@ -11,8 +10,6 @@
     text-align: right;
     vertical-align: center;
 }
-
-
 /* Inputs text do formulário */ 
 input:focus
 {
@@ -27,27 +24,23 @@ input:focus
 {
     margin-right:-24px;
 }
-
 #txtQuantidade
 {
     width:230px;
     height:25px;
 }
-
 #txtPrecoCompra
 {
     width:230px;
     height:25px;
 }
-
 #txtPrecoVenda
 {
     width:230px;
     height:25px;
 }
-
 #txtCodigoBarras
 {
     width:230px;
     height:25px;
-}
+} 
