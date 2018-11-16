@@ -7,8 +7,8 @@
 
     $conexao = new mysqli(BD_SERVER, BD_USERNAME, BD_PASSWORD, BD_NAME);
     $conexao->set_charset("utf8");
-
+    
     if ($conexao === false){
         die("Erro ao conector com o servidor");
-    }
+    }   
 ?>

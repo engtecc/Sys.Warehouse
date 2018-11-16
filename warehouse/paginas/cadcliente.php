@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/lightbox.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/cadCliente.css">
 		<script src="../js/jquery.min.js"></script>
+		<script src="../js/cadastrarCliente.js"></script>
 		<script src="../js/lightbox-plus-jquery.min.js"></script>
 		<script src="../js/script.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
@@ -22,6 +23,30 @@
 				<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 				<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 			</div>
+			<div class="modal fade" id="modalok" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modalok">sucesso!</h5>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="modalerro" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-error" id="modalok">Falha!</h5>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<h2 class="subTitulo">Cadastrar cliente</h2>
 			<div class="row">
@@ -29,7 +54,7 @@
 				<div class="col-md-6 mt-3">
 					<div class="row">
 						<div class="col-md-12">
-							<form action="#" method="POST" id="formCli"> 
+							<form action="" method="POST" id="formCli" enctype="multipart/form-data"> 
 								<div class="row rowForm">
 									<div class="col-md-9"></div>
 									<div class="col-md-3" align="center">

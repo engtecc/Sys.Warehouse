@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    $('#formFornecedor').submit(function(e) {
+    $('#formCli').submit(function(e) {
         e.preventDefault();
 
         $.ajax({
-            url: '../crud/cadastrarFornecedor.php',
+            url: '../crud/cadastrarCliente.php',
             type: 'post',
             data:  new FormData(this),            
             cache: false,
@@ -11,6 +11,7 @@ $(document).ready(function(){
             processData: false,
             success: function(data){
                 if(data == "cadastrado"){
+                    alert("asda");
                     $('#modalok').modal('show');
                 }else if(data == "errocodigo"){
                     $('.errocodigo').html('CNPJ já cadastrado.');
@@ -22,6 +23,6 @@ $(document).ready(function(){
     });
 
     $(".ok").click(function(){
-        window.location.replace("../paginas/cadfornecedor.php");
+        window.location.replace("../paginas/cadcliente.php");
     });
 });
