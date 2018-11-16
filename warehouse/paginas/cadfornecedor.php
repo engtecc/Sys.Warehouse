@@ -12,12 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
 	<link rel="stylesheet" type="text/css" href="../css/lightbox.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/cadfornecedor.css">
-	<script type="text/javascript" src="../js/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
-	<script type="text/javascript" src="../js/script.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/lightbox-plus-jquery.min.js"></script>
+	<script src="../js/script.js"></script>
 	<script src="../js/cadastrarFornecedor.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
 	<nav class="site-header">
@@ -30,7 +29,7 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modalok">sucesso!</h5>
+					<h5 class="modal-title" id="modalok">Fornecedor cadastrado com sucesso!</h5>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -42,7 +41,7 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title text-error" id="modalok">Falha!</h5>
+					<h5 class="modal-title text-error" id="modalerro">Falha ao cadastrar o fornecedor!</h5>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>

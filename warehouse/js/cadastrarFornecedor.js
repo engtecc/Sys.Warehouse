@@ -10,14 +10,15 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success: function(data){
-                if(data == "cadastrado"){
+                if(data=== "cadastrado"){
                     $('#modalok').modal('show');
-                }else if(data == "errocodigo"){
+                }else if(data === "errocodigo"){
                     $('.errocodigo').html('CNPJ já cadastrado.');
                 }else{
                     $('#modalerro').modal('show'); 
                 }
-            }        
+            } 
+
         });
     });
 
