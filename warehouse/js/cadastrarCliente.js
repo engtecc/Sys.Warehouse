@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#formCli').submit(function(e) {
+    $('#formCliente').submit(function(e) {
         e.preventDefault();
 
         $.ajax({
@@ -11,10 +11,7 @@ $(document).ready(function(){
             processData: false,
             success: function(data){
                 if(data == "cadastrado"){
-                    alert("asda");
                     $('#modalok').modal('show');
-                }else if(data == "errocodigo"){
-                    $('.errocodigo').html('CNPJ já cadastrado.');
                 }else{
                     $('#modalerro').modal('show'); 
                 }
@@ -26,3 +23,5 @@ $(document).ready(function(){
         window.location.replace("../paginas/cadcliente.php");
     });
 });
+
+aqui

@@ -27,7 +27,7 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="modalok">sucesso!</h5>
+						<h5 class="modal-title" id="modalok">Cliente cadastrado com sucesso!</h5>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -39,7 +39,7 @@
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title text-error" id="modalok">Falha!</h5>
+						<h5 class="modal-title text-error" id="modalok">Falha ao cadastrar o cliente!</h5>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -54,7 +54,7 @@
 				<div class="col-md-6 mt-3">
 					<div class="row">
 						<div class="col-md-12">
-							<form action="" method="POST" id="formCli" enctype="multipart/form-data"> 
+							<form action="" method="POST" id="formCliente" enctype="multipart/form-data"> 
 								<div class="row rowForm">
 									<div class="col-md-9"></div>
 									<div class="col-md-3" align="center">
@@ -66,7 +66,7 @@
 										<label>Nome: </label>
 									</div>
 									<div class="col-md-9">
-										<input type="text" id="txtNome" value="">
+										<input type="text" id="txtNome" name="txtNome" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -74,13 +74,13 @@
 										<label>CPF: </label>
 									</div>
 									<div class="col-md-5">
-										<input type="text" id="txtCpf" value="">
+										<input type="text" id="txtCpf" name="txtCpf" value="">
 									</div>
 									<div class="col-md-1">
 										<label>&nbsp;&nbsp;&nbsp;RG: </label>
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtRG" value="">
+										<input type="text" id="txtRG" name="txtRG" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -88,7 +88,7 @@
 										<label>Rua: </label>
 									</div>
 									<div class="col-md-9">
-										<input type="text" id="txtRua" value="">
+										<input type="text" id="txtRua" name="txtRua" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -96,13 +96,13 @@
 										<label>Número: </label>
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtNumero" value="">
+										<input type="text" id="txtNumero" name="txtNumero" value="">
 									</div>
 									<div class="col-md-1" style="margin-left:55px;">
 										<label>Bairro: </label>
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtBairro" value="">
+										<input type="text" id="txtBairro" name="txtBairro" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -110,13 +110,13 @@
 										<label>Cidade: </label>
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtCidade" value="">
+										<input type="text" id="txtCidade" name="txtCidade" value="">
 									</div>
 									<div class="col-md-2 lblAl" >
 										<label style="margin-left:65px;">Estado: </label>
 									</div>
 									<div class="col-md-2">
-										<select name="" id="slcEstado">
+										<select name="slcEstado" id="slcEstado">
 											<option value="mg">Minas Gerais</option>
 											<option value="ac">Acre</option>
 											<option value="al">Alagoas</option>
@@ -152,13 +152,13 @@
 										<label>Telefone: </label>
 									</div>
 									<div class="col-md-3">
-										<input type="text" id="txtTelefone" value="">
+										<input type="text" id="txtTelefone" name="txtTelefone" value="">
 									</div>
 									<div class="col-md-4">
 										<label>Data de nascimento: </label>
 									</div>
 									<div class="col-md-1">
-										<input type="date" id="dateNascimento" value="">
+										<input type="date" id="dateNascimento" name="dateNascimento" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -166,13 +166,13 @@
 										<label>Referencia Comercial: </label>
 									</div>
 									<div class="col-md-3">
-										<input type="text" id="txtReferencia1" value="">
+										<input type="text" id="txtReferencia1" name="txtReferencia1" value="">
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtReferencia2" value="">
+										<input type="text" id="txtReferencia2" name="txtReferencia2" value="">
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtReferencia3" value="">
+										<input type="text" id="txtReferencia3" name="txtReferencia3" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -180,7 +180,7 @@
 										<label>Limite de credito: </label>
 									</div>
 									<div class="col-md-9">
-										R$ &nbsp;<input type="text" id="txtLimite" value="">
+										R$ &nbsp;<input type="text" id="txtLimite" name="txtLimite" value="">
 									</div>
 								</div>
 								<div class="row rowForm"style="margin-bottom:30px">

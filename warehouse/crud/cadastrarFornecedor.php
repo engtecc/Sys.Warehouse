@@ -1,7 +1,7 @@
 <?php
 require_once ('bd.php');
 
-$last_id = $cnpj = $nome = $telefone = $rua = $numero = $numero = $bairro = $cidade = $estado = "";
+$last_id = $cnpj = $nome = $telefone = $rua = $numero = $bairro = $cidade = $estado = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$cnpj = $_POST["txtCnpj"];
