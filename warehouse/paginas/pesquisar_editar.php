@@ -262,7 +262,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 								<div class="row rowForm">
 									<div class="col-md-9"></div>
 									<div class="col-md-3" align="center">
-										<input type="submit" class="btn btn-warning" id="btnCancelar" value="Cadastrar">
+										<input type="submit" class="btn btn-warning" id="btnCancelar" value="Pesquisar">
 									</div>
 								</div> 
 								<div class="row">
