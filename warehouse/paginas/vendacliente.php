@@ -17,7 +17,7 @@
 	<script src="../js/lightbox-plus-jquery.min.js"></script>
 	<script src="../js/script.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<script type="../js/vendasfuncionario.js"></script>
+	<script type="../js/vendas.js"></script>
 
 </head>
 
@@ -35,8 +35,9 @@
 					<div class="col-md-12">
 						<form action="#" method="POST" id="formCli"> 
 							<div class="row rowForm">
-								<div class="col-md-6">
-									<a id="btnAdicionar" class="btn btn-outline-primary" href="principal.php" role="button">Adicionar Cliente</a>
+								<div class="col-md-6" align="right"></div>
+								<div class="col-md-3">
+									<a id="btnAdicionar" class="btn btn-outline-primary" href="principal.php" role="button">Cadastrar Cliente</a>
 								</div>
 								<div class="col-md-3" align="center">
 									<a id="btnCancelar" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
@@ -44,10 +45,17 @@
 							</div> 
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
-									<label>Cód. Barras:</label>
+									<label>CPF: </label>
 								</div>
-								<div class="col-md-9">
-									<input class="confTxtBox" type="text" id="txtCodBarras">
+								<div class="col-md-3">
+									<input type="text" id="txtCPF" placeholder=" Somente Números">
+								</div>
+								<div class="col-md-3 lblAl">
+									<label>RG: </label>
+								</div>
+								<div class="col-md-3">
+									<input type="text" id="txtRG" placeholder=" Somente Números">
+									
 								</div>
 							</div>
 							<div class="row rowForm">
