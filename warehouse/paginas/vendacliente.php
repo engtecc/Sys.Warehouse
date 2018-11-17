@@ -35,7 +35,9 @@
 					<div class="col-md-12">
 						<form action="#" method="POST" id="formCli"> 
 							<div class="row rowForm">
-								<div class="col-md-9"></div>
+								<div class="col-md-6">
+									<a id="btnAdicionar" class="btn btn-outline-primary" href="principal.php" role="button">Adicionar Cliente</a>
+								</div>
 								<div class="col-md-3" align="center">
 									<a id="btnCancelar" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
 								</div>
@@ -102,11 +104,13 @@
 									<h2>Valor da Compra:</h2>
 								</div>
 								<div class="col-md-6">
-									<input type="number" step="any" id="numTotal" placeholder="0000.00">
+									<input type="number" step="any" id="numTotal" value="0000.00">
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<a id="btnCliente" class="btn btn-primary ">Finalizar com Cliente</a>
+								</div>
 								<div class="col-md-6">
 									<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
 								</div>
