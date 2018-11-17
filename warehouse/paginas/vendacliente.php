@@ -51,25 +51,18 @@
 									<input type="text" id="txtCPF" placeholder=" Somente Números">
 								</div>
 								<div class="col-md-3 lblAl">
-									<label>RG: </label>
+									<label style="float: left; margin-left: 110px;">RG: </label>
 								</div>
 								<div class="col-md-3">
 									<input type="text" id="txtRG" placeholder=" Somente Números">
-									
 								</div>
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
-									<label>Produto: </label>
+									<label>Nome: </label>
 								</div>
-								<div class="col-md-3">
-									<input class="confTxtBox" type="text" step="any" id="txtProd">
-								</div>
-								<div class="col-md-3 lblAl">
-									<label style="float: left; margin-left: 80px;">Data: </label>
-								</div>
-								<div class="col-md-3">
-									<input class="confTxtBox" type="Date" id="datDia">
+								<div class="col-md-9">
+									<input type="text" class="confTxtBox" id="txtNome">
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -78,6 +71,28 @@
 								</div>
 								<div class="col-md-3">
 									<input type="number" id="numQuant">
+								</div>
+								<div class="col-md-3 lblAl">
+									<label style="float: left; margin-left: 25px;">Limite Restante: </label>
+								</div>
+								<div class="col-md-3">
+									<input type="number" step="any" id="numLim">
+								</div>
+							</div>
+							<div class="row rowForm">
+								<div class="col-md-3 lblAl">
+									<label>Forma de Pagamento: </label>
+								</div>
+								<div class="col-md-3">
+									<select id="selPag">
+										<option selected>...</option>
+										<option>Á vista</option>
+										<option></option>
+										<option></option>
+									</select>
+								</div>
+								<div class="col-md-3 lblAl">
+									<a href="emprestimo.php"></a>
 								</div>
 							</div>
 							<div class="row rowForm rowTable">
@@ -117,7 +132,7 @@
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-6">
-									<a id="btnCliente" class="btn btn-primary ">Finalizar com Cliente</a>
+									<a id="btnEmpre" class="btn btn-outline-info ">Empréstimo</a>
 								</div>
 								<div class="col-md-6">
 									<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
