@@ -18,6 +18,25 @@ input:focus
 {
     border: solid 0.5px #31b0d5;
 }
+::-webkit-input-placeholder {
+    text-align: center;
+    vertical-align: center;
+ }
+ 
+ :-moz-placeholder { 
+    text-align: center;  
+    vertical-align: center;
+ }
+ 
+ ::-moz-placeholder {  
+    text-align: center;  
+    vertical-align: center;
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+    vertical-align: center;
+ }
 #btnCancelar
 {
     margin-right:-127px;
