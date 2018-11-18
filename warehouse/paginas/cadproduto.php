@@ -15,8 +15,9 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/lightbox-plus-jquery.min.js"></script>
 	<script src="../js/script.js"></script>
-	<script src="../js/cadastrarProduto.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/cadastrarProduto.js"></script>
+
 </head>
 <body>
 	<nav class="site-header">

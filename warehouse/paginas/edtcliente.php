@@ -18,6 +18,12 @@
 		<script src="../js/bootstrap.min.js"></script>
 </head>
 	<body>
+	<?php 
+		if($_SERVER["REQUEST_METHOD"] == "GET")
+		{
+			
+		}
+	?>
 		<nav class="site-header">
 			<div class = "jumbotron text-center removerMargem">
 				<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>

@@ -3,7 +3,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         $.ajax({
-            url: '../crud/cadastrarCliente.php',
+            url: '../crud/editarCliente.php',
             type: 'post',
             data:  new FormData(this),            
             cache: false,
@@ -20,7 +20,7 @@ $(document).ready(function(){
     });
 
     $(".ok").click(function(){
-        window.location.replace("../paginas/cadcliente.php");
+        window.location.replace("../paginas/edtcliente.php");
     });
 });
 

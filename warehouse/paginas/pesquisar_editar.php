@@ -22,7 +22,7 @@
 </head>
 <?php
 require_once ('../crud/bd.php');
-$tabela_grid_dinamica = $radioValue = $key = "";
+$tabela_grid_dinamica = $radioValue = $key = $link = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(isset ($_POST["radioPesquisar"])){
 		$radioValue = $_POST["radioPesquisar"];
@@ -48,16 +48,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					$tabela_grid_dinamica .= '<td>'. $preco_compra .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $quantidade .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $valide .'</td>';
+					$link = "edtProduto.php?pesq=".$id;
 					
 				}
 				$tabela_grid_dinamica .= '</tr></table>';
 			}elseif($radioValue == 2){
 				$key = $_POST["txtFuncionario"];
-				$sql = mysqli_query($conexao,"SELECT nome,cpf,telefone,login,rua,numero,bairro from pessoa,funcionario,endereco where nome='$key' and pessoa.id_pessoa = funcionario.id_pessoa and pessoa.id_endereco = endereco.id_endereco");
+				$sql = mysqli_query($conexao,"SELECT id_funcionario,nome,cpf,telefone,login,rua,numero,bairro from pessoa,funcionario,endereco where nome='$key' and pessoa.id_pessoa = funcionario.id_pessoa and pessoa.id_endereco = endereco.id_endereco");
 				$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
-				$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>Telefone</b></td><td><b>Login</b></td<td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td></tr>';
+				$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>Telefone</b></td><td><b>Login</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td></tr>';
 				while($row = mysqli_fetch_array($sql)){
 					
+					$id = $row["id_funcionario"];
 					$nome = $row["nome"];
 					$cpf = $row["cpf"];
 					$telefone = $row["telefone"];
@@ -73,6 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					$tabela_grid_dinamica .= '<td>'. $rua .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $numero .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $bairro .'</td>';
+					$link = "edtFuncionario.php?pesq=$id";
 					
 				}
 				$tabela_grid_dinamica .= '</tr></table>';
@@ -82,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
 				$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Nome</b></td><td><b>CNPJ</b></td><td><b>Telefone</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td><td><b>Cidade</b></td></tr>';
 				while($row = mysqli_fetch_array($sql)){
-					
+										
 					$nome = $row["nome"];
 					$cnpj = $row["cnpj"];
 					$telefone = $row["telefone"];
@@ -98,11 +101,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					$tabela_grid_dinamica .= '<td>'. $numero .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $bairro .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $cidade .'</td>';
+					$link = "edtFornecedor.php?pesq=$nome";
 					
 				}
 				$tabela_grid_dinamica .= '</tr></table>';
 			}elseif($radioValue == 4){
-				$key = $_POST["txtFornecedor"];
+				$key = $_POST["txtCliente"];
 				$sql = mysqli_query($conexao,"SELECT nome,cpf,rg,telefone,limite_de_credito,rua,numero,bairro,referencia_1,referencia_2,referencia_3 from cliente as c,pessoa as p,endereco as e,referenci_comercial as r where nome='julio' and c.id_pessoa = p.id_pessoa and c.id_referencia_comercial = r.id_referencia_comercial and p.id_endereco = e.id_endereco");
 				$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
 				$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>RG</b></td><td><b>Telefone</b></td><td><b>Limite</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td><td><b>Referencia 1</b></td><td><b>Referencia 2</b></td><td><b>Referencia 3</b></td></tr>';
@@ -131,7 +135,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					$tabela_grid_dinamica .= '<td>'. $referencia1 .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $referencia2 .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $referencia3 .'</td>';
-					
+					$link = "edtCliente.php?pesq=$cpf";
+
 				}
 				$tabela_grid_dinamica .= '</tr></table>';
 			}elseif($radioValue == 5){
@@ -141,6 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>Vasilhame</b></td><td><b>Devolucao</b></td><td><b>Data a devolver</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td></tr>';
 				while($row = mysqli_fetch_array($sql)){
 					
+					$id = $row["id_emprestimo"];
 					$nome = $row["nome"];
 					$cpf = $row["cpf"];
 					$vasilhame = $row["vasilhame"];
@@ -160,6 +166,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					$tabela_grid_dinamica .= '<td>'. $numero .'</td>';
 					$tabela_grid_dinamica .= '<td>'. $bairro .'</td>';
 					
+					$link = "edtEmprestimo.php?pesq=$id";
 					
 				}
 				$tabela_grid_dinamica .= '</tr></table>';
@@ -276,10 +283,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 								</div>
 								<div class="row" style="margin-top:5px;margin-bottom:10px;">
 									<div class="col-md-6" align="right" style="padding-left:25px;">
-										<a name="" id="" class="btn btn-primary" href="#" role="button">Editar</a>
+										<a name="" id="" class="btn btn-primary" href=<?php echo ($link) ?> role="button">Editar</a>
 									</div>
 									<div class="col-md-6" align="left" style="padding-left:25px;">
-										<a name="" id="" class="btn btn-dark" href="#" role="button">Excluir</a>
+										<a name="" id="" class="btn btn-dark" href=<?php echo ($link) ?> role="button">Excluir</a>
 									</div>
 								</div>
 							</form>

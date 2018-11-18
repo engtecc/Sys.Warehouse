@@ -18,12 +18,108 @@
 		<script src="../js/bootstrap.min.js"></script>
 </head>
 	<body>
+		<script language="javascript">
+			function mostrarModais(valor)
+			{
+				if(valor)
+				{
+					$('#modalok').modal('show');
+					alert('a');
+				}
+				else
+				{
+					$('#modalerro').modal('show');
+					alert('b');
+				}
+			}
+		</script>
+		
+
 		<nav class="site-header">
 			<div class = "jumbotron text-center removerMargem">
 				<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 				<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 			</div>
 		</nav>
+		<div class="modal fade" id="modalok" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modalok">Produto cadastrado com sucesso!</h5>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="modalerro" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-error" id="modalerro">Falha ao cadastrar o produto!</h5>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
+			require_once ("../crud/bd.php");
+			$nomeInput = $codigoInput = $preco_compraInput = $preco_vendaInput = $quantidadeInput = $validadeInput = "";
+			if($_SERVER["REQUEST_METHOD"] == "GET")
+			{
+				$codigo = $_GET["pesq"];
+				$sql = mysqli_query($conexao,"SELECT * FROM produto where codigo_de_barras = '$codigo'");
+				while($row = mysqli_fetch_array($sql)){
+					$codigoInput = "<input type='text' id='txtCodigoBarras' name='txtCodigoBarras' value='$codigo'>";
+					$nome = $row["nome"];
+					$nomeInput = "<input type='text' id='txtNome' name='txtNome' value='$nome'>";
+					$preco_venda = $row["preco_de_venda"];
+					$preco_vendaInput = "<input type='text' id='txtPrecoVenda' name='txtPrecoVenda' value='$preco_venda'>";
+					$preco_compra = $row["preco_de_compra"];
+					$preco_compraInput = "<input type='text' id='txtPrecoCompra' name='txtPrecoCompra' value='$preco_compra'>";
+					$quantidade = $row["quantidade_estoque"];
+					$quantidadeInput = "<input type='text' id='txtQuantidade' name='txtQuantidade' value='$quantidade'>";
+					$validade = $row["validade"];
+					$validadeInput = "<input type='date' id='txtValidade' name='txtValidade' value='$validade'>";
+					
+				}
+			}
+			if($_SERVER["REQUEST_METHOD"] == "POST")
+			{
+				$codigo_de_barras = $nome = $preco_de_venda = $preco_de_compra = $quantidade_estoque = $validade = $aux  = "";
+				if($_SERVER["REQUEST_METHOD"] == "POST"){
+					
+					$codigo_de_barras = $_POST["txtCodigoBarras"];
+					$nome = $_POST["txtNome"];
+					$preco_de_venda = $_POST["txtPrecoVenda"];
+					$preco_de_compra = $_POST["txtPrecoCompra"];
+					$quantidade_estoque = $_POST["txtQuantidade"];
+					$validade = $_POST["txtValidade"];
+					$sql = "UPDATE produto SET codigo_de_barras = '$codigo_de_barras', nome ='$nome', preco_de_venda = '$preco_de_venda',preco_de_compra= '$preco_de_compra',quantidade_estoque = '$quantidade_estoque' ,validade ='$validade' where codigo_de_barras = '$codigo_de_barras'";
+					
+					if($stmt = $conexao->prepare($sql))
+					{
+						
+						if($stmt->execute())
+						{
+							echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
+							echo ("<script language='javascript'> $('.ok').click(function(){window.location.replace('../paginas/pesquisar_editar.php');});</script>");
+
+						}else{
+							echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
+							echo ("<script language='javascript'> $('.ok').click(function(){window.location.replace('../paginas/edtProduto?$codigo.php');});</script>");
+						}
+					}
+
+					$stmt->close();
+					$conexao->close();
+					
+				}
+			}
+		?>
 		<div class="container">
 			<h2 class="subTitulo">Editar Produto</h2>
 			<div class="row">
@@ -31,7 +127,7 @@
 				<div class="col-md-7 mt-3">
 					<div class="row">
 						<div class="col-md-12">
-							<form action="#" method="POST" id="formCli"> 
+							<form action="" method="POST" id="formedtProduto" enctype="multipart/form-data"> 
 								<div class="row rowForm">
 									<div class="col-md-9"></div>
 									<div class="col-md-3" align="center">
@@ -43,7 +139,7 @@
 										<label>Nome: </label>
 									</div>
 									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="txtNome" value="">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo($nomeInput) ?>
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -51,7 +147,7 @@
 										<label>Quantidade: </label>
 									</div>
 									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="txtQuantidade" value="">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($quantidadeInput); ?> 	
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -59,7 +155,7 @@
 										<label>Preço da compra: </label>
 									</div>
 									<div class="col-md-8">
-										R$&nbsp;<input type="text" id="txtPrecoCompra" value="">
+										R$&nbsp;<?php echo($preco_compraInput); ?>
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -67,7 +163,15 @@
 										<label>Preço de venda: </label>
 									</div>
 									<div class="col-md-8">
-										R$&nbsp;<input type="text" id="txtPrecoVenda" value="">
+										R$&nbsp;<?php echo($preco_vendaInput); ?>
+									</div>
+								</div>
+								<div class="row rowForm">
+									<div class="col-md-4 lblAl">
+										<label>Validade: </label>
+									</div>
+									<div class="col-md-8">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo($validadeInput); ?>
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -75,7 +179,7 @@
 										<label>Código de barras: </label>
 									</div>
 									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="txtCodigoBarras" value="">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php  echo($codigoInput); ?>
 									</div>
 								</div>
 								<div class="row rowForm"style="margin-bottom:30px">
