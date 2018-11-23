@@ -8,7 +8,7 @@
 /* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
 .lblAl
 {
-    text-align: left;
+    text-align: right;
     vertical-align: center;
 }
 
@@ -39,40 +39,40 @@ input:focus
  }
 #btnCancelar
 {
-    margin-right:-102px;
+    margin-right:-127px;
 }
 
 #txtProduto
 {
-    width:268px;
+    width:200px;
     height:25px; 
     margin-left:30px;
 }
 
 #txtFuncionario
 {
-    width:268px;
+    width:200px;
     height:25px;
     margin-left:50px; 
 }
 
 #txtFornecedor
 {
-    width:268px;
+    width:200px;
     height:25px; 
     margin-left:30px;
 }
 
 #txtCliente
 {
-    width:268px;
+    width:200px;
     height:25px;
     margin-left:50px; 
 }
 
 #txtEmprestimo
 {
-    width:268px;
+    width:200px;
     height:25px;
     margin-left:30px;
 }

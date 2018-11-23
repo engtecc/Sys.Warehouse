@@ -20,14 +20,28 @@ if ($_SESSION['administrador'] != 1){
 		<link rel="icon" href="../imagens/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
-		<link rel="stylesheet" type="text/css" href="../css/lightbox.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/cadproduto.css">
 		<script src="../js/jquery.min.js"></script>
-		<script src="../js/lightbox-plus-jquery.min.js"></script>
 		<script src="../js/script.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 </head>
 	<body>
+		<script language="javascript">
+			function mostrarModais(valor)
+			{
+				if(valor)
+				{
+					$('#modalok').modal('show');
+					alert('a');
+				}
+				else
+				{
+					$('#modalerro').modal('show');
+					alert('b');
+				}
+			}
+		</script>
+		
 
 		<nav class="site-header">
 			<div class = "jumbotron text-center removerMargem">
