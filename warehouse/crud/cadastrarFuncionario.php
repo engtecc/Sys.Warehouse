@@ -6,7 +6,7 @@ $last_id = $nome = $login=  $senha = $confirmar = $cpf = $rg = $rua = $numero = 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$nome = $_POST["txtNome"];
 	$login = $_POST["txtLogin"];
-	$senha = $_POST["txtSenha"];
+	$senha = md5($_POST["txtSenha"]);
 	$confirmar = $_POST["txtConfirmarSenha"];
 	$cpf = $_POST["txtCpf"];
 	$rg = $_POST["txtRG"];

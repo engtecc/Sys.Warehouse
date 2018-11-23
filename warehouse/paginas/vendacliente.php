@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+	header('location: ../index.php');
+}
+if ($_SESSION['administrador'] != 1){
+	header('location: venda.php');
+}
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>

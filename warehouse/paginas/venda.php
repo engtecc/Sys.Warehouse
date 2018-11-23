@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+	header('location: ../index.php');
+}
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -10,16 +17,32 @@
 	<link rel="icon" href="../imagens/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
-	<link rel="stylesheet" type="text/css" href="../css/lightbox.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/vendas.css">
 
 	<script src="../js/jquery.min.js"></script>
-	<script src="../js/lightbox-plus-jquery.min.js"></script>
 	<script src="../js/script.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script type="../js/vendasfuncionario.js"></script>
 
 </head>
+
+<?php
+if ($_SESSION['administrador'] == 0){
+	echo "<script>
+		$(document).ready(function() {
+			$('.cancelar').hide();
+			$('.sair').show();
+		});
+	</script>";
+}else{
+	echo "<script>
+		$(document).ready(function() {
+			$('.cancelar').show();
+			$('.sair').hide();
+		});
+	</script>";
+}
+?>
 
 <body>
 	<div class = "jumbotron text-center removerMargem">
@@ -37,8 +60,10 @@
 							<div class="row rowForm">
 								<div class="col-md-9"></div>
 								<div class="col-md-3" align="center">
-									<a id="btnCancelar" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
-								</div>
+									<a id="btnCancelar" class="btn btn-danger cancelar" href="principal.php" role="button" style="display: none;">Cancelar</a>
+
+									<a id="btnCancelar" class="btn btn-danger sair" href="../crud/sair.php" role="button" style="display: none;">Sair</a>
+								</div> 
 							</div> 
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">

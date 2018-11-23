@@ -12,8 +12,10 @@
             success: function(data){
                 if(data == "errologin"){
                     $('.errologin').html('Usuário e/ou senha inválidos.');
-                }else if(data == "success"){
+                }else if(data == "adm"){
                     window.location.replace("paginas/principal.php");
+                }else if(data == "func"){
+                    window.location.replace("paginas/venda.php");
                 }
             }        
         });

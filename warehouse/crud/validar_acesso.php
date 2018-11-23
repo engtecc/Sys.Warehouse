@@ -16,7 +16,14 @@ if($resultado){
 
 	if (isset($dados['login'])) {
 		$_SESSION['login'] = $dados['login'];
-		echo "success";
+		$_SESSION['administrador'] = $dados['administrador'];
+
+		if($dados['administrador'] != 1){
+			echo "func";
+		}else{
+			echo "adm";
+		}
+
 	}else{
 		echo "errologin";
 	}
