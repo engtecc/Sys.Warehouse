@@ -183,6 +183,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 		</div>
 		<div class="container">
+			<h2 class="subTitulo">Alterar cadastros</h2>
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8 mt-3">

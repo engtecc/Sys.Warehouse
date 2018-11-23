@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 	if(mysqli_query($conexao, $sql3)){
 		$last_id3=mysqli_insert_id($conexao);
-		$sql4 = "INSERT INTO cliente (id_referencia_comercial, limite_de_credito, id_pessoa) VALUES ('$last_id2', '$limite_de_credito', '$last_id3')";	
+		$sql4 = "INSERT INTO cliente (id_referencia_comercial, limite_de_credito, id_pessoa, id_endereco) VALUES ('$last_id2', '$limite_de_credito', '$last_id3', '$last_id')";	
 		if($stmt = $conexao->prepare($sql4))
 		{
 			if($stmt->execute())

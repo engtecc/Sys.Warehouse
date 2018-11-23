@@ -74,7 +74,7 @@
 									<label>Valor: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="number" step="any" id="numValor">
+									<input type="number" value="0.00" min="0.00" step="0.01" id="numValor">
 								</div>
 							</div>
 							<div class="row rowForm">

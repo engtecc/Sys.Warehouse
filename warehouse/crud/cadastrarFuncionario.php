@@ -25,8 +25,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$sql2 = "INSERT INTO pessoa (id_endereco, cpf, rg, nome,data_de_nascimento,telefone) VALUES ('$last_id','$cpf','$rg','$nome','','$telefone')";
 		if(mysqli_query($conexao,$sql2))
 		{
-			$last_id = mysqli_insert_id($conexao);
-			$sql3 = "INSERT INTO funcionario (id_pessoa, login, senha, administrador) VALUES ('$last_id','$login','$senha','0') ";
+			$last_id2 = mysqli_insert_id($conexao);
+			$sql3 = "INSERT INTO funcionario (id_pessoa, login, senha, administrador, id_endereco) VALUES ('$last_id2','$login','$senha','0','$last_id') ";
 			if($stmt = $conexao->prepare($sql3))
 			{
 				if($stmt->execute())

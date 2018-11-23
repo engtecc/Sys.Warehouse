@@ -45,7 +45,7 @@
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="modalok">Produto cadastrado com sucesso!</h5>
+						<h5 class="modal-title" id="modalok">Produto alterado com sucesso!</h5>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -57,7 +57,7 @@
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title text-error" id="modalerro">Falha ao cadastrar o produto!</h5>
+						<h5 class="modal-title text-error" id="modalerro">Falha ao alterar o produto!</h5>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -73,7 +73,7 @@
 				$codigo = $_GET["pesq"];
 				$sql = mysqli_query($conexao,"SELECT * FROM produto where codigo_de_barras = '$codigo'");
 				while($row = mysqli_fetch_array($sql)){
-					$codigoInput = "<input type='text' id='txtCodigoBarras' name='txtCodigoBarras' value='$codigo'>";
+					$codigoInput = "<input style='background: #D8D8D8;' type='text' id='txtCodigoBarras' name='txtCodigoBarras' value='$codigo' readonly>";
 					$nome = $row["nome"];
 					$nomeInput = "<input type='text' id='txtNome' name='txtNome' value='$nome'>";
 					$preco_venda = $row["preco_de_venda"];
@@ -179,7 +179,7 @@
 										<label>Código de barras: </label>
 									</div>
 									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php  echo($codigoInput); ?>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php  echo($codigoInput);?>
 									</div>
 								</div>
 								<div class="row rowForm"style="margin-bottom:30px">
