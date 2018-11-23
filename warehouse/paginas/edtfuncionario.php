@@ -1,3 +1,77 @@
+<?php
+require_once ("../crud/bd.php");
+$nomeInput = $loginInput = $senhaInput = $confSenhaInput = $cpfInput  = $rgInput = $nascimentoInput = $telefoneInput = $ruaInput = $numeroInput = $bairroInput = $cidadeInput = $estadoInput = "";
+if($_SERVER["REQUEST_METHOD"] == "GET")
+{
+	$codigo = $_GET["pesq"];
+	$sql = mysqli_query($conexao,"SELECT * FROM funcionario as f,pessoa as p,endereco as e WHERE id_funcionario = '$codigo' and e.id_endereco = p.id_endereco and p.id_pessoa = f.id_pessoa;");
+	while($row = mysqli_fetch_array($sql)){
+		$nome = $row["nome"];
+		$nomeInput = "<input type='text' id='txtNome' name='txtNome' value='$nome'>";
+		$login = $row["login"];
+		$loginInput = "<input type='text' id='txtLogin' name='txtLogin' value='$login'>";
+		$senha = $row["senha"];
+		$senhaInput = "<input type='text' id='txtSenha' name='txtSenha' value='$senha'>";
+		$confSenhaInput = "<input type='text' id='txtConfirmarSenha' name='txtConfirmarSenha' value='$senha'>";
+		$cpf = $row["cpf"];
+		$cpfInput = "<input type='text' id='txtCpf' name='txtCpf' value='$cpf'>";
+		$rg = $row["rg"];
+		$rgInput = "<input type='text' id='txtRG' name='txtRG' value='$rg'>";		
+		$nascimento = $row["data_de_nascimento"];
+		$nascimentoInput = "<input type='date' id='txtNascimento' name='txtNascimento' value='$nascimento'>";	
+		$rua = $row["rua"];
+		$ruaInput = "<input type='text' id='txtRua' name='txtRua' value='$rua'>";
+		$numero = $row["numero"];
+		$numeroInput = "<input type='text' id='txtNumero' name='txtNumero' value='$numero'>";	
+		$bairro = $row["bairro"];
+		$bairroInput = "<input type='text' id='txtBairro' name='txtBairro' value='$bairro'>";		
+		$cidade = $row["cidade"];
+		$cidadeInput = "<input type='text' id='txtCidade' name='txtCidade' value='$cidade'>";		
+		$estado = $row["estado"];
+		$estadoInput= "<input type='text' style='margin-left:40px;' id='slcEstado' name='txtEstado' value='$estado'>";	
+		$telefone = $row["telefone"];
+		$telefoneInput = "<input type='text' id='txtTelefone' name='txtTelefone' value='$telefone'>";	
+	}
+}
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+	$nome = $login = $senha = $confirmarSenha = $cpf = $rg = $rua = $numero = $bairro = $cidade = $estado = $telefone = "";
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		
+		$nome = $_POST["txtNome"];
+		$login = $_POST["txtLogin"];
+		$senha = md5($_POST["txtSenha"]);
+		$confirmarSenha = md5($_POST["txtConfirmarSenha"]);
+		$cpf = $_POST["txtCpf"];
+		$rg = $_POST["txtRG"];
+		$nascimento = $_POST["txtNascimento"];
+		$rua = $_POST["txtRua"];
+		$bairro = $_POST["txtBairro"];
+		$cidade = $_POST["txtCidade"];
+		$estado = $_POST["txtEstado"];
+		$telefone = $_POST["txtTelefone"];
+		$select = "select f.id_funcionario, f.id_pessoa,e.id_endereco,p.id_endereco from funcionario as f, pessoa as p, endereco as e where f";
+		$sql = "update funcionario set login = '$login',senha = '$senha',administrador = '0' WHERE id_funcionario = '$codigo'";
+		
+		if($stmt = $conexao->prepare($sql))
+		{	
+			if($stmt->execute())
+			{
+				echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
+				echo ("<script language='javascript'> $('.ok').click(function(){window.location.replace('../paginas/pesquisar_editar.php');});</script>");
+			}else{
+				echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
+				echo ("<script language='javascript'> $('.ok').click(function(){window.location.replace('../paginas/edtProduto?$codigo.php');});</script>");
+			}
+		}
+
+		$stmt->close();
+		$conexao->close();
+				
+	}
+}
+?>
+
 <!doctype html>
 <html lang="pt-br">
 	<head>
@@ -24,6 +98,30 @@
 				<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 			</div>
 		</nav>
+		<div class="modal fade" id="modalok" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modalok">Produto cadastrado com sucesso!</h5>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="modalerro" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-error" id="modalerro">Falha ao cadastrar o produto!</h5>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<h2 class="subTitulo">Editar funcionário</h2>
 			<div class="row">
@@ -43,7 +141,7 @@
 										<label>Nome: </label>
 									</div>
 									<div class="col-md-9">
-										<input type="text" id="txtNome" value="">
+										<?php echo($nomeInput); ?>
 									</div>
 								</div>
 								<div class="row" style="margin-top:30px;">
@@ -51,24 +149,24 @@
 										<label>Login: </label>							
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtLogin" value="">
+										<?php echo($loginInput); ?>										
 									</div>
 									<div class="col-md-3 lblAl" >
 										<label style="margin-right:-5px;">Senha: </label>
 									</div>
-									<div class="col-md-2">
-										<input type="password" id="txtSenha" value="">
+									<div class="col-md-2" style="margin-left:2px;">
+										<?php echo($senhaInput); ?>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-5"></div>
 									<div class="col-md-7" style="margin-top:10px; margin-bottom:-5px;">
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-7">
 												<label>Confirmar senha: </label>
 											</div>
-											<div class="col-md-2">
-												<input type="password" id="txtConfirmarSenha" value="">
+											<div class="col-md-3">
+												<?php echo($confSenhaInput) ?>												
 											</div>
 										</div>
 									</div>
@@ -78,13 +176,13 @@
 										<label>CPF: </label>
 									</div>
 									<div class="col-md-5">
-										<input type="text" id="txtCpf" value="">
+										<?php echo($cpfInput) ?>
 									</div>
 									<div class="col-md-1">
 										<label>&nbsp;&nbsp;&nbsp;RG: </label>
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtRG" value="">
+										<?php echo($rgInput) ?>
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -92,7 +190,7 @@
 										<label>Rua: </label>
 									</div>
 									<div class="col-md-9">
-										<input type="text" id="txtRua" value="">
+										<?php echo($ruaInput) ?>
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -100,13 +198,13 @@
 										<label>Número: </label>
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtNumero" value="">
+										<?php echo($numeroInput) ?>
 									</div>
 									<div class="col-md-1" style="margin-left:55px;">
 										<label>Bairro: </label>
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtBairro" value="">
+										<?php echo($bairroInput) ?>
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -114,41 +212,13 @@
 										<label>Cidade: </label>
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtCidade" value="">
+										<?php echo($cidadeInput) ?>
 									</div>
 									<div class="col-md-2 lblAl" >
 										<label style="margin-left:65px;">Estado: </label>
 									</div>
 									<div class="col-md-2">
-										<select name="" id="slcEstado">
-											<option value="mg">Minas Gerais</option>
-											<option value="ac">Acre</option>
-											<option value="al">Alagoas</option>
-											<option value="ap">Amapá</option>
-											<option value="am">Amazonas</option>
-											<option value="ba">Bahia</option>
-											<option value="ce">Ceará</option>
-											<option value="df">Distrito Federal</option>
-											<option value="es">Espírito Santo</option>
-											<option value="go">Goiás</option>
-											<option value="ma">Maranhão</option>
-											<option value="mt">Mato Grosso</option>
-											<option value="ms">Mato Grosso do Sul</option>
-											<option value="pa">Pará</option>
-											<option value="pb">Paraíba</option>
-											<option value="pr">Paraná</option>
-											<option value="pe">Pernambuco</option>
-											<option value="pi">Piauí</option>
-											<option value="rj">Rio de Janeiro</option>
-											<option value="rn">Rio Grande do Norte</option>
-											<option value="rs">Rio Grande do Sul</option>
-											<option value="ro">Rondônia</option>
-											<option value="rr">Roraima</option>
-											<option value="sc">Santa Catarina</option>
-											<option value="sp">São Paulo</option>
-											<option value="se">Sergipe</option>
-											<option value="to">Tocantins</option>
-										</select>
+										<?php echo($estadoInput) ?>
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -156,7 +226,7 @@
 										<label>Telefone: </label>
 									</div>
 									<div class="col-md-3">
-										<input type="text" id="txtTelefone" value="">
+										<?php echo($telefoneInput) ?>
 									</div>
 								</div>								
 								<div class="row rowForm"style="margin-bottom:30px">

@@ -6,8 +6,8 @@ $last_id = $nome = $login=  $senha = $confirmar = $cpf = $rg = $rua = $numero = 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$nome = $_POST["txtNome"];
 	$login = $_POST["txtLogin"];
-	$senha = $_POST["txtSenha"];
-	$confirmar = $_POST["txtConfirmarSenha"];
+	$senha = md5($_POST["txtSenha"]);
+	$confirmar = md5($_POST["txtConfirmarSenha"]);
 	$cpf = $_POST["txtCpf"];
 	$rg = $_POST["txtRG"];
 	$rua = $_POST["txtRua"];
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	
 	$sql = "INSERT INTO endereco(rua, numero, bairro, cidade,estado)VALUES('$rua', '$numero', '$bairro', '$cidade','$estado')";
-	
+		
 	if(mysqli_query($conexao, $sql)){
 		$last_id=mysqli_insert_id($conexao);
 		$sql2 = "INSERT INTO pessoa (id_endereco, cpf, rg, nome,data_de_nascimento,telefone) VALUES ('$last_id','$cpf','$rg','$nome','','$telefone')";
@@ -35,11 +35,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				}else{
 					echo "errocodigo";
 				}
-			}
+			}	
 		}
-		
 	}
-
+	
 	$stmt->close();
 	$conexao->close();
 }
