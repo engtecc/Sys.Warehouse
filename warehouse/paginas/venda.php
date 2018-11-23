@@ -52,14 +52,16 @@
 								<div class="col-md-3 lblAl">
 									<label>Produto: </label>
 								</div>
-								<div class="col-md-3">
-									<input class="confTxtBox" type="text" step="any" id="txtProd">
+								<div class="col-md-9">
+									<input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd" readonly>
 								</div>
+							</div>
+							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
-									<label style="float: left; margin-left: 80px;">Data: </label>
+									<label>Data: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="confTxtBox" type="Date" id="datDia">
+									<input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value="<?php echo date('Y-m-d'); ?>"/>
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -67,7 +69,7 @@
 									<label>Quantidade: </label>
 								</div>
 								<div class="col-md-3">
-									<input type="number" id="numQuant">
+									<input type="number" id="numQuant"  value="1" min="0" step="1" class="text-center">
 								</div>
 							</div>
 							<div class="row rowForm rowTable">

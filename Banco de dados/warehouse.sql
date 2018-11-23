@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Nov-2018 às 18:26
+-- Generation Time: 22-Nov-2018 às 23:41
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -32,7 +32,8 @@ CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
   `id_referencia_comercial` int(11) NOT NULL,
   `limite_de_credito` decimal(10,2) NOT NULL,
-  `id_pessoa` int(11) NOT NULL
+  `id_pessoa` int(11) NOT NULL,
+  `id_endereco` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -43,7 +44,7 @@ CREATE TABLE `cliente` (
 
 CREATE TABLE `compra` (
   `id_compra` int(11) NOT NULL,
-  `cnpj` bigint(18) NOT NULL,
+  `cnpj` varchar(18) NOT NULL,
   `id_entrada` int(11) NOT NULL,
   `id_pagamento` int(11) NOT NULL,
   `hora_data` datetime NOT NULL,
@@ -111,7 +112,9 @@ CREATE TABLE `fornecedor` (
   `cnpj` varchar(18) NOT NULL,
   `nome` varchar(300) NOT NULL,
   `telefone` bigint(20) NOT NULL,
-  `id_pessoa` int(11) NOT NULL
+  `id_endereco` int(11) NOT NULL,
+  `telefone_representante` bigint(20) DEFAULT NULL,
+  `nome_representante` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -122,18 +125,20 @@ CREATE TABLE `fornecedor` (
 
 CREATE TABLE `funcionario` (
   `id_funcionario` int(11) NOT NULL,
+  `funcionariocol` varchar(45) DEFAULT NULL,
   `id_pessoa` int(11) NOT NULL,
   `login` varchar(30) NOT NULL,
   `senha` varchar(40) NOT NULL,
-  `administrador` tinyint(1) NOT NULL
+  `administrador` tinyint(1) NOT NULL,
+  `id_endereco` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`id_funcionario`, `id_pessoa`, `login`, `senha`, `administrador`) VALUES
-(1, 1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+INSERT INTO `funcionario` (`id_funcionario`, `funcionariocol`, `id_pessoa`, `login`, `senha`, `administrador`, `id_endereco`) VALUES
+(1, NULL, 1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -238,7 +243,8 @@ CREATE TABLE `venda` (
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`),
   ADD KEY `fk_id_referencia_comercial` (`id_referencia_comercial`),
-  ADD KEY `fk_pessoa_03` (`id_pessoa`);
+  ADD KEY `fk_pessoa_03` (`id_pessoa`),
+  ADD KEY `fk_endereco4` (`id_endereco`);
 
 --
 -- Indexes for table `compra`
@@ -246,7 +252,8 @@ ALTER TABLE `cliente`
 ALTER TABLE `compra`
   ADD PRIMARY KEY (`id_compra`),
   ADD KEY `fk_entrada_produto` (`id_entrada`),
-  ADD KEY `fk_id_pagamento` (`id_pagamento`);
+  ADD KEY `fk_id_pagamento` (`id_pagamento`),
+  ADD KEY `fk_fornecedor_03` (`cnpj`);
 
 --
 -- Indexes for table `emprestimo`
@@ -274,14 +281,15 @@ ALTER TABLE `entrada_produto`
 --
 ALTER TABLE `fornecedor`
   ADD PRIMARY KEY (`cnpj`),
-  ADD KEY `fk_pessoa_02` (`id_pessoa`);
+  ADD KEY `fk_endereco_03` (`id_endereco`);
 
 --
 -- Indexes for table `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id_funcionario`),
-  ADD KEY `fk_pessoa` (`id_pessoa`);
+  ADD KEY `fk_pessoa` (`id_pessoa`),
+  ADD KEY `fk_endereco3` (`id_endereco`);
 
 --
 -- Indexes for table `pagamento`
@@ -334,7 +342,7 @@ ALTER TABLE `venda`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `compra`
@@ -352,7 +360,7 @@ ALTER TABLE `emprestimo`
 -- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `entrada_produto`
@@ -376,13 +384,13 @@ ALTER TABLE `pagamento`
 -- AUTO_INCREMENT for table `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `referenci_comercial`
 --
 ALTER TABLE `referenci_comercial`
-  MODIFY `id_referencia_comercial` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_referencia_comercial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `venda`
@@ -398,6 +406,7 @@ ALTER TABLE `venda`
 -- Limitadores para a tabela `cliente`
 --
 ALTER TABLE `cliente`
+  ADD CONSTRAINT `fk_endereco4` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_referencia_comercial` FOREIGN KEY (`id_referencia_comercial`) REFERENCES `referenci_comercial` (`id_referencia_comercial`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_pessoa_03` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoa` (`id_pessoa`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -406,6 +415,7 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `compra`
   ADD CONSTRAINT `fk_entrada_produto` FOREIGN KEY (`id_entrada`) REFERENCES `entrada_produto` (`id_entrada`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_fornecedor_03` FOREIGN KEY (`cnpj`) REFERENCES `fornecedor` (`cnpj`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_pagamento` FOREIGN KEY (`id_pagamento`) REFERENCES `pagamento` (`id_pagamento`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -425,12 +435,13 @@ ALTER TABLE `entrada_produto`
 -- Limitadores para a tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  ADD CONSTRAINT `fk_pessoa_02` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoa` (`id_pessoa`);
+  ADD CONSTRAINT `fk_endereco_03` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `funcionario`
 --
 ALTER TABLE `funcionario`
+  ADD CONSTRAINT `fk_endereco3` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_pessoa` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoa` (`id_pessoa`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

@@ -152,6 +152,23 @@
 									<input type="text" id="txtTelefone" name="txtTelefone" value="">
 								</div>
 							</div>
+							<div class="row rowForm">
+								<div class="col-md-3 lblAl">
+									<label>Nome do representante: </label>
+								</div>
+								<div class="col-md-9">
+									<input type="text" id="txtNome_representante" name="txtNome_representante" value="">
+								</div>
+							</div>
+							<div class="row rowForm">
+								<div class="col-md-3 lblAl ">
+									<label>Telefone do representante: </label>
+								</div>
+								<div class="col-md-3">
+									<input type="text" id="txtTelefone_representante" name="txtTelefone_representante" value="">
+								</div>
+							</div>
+
 							<div class="row rowForm"style="margin-bottom:30px">
 								<div class="col-md-9"></div>
 								<div class="col-md-3" align="center">
