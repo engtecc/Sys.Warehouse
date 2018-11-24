@@ -32,6 +32,7 @@ if ($_SESSION['administrador'] == 0){
 		$(document).ready(function() {
 			$('.cancelar').hide();
 			$('.sair').show();
+			$('.cliente').hide());
 		});
 	</script>";
 }else{
@@ -39,6 +40,7 @@ if ($_SESSION['administrador'] == 0){
 		$(document).ready(function() {
 			$('.cancelar').show();
 			$('.sair').hide();
+			$('.cliente').show());
 		});
 	</script>";
 }
@@ -49,6 +51,45 @@ if ($_SESSION['administrador'] == 0){
 		<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
+<?php
+	
+	require_once ("../crud/bd.php");
+	$cont = $codigo = '';
+	if($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		$codigo = $_POST["txtCodBarras"];
+		$select  = "SELECT nome from produto where codigo_de_barras = '$codigo'";
+		$sql = mysqli_query($conexao,$select);
+		$resultado = mysqli_fetch_array($sql);
+		$nome = $resultado["nome"];
+		$data = date('Y-m-d');
+		$cont ='<div class="row rowForm">
+					<div class="col-md-3 lblAl">
+						<label>Produto: </label>
+					</div>
+					<div class="col-md-9">
+						<input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd"value="'.$nome.'" readonly>
+					</div>
+				</div>
+				<div class="row rowForm">
+					<div class="col-md-3 lblAl">
+						<label>Data: </label>
+					</div>
+					<div class="col-md-3">
+						<input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value= '.$data.'>
+					</div>
+				</div>
+				<div class="row rowForm">
+					<div class="col-md-3 lblAl">
+						<label>Quantidade: </label>
+					</div>
+					<div class="col-md-3">
+						<input type="number" id="numQuant"  value="1" min="0" step="1" class="text-center">
+					</div>
+				</div>';
+		
+	}
+?>
 	<div class="container">
 		<h2 class="subTitulo">Vendas</h2>
 		<div class="row">
@@ -56,7 +97,7 @@ if ($_SESSION['administrador'] == 0){
 			<div class="col-md-8 mt-3">
 				<div class="row">
 					<div class="col-md-12">
-						<form action="#" method="POST" id="formCli"> 
+						<form method="POST" id="formCli"> 
 							<div class="row rowForm">
 								<div class="col-md-9"></div>
 								<div class="col-md-3" align="center">
@@ -70,33 +111,11 @@ if ($_SESSION['administrador'] == 0){
 									<label>Cód. Barras:</label>
 								</div>
 								<div class="col-md-9">
-									<input class="confTxtBox" type="text" id="txtCodBarras">
+									<input class="confTxtBox" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
+									<input type="submit" id="btnCancelar" value="Pesquisar" class="btn btn-success">
 								</div>
 							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Produto: </label>
-								</div>
-								<div class="col-md-9">
-									<input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd" readonly>
-								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Data: </label>
-								</div>
-								<div class="col-md-3">
-									<input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value="<?php echo date('Y-m-d'); ?>"/>
-								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Quantidade: </label>
-								</div>
-								<div class="col-md-3">
-									<input type="number" id="numQuant"  value="1" min="0" step="1" class="text-center">
-								</div>
-							</div>
+							<?php echo($cont);?>
 							<div class="row rowForm rowTable">
 								<div class="col-md-3 lblAl">
 									<label style="font-weight: bold;">Produtos da Compra:</label>
@@ -134,7 +153,7 @@ if ($_SESSION['administrador'] == 0){
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-6">
-									<a id="btnCliente" class="btn btn-primary" href="vendacliente.php">Finalizar com Cliente</a>
+									<a id="btnCliente" class="btn btn-primary cliente" href="vendacliente.php" role="button" style="display: none;">Finalizar com Cliente</a>
 								</div>
 								<div class="col-md-6">
 									<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>

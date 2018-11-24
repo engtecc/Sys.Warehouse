@@ -7,7 +7,7 @@
 /* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
 .lblAl
 {
-    text-align: right;
+    text-align: left;
     vertical-align: center;
 }
 .confcod
@@ -38,6 +38,8 @@ input:focus
 }
 #btnCancelar
 {
+    font-weight: bold;
+    color:white;
     float: right;
 }
 
