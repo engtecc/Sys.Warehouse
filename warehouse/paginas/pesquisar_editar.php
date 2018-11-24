@@ -111,7 +111,7 @@ if ($_SESSION['administrador'] != 1){
 					$tabela_grid_dinamica .= '</tr></table>';
 				}elseif($radioValue == 4){
 					$key = $_POST["txtCliente"];
-					$sql = mysqli_query($conexao,"SELECT nome,cpf,rg,telefone,limite_de_credito,rua,numero,bairro,referencia_1,referencia_2,referencia_3 from cliente as c,pessoa as p,endereco as e,referenci_comercial as r where nome like '%$key%' and c.id_pessoa = p.id_pessoa and c.id_referencia_comercial = r.id_referencia_comercial and p.id_endereco = e.id_endereco");
+					$sql = mysqli_query($conexao,"SELECT * from cliente as c,pessoa as p,endereco as e,referenci_comercial as r where nome like '%$key%' and c.id_pessoa = p.id_pessoa and c.id_referencia_comercial = r.id_referencia_comercial and p.id_endereco = e.id_endereco");
 					$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
 					$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>RG</b></td><td><b>Telefone</b></td><td><b>Limite</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td><td><b>Referencia 1</b></td><td><b>Referencia 2</b></td><td><b>Referencia 3</b></td><td><b>Editar</b></td></tr>';
 					while($row = mysqli_fetch_array($sql)){
@@ -200,7 +200,7 @@ if ($_SESSION['administrador'] != 1){
 											<div class="col-md-1 lblAl" style="margin-top:2px;">
 												<input class="radio" type="radio" name="radioPesquisar" id="radioPesquisar" value="1">
 											</div>
-											<div class="col-md-3 lblAl" >
+											<div class="col-md-2 lblAl" >
 												<label style="margin-left:0px;">Produto:</label>
 											</div>
 											<div class="col-md-2">
@@ -213,7 +213,7 @@ if ($_SESSION['administrador'] != 1){
 											<div class="col-md-1 lblAl" style="margin-top:2px;">
 												<input class="radio" type="radio" name="radioPesquisar" id="radioPesquisar" value="2" >
 											</div>
-											<div class="col-md-3 lblAl" >
+											<div class="col-md-2 lblAl" >
 												<label>Funcionário:</label>
 											</div>
 											<div class="col-md-2">
@@ -228,7 +228,7 @@ if ($_SESSION['administrador'] != 1){
 											<div class="col-md-1 lblAl" style="margin-top:2px;">
 												<input class="radio" type="radio" name="radioPesquisar" id="radioPesquisar" value="3">
 											</div>
-											<div class="col-md-3 lblAl">
+											<div class="col-md-2 lblAl">
 												<label>Fornecedor:</label>
 											</div>
 											<div class="col-md-4">
@@ -241,7 +241,7 @@ if ($_SESSION['administrador'] != 1){
 											<div class="col-md-1 lblAl" style="margin-top:2px;">
 												<input class="radio" type="radio" name="radioPesquisar" id="radioPesquisar" value="4">
 											</div>
-											<div class="col-md-3 lblAl">
+											<div class="col-md-2 lblAl">
 												<label style="margin-left:0px;">Cliente:</label>
 											</div>
 											<div class="col-md-2">
@@ -256,7 +256,7 @@ if ($_SESSION['administrador'] != 1){
 											<div class="col-md-1 lblAl" style="margin-top:2px;">
 												<input class="radio" type="radio" name="radioPesquisar" id="radioPesquisar" value="5">
 											</div>
-											<div class="col-md-3 lblAl">
+											<div class="col-md-2 lblAl">
 												<label>Empréstimo:</label>
 											</div>
 											<div class="col-md-2">
