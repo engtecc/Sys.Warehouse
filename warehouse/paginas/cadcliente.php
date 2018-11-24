@@ -20,7 +20,7 @@ if ($_SESSION['administrador'] != 1){
 		<link rel="icon" href="../imagens/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
-		<link rel="stylesheet" type="text/css" href="../css/cadCliente.css">
+		<link rel="stylesheet" type="text/css" href="../css/cadcliente.css">
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/cadastrarCliente.js"></script>
 		<script src="../js/script.js"></script>

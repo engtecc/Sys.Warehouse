@@ -62,7 +62,7 @@ if ($_SESSION['administrador'] != 1){
 							<a class="text-opcoes" href="contas.php"><img class="rounded-circle" src="../imagens/contas.png" alt="Generic placeholder image" width="100" height="100"><h5>Lançar<br>contas</h5></a>
 						</div>
 						<div class="col-lg-4 espacamento">
-							<a class="text-opcoes" href="pesquisar_editar.php"><img class="rounded-circle" src="../imagens/Alterar.png" alt="Generic placeholder image" width="100" height="100"><h5>Alterar<br>Cadastros</h5></a>
+							<a class="text-opcoes" href="pesquisar_editar.php"><img class="rounded-circle" src="../imagens/alterar.png" alt="Generic placeholder image" width="100" height="100"><h5>Alterar<br>Cadastros</h5></a>
 						</div>
 						<div class="col-lg-4 espacamento">
 							<a class="text-opcoes" href="relatorios.php"><img class="rounded-circle" src="../imagens/relatorios.png" alt="Generic placeholder image" width="100" height="100"><h5>Relatórios</h5></a>
