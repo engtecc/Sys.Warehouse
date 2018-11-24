@@ -7,7 +7,7 @@
 /* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
 .lblAl
 {
-    text-align: right;
+    text-align: left;
     vertical-align: center;
 }
 /* Inputs text do formulário */ 
@@ -31,7 +31,7 @@ input:focus
 {
     width: 130px;
     height: 25px;
-    margin-left: -7px; 
+    margin-right: -3000px;
 }
 #txtConfirmarSenha
 {
@@ -41,7 +41,7 @@ input:focus
 }
 #btnCancelar
 {
-    margin-right:-263px;
+    margin-right:-176px;
 }
 #txtCpf
 {

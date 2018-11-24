@@ -26,23 +26,6 @@ if ($_SESSION['administrador'] != 1){
 		<script src="../js/bootstrap.min.js"></script>
 </head>
 	<body>
-		<script language="javascript">
-			function mostrarModais(valor)
-			{
-				if(valor)
-				{
-					$('#modalok').modal('show');
-					alert('a');
-				}
-				else
-				{
-					$('#modalerro').modal('show');
-					alert('b');
-				}
-			}
-		</script>
-		
-
 		<nav class="site-header">
 			<div class = "jumbotron text-center removerMargem">
 				<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
