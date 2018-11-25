@@ -34,6 +34,18 @@ if ($_SESSION['administrador'] != 1){
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
 
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row rowForm">
+					<div class="col-md-8"></div>
+					<div class="col-md-1" align="center">
+						<a id="btnCancelar" class="btn btn-danger" style="float: right;" href="principal.php" role="button">Cancelar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="container">
 		<br>
@@ -46,7 +58,7 @@ if ($_SESSION['administrador'] != 1){
 					<form style="width: 100%;">
 						<fieldset class="form-group">
 							<div class="form-row align-items-center">
-								<div class="col-md-12">
+								<div class="col-md-12 rowForm">
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta1" value="option1" checked>
 										<label class="form-check-label" for="gridConsulta1">Devedores</label>
@@ -54,25 +66,18 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 
 							</div>
-							
-							<br>
-
-							<div class="form-row align-items-center">
+							<div class="form-row rowForm align-items-center">
 								<div class="col-md-4">
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta2" value="option2">
 										<label class="form-check-label" for="gridConsulta2">CPF:</label>
 									</div>
 								</div>
-
 								<div class="col-md-8">
-									<input class="form-control " type="text" name="cpf" id="gridConsulta2" placeholder="apenas números" required="" maxlength="11" pattern="[0-9]+$">
+									<input class="form-control form-control-sm" type="text" name="cpf" id="gridConsulta2" placeholder="apenas números" required="" maxlength="11" pattern="[0-9]+$">
 								</div>
 							</div>
-
-							<br>
-
-							<div class="form-row align-items-center">
+							<div class="form-row rowForm align-items-center">
 								<div class="col-md-4">
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta3" value="option3">
@@ -81,7 +86,7 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 
 								<div class="col-md-8">
-									<input class="form-control" type="date" name="data">
+									<input class="form-control form-control-sm" type="date" name="data">
 								</div>
 							</div>
 
@@ -96,26 +101,25 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 
 								<div class="col-md-8">
-									<input class="form-control" type="text" name="nome" placeholder="nome do cliente">
+									<input class="form-control form-control-sm" type="text" name="nome" placeholder="nome do cliente">
 								</div>
 							</div>
 							<br>
 							<div class="form-row justify-content-end">
 								<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar cliente</button>
 							</div>
-							
+
 						</fieldset>
 					</form>
 
 				</div>
 
-				
+
 				<div class="row" style="width: 100%;">
 					<h2 class="subTitulo" style="text-align: left;">Consultar produto</h2>
 					<form style="width: 100%;">
 						<fieldset class="form-group">
-
-							<div class="form-row align-items-center">
+							<div class="form-row rowForm align-items-center">
 								<div class="col-md-4">
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="gridConsulta" id="produto1" value="option2">
@@ -124,7 +128,7 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 
 								<div class="col-md-8">
-									<input class="form-control " type="text" name="quantiadde" id="fornecedor1" placeholder="quantidade">
+									<input class="form-control form-control-sm " type="text" name="quantiadde" id="fornecedor1" placeholder="quantidade">
 								</div>
 							</div>
 
@@ -140,7 +144,7 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 
 								<div class="col-md-8">
-									<input class="form-control" type="text" name="vasilhame" id="fornecedor2" placeholder="vasilhame">
+									<input class="form-control form-control-sm" type="text" name="vasilhame" id="fornecedor2" placeholder="vasilhame">
 								</div>
 							</div>
 							<br>
@@ -154,20 +158,20 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 
 
-						
-						<br>
 
-						
+								<br>
+
+
 
 								<div class="col-md-8">
-									<input class="form-control " type="text" name="quantiadde" id="produto3" placeholder="nome do vasilhame">
+									<input class="form-control form-control-sm" type="text" name="quantiadde" id="produto3" placeholder="nome do vasilhame">
 								</div>
 							</div>
 							<div class="form-row justify-content-end mt-4">
 								<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar produto</button>
 							</div>
 
-							
+
 						</fieldset>
 					</form>
 
@@ -178,56 +182,53 @@ if ($_SESSION['administrador'] != 1){
 				</div>
 			</div>
 			<div class="col-md-6">
-
-
-				
 				<div class="row" style="width: 100%;">
 					<h2 class="subTitulo" style="text-align: left;">Consultar fornecedor</h2>
 					<form style="width: 100%;">
-					<fieldset class="form-group">
+						<fieldset class="form-group">
 
-						<div class="form-row align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option2">
-									<label class="form-check-label" for="fornecedor1">Contas:</label>
+							<div class="form-row rowForm align-items-center">
+								<div class="col-md-4">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option2">
+										<label class="form-check-label" for="fornecedor1">Contas:</label>
+									</div>
+								</div>
+
+								<div class="col-md-8">
+									<input class="form-control form-control-sm" type="text" name="cpf" id="fornecedor1" placeholder="contas">
 								</div>
 							</div>
-							
-							<div class="col-md-8">
-								<input class="form-control " type="text" name="cpf" id="fornecedor1" placeholder="contas">
-							</div>
-						</div>
-								
-						<br>
 
-						
-						<div class="form-row align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option4">
-									<label class="form-check-label" for="fornecedor2">Nome do fornecedor:</label>
+							<br>
+
+
+							<div class="form-row align-items-center">
+								<div class="col-md-4">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option4">
+										<label class="form-check-label" for="fornecedor2">Nome do fornecedor:</label>
+									</div>
+								</div>
+
+								<div class="col-md-8">
+									<input class="form-control form-control-sm" type="text" name="nome" placeholder="nome do fornecedor">
 								</div>
 							</div>
-							
-							<div class="col-md-8">
-								<input class="form-control" type="text" name="nome" placeholder="nome do fornecedor">
-							</div>
-						</div>
-						<br>
+							<br>
 							<div class="form-row justify-content-end">
 								<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar fornecedor</button>
 							</div>
-							
-					</fieldset>
-				</form>
+
+						</fieldset>
+					</form>
 
 
 				</div>
-				
-			
-				
-					
+
+
+
+
 
 			</div>
 		</div>
