@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
 
 	<script src="../js/jquery.min.js"></script>
-	<script src="../js/trocarsenha.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 </head>
 
@@ -48,7 +47,61 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modalConfirmar" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalok">Falha ao tentar trocar a senha! Senhas não correspondem!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-sm ok">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
+require_once ('../crud/bd.php');
 
+$id = $senha = $confirmar = "";
+
+$id = $senha = $confirmar = "";
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+	
+	$id = $_POST["id"];
+	$senha = md5($_POST["txtSenha"]);
+	$confirmar = md5($_POST["txtConfirmarSenha"]);
+	
+	if ($senha != $confirmar){
+		echo "<script language='javascript'> 
+		$('#modalConfirmar').modal('show');
+		$('.ok').click(function(){
+			window.location.replace('trocarsenha.php');
+		});
+		</script>";
+	}else{
+		$sql = "UPDATE funcionario SET senha='$senha' WHERE id_funcionario= '$id'";
+		
+		if($stmt = $conexao->prepare($sql)){
+			if($stmt->execute()){
+				echo "<script language='javascript'>$('#modalok').modal('show');
+				$('.ok').click(function(){
+					window.location.replace('../index.php');
+				});
+				</script> ";
+			}else{
+				echo "<script language='javascript'>$('#modalerro').modal('show');
+				$('.ok').click(function(){
+					window.location.replace('trocarsenha.php');
+				});
+				</script>";
+			}
+		}
+
+	$stmt->close();
+	$conexao->close();	
+	}
+}
+?>
 
 	<form method="post" action="" class="form-signin" enctype="multipart/form-data" id="formTrocarSenha">
 		<input type="hidden" name="id" value="<?=$_GET['id']?>">

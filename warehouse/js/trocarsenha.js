@@ -10,7 +10,6 @@
             contentType: false,
             processData: false,
             success: function(data){
-                echo($data);
                 if(data == "falha"){
                     $('.errosenha').html('As senhas não correspondem!');
                 }else if(data == "alterada"){

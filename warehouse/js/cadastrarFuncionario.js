@@ -10,7 +10,6 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success: function(data){
-                alert (data);
                 if(data == "errocodigo"){
                     $('#txtCnpj').focus();
                     $('.errocodigo').html('CPF já cadastrado.');
