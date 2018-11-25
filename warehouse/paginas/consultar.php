@@ -109,49 +109,7 @@ if ($_SESSION['administrador'] != 1){
 
 				</div>
 
-				<h2 class="subTitulo" style="text-align: left;">Consultar fornecedor</h2>
-				<div class="row" style="width: 100%;">
-					<form style="width: 100%;">
-					<fieldset class="form-group">
-
-						<div class="form-row align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option2">
-									<label class="form-check-label" for="fornecedor1">Contas:</label>
-								</div>
-							</div>
-							
-							<div class="col-md-8">
-								<input class="form-control " type="text" name="cpf" id="fornecedor1" placeholder="contas">
-							</div>
-						</div>
-								
-						<br>
-
-						
-						<div class="form-row align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option4">
-									<label class="form-check-label" for="fornecedor2">Nome do fornecedor:</label>
-								</div>
-							</div>
-							
-							<div class="col-md-8">
-								<input class="form-control" type="text" name="nome" placeholder="nome do fornecedor">
-							</div>
-						</div>
-						<br>
-							<div class="form-row justify-content-end">
-								<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar fornecedor</button>
-							</div>
-							
-					</fieldset>
-				</form>
-
-
-				</div>
+				
 				
 				<h2 class="subTitulo" style="text-align: left;">Consultar produto</h2>
 				<div class="row" style="width: 100%;">
@@ -205,6 +163,10 @@ if ($_SESSION['administrador'] != 1){
 						<div class="form-row justify-content-end">
 							<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar produto</button>
 						</div>
+
+						<br>
+
+						<h2 class="subTitulo" style="text-align: left;">Resultados:</h2>
 							
 					</fieldset>
 				</form>
@@ -225,7 +187,51 @@ if ($_SESSION['administrador'] != 1){
 
 
 			<div class="col-md-6">
-				<h2 class="subTitulo" style="text-align: left;">Resultados:</h2>
+
+				<h2 class="subTitulo" style="text-align: left;">Consultar fornecedor</h2>
+				<div class="row" style="width: 100%;">
+					<form style="width: 100%;">
+					<fieldset class="form-group">
+
+						<div class="form-row align-items-center">
+							<div class="col-md-4">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option2">
+									<label class="form-check-label" for="fornecedor1">Contas:</label>
+								</div>
+							</div>
+							
+							<div class="col-md-8">
+								<input class="form-control " type="text" name="cpf" id="fornecedor1" placeholder="contas">
+							</div>
+						</div>
+								
+						<br>
+
+						
+						<div class="form-row align-items-center">
+							<div class="col-md-4">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option4">
+									<label class="form-check-label" for="fornecedor2">Nome do fornecedor:</label>
+								</div>
+							</div>
+							
+							<div class="col-md-8">
+								<input class="form-control" type="text" name="nome" placeholder="nome do fornecedor">
+							</div>
+						</div>
+						<br>
+							<div class="form-row justify-content-end">
+								<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar fornecedor</button>
+							</div>
+							
+					</fieldset>
+				</form>
+
+
+				</div>
+				
 			
 				
 			</div>
