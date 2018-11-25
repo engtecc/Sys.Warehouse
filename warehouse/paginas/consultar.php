@@ -109,8 +109,9 @@ if ($_SESSION['administrador'] != 1){
 
 				</div>
 
-				<h2 class="subTitulo" style="text-align: left;">Consultar produto</h2>
+				
 				<div class="row" style="width: 100%;">
+					<h2 class="subTitulo" style="text-align: left;">Consultar produto</h2>
 					<form style="width: 100%;">
 						<fieldset class="form-group">
 
@@ -179,8 +180,9 @@ if ($_SESSION['administrador'] != 1){
 			<div class="col-md-6">
 
 
-				<h2 class="subTitulo" style="text-align: left;">Consultar fornecedor</h2>
+				
 				<div class="row" style="width: 100%;">
+					<h2 class="subTitulo" style="text-align: left;">Consultar fornecedor</h2>
 					<form style="width: 100%;">
 					<fieldset class="form-group">
 
