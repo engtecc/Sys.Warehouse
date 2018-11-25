@@ -17,8 +17,6 @@ input:focus
 }
 #txtNome
 {
-    width:378px;
-    height:25px; 
 }
 #btnCancelar
 {
@@ -43,4 +41,4 @@ input:focus
 {
     width:230px;
     height:25px;
-} 
+}

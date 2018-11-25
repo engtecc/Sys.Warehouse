@@ -62,7 +62,7 @@ if ($_SESSION['administrador'] != 1){
 		<h2 class="subTitulo">Cadastrar produto</h2>
 		<div class="row">
 			<div class="col-md-2"></div>
-			<div class="col-md-7 mt-3">
+			<div class="col-md-8 mt-3">
 				<div class="row">
 					<div class="col-md-12">
 						<form action="" method="POST" id="formProduto" enctype="multipart/form-data"> 
@@ -73,51 +73,51 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-4 lblAl">
+								<div class="col-md-3 lblAl">
 									<label>Nome: </label>
 								</div>
-								<div class="col-md-8">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="txtNome" name="txtNome" value="" required>
+								<div class="col-md-9">
+									<input class="form-control form-control-sm" style="width: 100%;" type="text" id="txtNome" name="txtNome" value="" required>
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-4 lblAl">
+								<div class="col-md-3 lblAl">
 									<label>Quantidade: </label>
 								</div>
-								<div class="col-md-8">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="txtQuantidade" name="txtQuantidade" value="" required>
+								<div class="col-md-3">
+									<input class="form-control form-control-sm" type="text" id="txtQuantidade" name="txtQuantidade" value="" required>
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-4 lblAl">
+								<div class="col-md-3 lblAl">
 									<label>Preço de compra: </label>
 								</div>
-								<div class="col-md-8">
-									R$&nbsp;<input type="text" id="txtPrecoCompra" name="txtPrecoCompra" value="" required>
+								<div class="col-md-3">
+									<input class="form-control form-control-sm" type="text" id="txtPrecoCompra" name="txtPrecoCompra" value="" required placeholder="R$">
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-4 lblAl">
+								<div class="col-md-3 lblAl">
 									<label>Preço de venda: </label>
 								</div>
-								<div class="col-md-8">
-									R$&nbsp;<input type="text" id="txtPrecoVenda" name="txtPrecoVenda" value="" required>
+								<div class="col-md-3">
+									<input class="form-control form-control-sm" type="text" id="txtPrecoVenda" name="txtPrecoVenda" value="" required placeholder="R$">
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-4 lblAl">
+								<div class="col-md-3 lblAl">
 									<label>Validade: </label>
 								</div>
-								<div class="col-md-5">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" id="txtValidade" name="txtValidade" value="">
+								<div class="col-md-3">
+									<input class="form-control form-control-sm" style="width: 230px; height: 30px;" type="date" id="txtValidade" name="txtValidade" value="">
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-4 lblAl">
+								<div class="col-md-3 lblAl">
 									<label>Código de barras: </label>
 								</div>
-								<div class="col-md-8">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="txtCodigoBarras" name="txtCodigoBarras" value="" required><br>
+								<div class="col-md-5">
+									<input class="form-control form-control-sm" type="text" id="txtCodigoBarras" name="txtCodigoBarras" value="" required><br>
 									<small class="text-error errocodigo ml-5"></small>
 								</div>
 							</div>
