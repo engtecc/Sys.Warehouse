@@ -204,7 +204,7 @@ if ($_SESSION['administrador'] != 1){
 												<label style="margin-left:0px;">Produto:</label>
 											</div>
 											<div class="col-md-2">
-												<input type="text" id="txtProduto" name="txtProduto" placeholder="Nome do produto">
+												<input class="form-control form-control-sm" type="text" id="txtProduto" name="txtProduto" placeholder="Nome do produto">
 											</div>
 										</div>
 									</div>
@@ -217,7 +217,7 @@ if ($_SESSION['administrador'] != 1){
 												<label>Funcionário:</label>
 											</div>
 											<div class="col-md-2">
-												<input type="text" id="txtFuncionario" name="txtFuncionario" placeholder="Nome do funcionário">
+												<input class="form-control form-control-sm" type="text" id="txtFuncionario" name="txtFuncionario" placeholder="Nome do funcionário">
 											</div>
 										</div>
 									</div>
@@ -232,7 +232,7 @@ if ($_SESSION['administrador'] != 1){
 												<label>Fornecedor:</label>
 											</div>
 											<div class="col-md-4">
-												<input type="text" id="txtFornecedor" name='txtFornecedor' placeholder="Nome do fornecedor">
+												<input class="form-control form-control-sm" type="text" id="txtFornecedor" name='txtFornecedor' placeholder="Nome do fornecedor">
 											</div>
 										</div>
 									</div>
@@ -245,7 +245,7 @@ if ($_SESSION['administrador'] != 1){
 												<label style="margin-left:0px;">Cliente:</label>
 											</div>
 											<div class="col-md-2">
-												<input type="text" id="txtCliente" name="txtCliente" placeholder="Nome do cliente">
+												<input class="form-control form-control-sm" type="text" id="txtCliente" name="txtCliente" placeholder="Nome do cliente">
 											</div>
 										</div>
 									</div>
@@ -260,7 +260,7 @@ if ($_SESSION['administrador'] != 1){
 												<label>Empréstimo:</label>
 											</div>
 											<div class="col-md-2">
-												<input type="text" id="txtEmprestimo" name="txtEmprestimo" placeholder="Nome do cliente">
+												<input class="form-control form-control-sm" type="text" id="txtEmprestimo" name="txtEmprestimo" placeholder="Nome do cliente">
 											</div>
 										</div>
 									</div>

@@ -114,7 +114,7 @@ require_once ("../crud/bd.php");
 									<label>Fornecedor: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="text" id="txtForn" name="txtFornecedor" placeholder="Ex: Nome do fornecedor">
+									<input class="form-control form-control-sm" type="text" id="txtForn" name="txtFornecedor" placeholder="Ex: Nome do fornecedor">
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -122,7 +122,7 @@ require_once ("../crud/bd.php");
 									<label>Tipo de Pagamento: </label>
 								</div>
 								<div class="col-md-6">
-									<select name="slcTipo">
+									<select class="form-control form-control-sm" style="height: 28px;" name="slcTipo">
 										<option value="prazo">À prazo</option>
 										<option value="vista">À vista</option>
 										<option value="cartão">Cartão</option>
@@ -134,7 +134,7 @@ require_once ("../crud/bd.php");
 									<label>Vencimento: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="date" id="dateVenc" name="dateVencimento">
+									<input class="form-control form-control-sm" style="height: 28px;" type="date" id="dateVenc" name="dateVencimento">
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -142,7 +142,7 @@ require_once ("../crud/bd.php");
 									<label>Valor: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="text" id="numValor" name="txtValor"  placeholder="Ex: 100.50">
+									<input class="form-control form-control-sm"  type="text" id="numValor" name="txtValor"  placeholder="Ex: 100.50">
 								</div>
 							</div>
 							<div class="row rowForm"style="margin-bottom:30px">
