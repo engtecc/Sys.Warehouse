@@ -90,7 +90,7 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-4 lblAl">
-									<label>Preço da compra: </label>
+									<label>Preço de compra: </label>
 								</div>
 								<div class="col-md-8">
 									R$&nbsp;<input type="text" id="txtPrecoCompra" name="txtPrecoCompra" value="" required>
