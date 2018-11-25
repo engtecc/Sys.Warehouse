@@ -76,7 +76,7 @@ if ($_SESSION['administrador'] != 1){
 									<label>Nome: </label>
 								</div>
 								<div class="col-md-9">
-									<input class="form-control form-control-sm" type="text" id="txtNome" name="txtNome" value="" required>
+									<input type="text" id="txtNome" name="txtNome" value="" required>
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -84,16 +84,16 @@ if ($_SESSION['administrador'] != 1){
 									<label>CNPJ: </label>
 								</div>
 								<div class="col-md-5">
-									<input class="form-control form-control-sm" type="text" id="txtCnpj" name="txtCnpj" value="" required>
+									<input type="text" id="txtCnpj" name="txtCnpj" value="" required>
 									<small class="text-error errocodigo ml-5"></small>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
 									<label>Rua: </label>
 								</div>
 								<div class="col-md-9">
-									<input class="form-control form-control-sm" type="text" id="txtRua" name="txtRua" value="" required>
+									<input type="text" id="txtRua" name="txtRua" value="" required>
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -101,13 +101,13 @@ if ($_SESSION['administrador'] != 1){
 									<label>Número: </label>
 								</div>
 								<div class="col-md-2">
-									<input class="form-control form-control-sm" type="text" id="txtNumero" name="txtNumero" value="" required>
+									<input type="text" id="txtNumero" name="txtNumero" value="" required>
 								</div>
 								<div class="col-md-1" style="margin-left:55px;">
 									<label>Bairro: </label>
 								</div>
 								<div class="col-md-4">
-									<input class="form-control form-control-sm" type="text" id="txtBairro" name="txtBairro" value="" required>
+									<input type="text" id="txtBairro" name="txtBairro" value="" required>
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -115,13 +115,13 @@ if ($_SESSION['administrador'] != 1){
 									<label>Cidade: </label>
 								</div>
 								<div class="col-md-4">
-									<input class="form-control form-control-sm" type="text" id="txtCidade" name="txtCidade" value="" required>
+									<input type="text" id="txtCidade" name="txtCidade" value="" required>
 								</div>
 								<div class="col-md-2 lblAl" >
 									<label style="margin-left:65px;">Estado: </label>
 								</div>
 								<div class="col-md-2">
-									<select class="form-control form-control-sm" style="font-size: 12px;" name="slcEstado" id="slcEstado" required>
+									<select name="slcEstado" id="slcEstado" required>
 										<option value="mg">Minas Gerais</option>
 										<option value="ac">Acre</option>
 										<option value="al">Alagoas</option>
@@ -157,23 +157,23 @@ if ($_SESSION['administrador'] != 1){
 									<label>Telefone: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control form-control-sm" type="text" id="txtTelefone" name="txtTelefone" value="">
+									<input type="text" id="txtTelefone" name="txtTelefone" value="">
 								</div>
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
-									<label>Representante: </label>
+									<label>Nome do representante: </label>
 								</div>
 								<div class="col-md-9">
-									<input class="form-control form-control-sm" type="text" id="txtNome_representante" name="txtNome_representante" value="">
+									<input type="text" id="txtNome_representante" name="txtNome_representante" value="">
 								</div>
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl ">
-									<label>Telefone Rep.: </label>
+									<label>Telefone do representante: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control form-control-sm" type="text" id="txtTelefone_representante" name="txtTelefone_representante" value="">
+									<input type="text" id="txtTelefone_representante" name="txtTelefone_representante" value="">
 								</div>
 							</div>
 

@@ -109,8 +109,6 @@ if ($_SESSION['administrador'] != 1){
 
 				</div>
 
-				
-				
 				<h2 class="subTitulo" style="text-align: left;">Consultar produto</h2>
 				<div class="row" style="width: 100%;">
 					<form style="width: 100%;">
@@ -153,20 +151,33 @@ if ($_SESSION['administrador'] != 1){
 										<label class="form-check-label" for="produto3">Nome do vasilhame:</label>
 									</div>
 								</div>
+
+
+						
+						<br>
+
+						
+
+								<div class="col-md-8">
+									<input class="form-control " type="text" name="quantiadde" id="produto3" placeholder="nome do vasilhame">
+								</div>
 							</div>
-							<div class="form-row justify-content-end">
+							<div class="form-row justify-content-end mt-4">
 								<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar produto</button>
 							</div>
 
-						<br>
-
-						<h2 class="subTitulo" style="text-align: left;">Resultados:</h2>
 							
 						</fieldset>
 					</form>
+
+					<br>
+
+					<h2 class="subTitulo" style="text-align: left;">Resultados:</h2>
+
 				</div>
 			</div>
 			<div class="col-md-6">
+
 
 				<h2 class="subTitulo" style="text-align: left;">Consultar fornecedor</h2>
 				<div class="row" style="width: 100%;">
@@ -214,6 +225,8 @@ if ($_SESSION['administrador'] != 1){
 				
 			
 				
+					
+
 			</div>
 		</div>
 	</div>
