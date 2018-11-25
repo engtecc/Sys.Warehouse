@@ -64,7 +64,6 @@ require_once ('../crud/bd.php');
 
 $id = $senha = $confirmar = "";
 
-$id = $senha = $confirmar = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	$id = $_POST["id"];
