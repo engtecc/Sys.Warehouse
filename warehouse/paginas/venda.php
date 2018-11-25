@@ -32,7 +32,6 @@ if ($_SESSION['administrador'] == 0){
 		$(document).ready(function() {
 			$('.cancelar').hide();
 			$('.sair').show();
-			$('.cliente').hide());
 		});
 	</script>";
 }else{
@@ -40,7 +39,6 @@ if ($_SESSION['administrador'] == 0){
 		$(document).ready(function() {
 			$('.cancelar').show();
 			$('.sair').hide();
-			$('.cliente').show());
 		});
 	</script>";
 }
