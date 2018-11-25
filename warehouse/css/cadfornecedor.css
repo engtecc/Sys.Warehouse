@@ -2,7 +2,7 @@
 /* Margin da row ao banner */
 .rowForm
 {
-    margin-top:25px;
+    margin-top:20px;
 }
 /* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
 .lblAl
@@ -20,15 +20,14 @@ input:focus
     width:520px;
     height:25px;
     margin-left:0px;
-    
 }
 #txtNome_representante
 {
     width:520px;
     height:25px;
     margin-left:0px;
-    
 }
+
 #btnCancelar
 {
     margin-right:-263px;
