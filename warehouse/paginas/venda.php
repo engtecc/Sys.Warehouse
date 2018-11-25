@@ -66,7 +66,7 @@ if ($_SESSION['administrador'] == 0){
 						<label>Produto: </label>
 					</div>
 					<div class="col-md-9">
-						<input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd"value="'.$nome.'" readonly>
+						<input class="form-control form-control-sm" style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd"value="'.$nome.'" readonly>
 					</div>
 				</div>
 				<div class="row rowForm">
@@ -74,7 +74,7 @@ if ($_SESSION['administrador'] == 0){
 						<label>Data: </label>
 					</div>
 					<div class="col-md-3">
-						<input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value= '.$data.'>
+						<input class="form-control form-control-sm" style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value= '.$data.'>
 					</div>
 				</div>
 				<div class="row rowForm">
@@ -82,7 +82,7 @@ if ($_SESSION['administrador'] == 0){
 						<label>Quantidade: </label>
 					</div>
 					<div class="col-md-3">
-						<input type="number" id="numQuant"  value="1" min="0" step="1" class="text-center">
+						<input class="form-control form-control-sm" type="number" id="numQuant"  value="1" min="0" step="1" class="text-center">
 					</div>
 				</div>';
 		
@@ -109,7 +109,7 @@ if ($_SESSION['administrador'] == 0){
 									<label>Cód. Barras:</label>
 								</div>
 								<div class="col-md-7" style="margin-top:10px;">
-									<input class="confTxtBox" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
+									<input class="form-control form-control-sm" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
 								</div>
 								<div class="col-md-2">
 									<input type="submit" id="btnCancelar" value="Pesquisar" class="btn btn-success">
