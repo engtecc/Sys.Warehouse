@@ -9,7 +9,10 @@ body {
   margin: auto;
 }
 .margemLogin{
-  margin-bottom: 200px;
+  margin-bottom: 150px;
+}
+.margemLogin2{
+  margin-bottom: 100px;
 }
 .form-signin .checkbox {
   font-weight: 400;
