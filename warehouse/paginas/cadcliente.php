@@ -162,10 +162,10 @@ if ($_SESSION['administrador'] != 1){
 									<div class="col-md-3">
 										<input class="form-control form-control-sm" type="text" id="txtTelefone" name="txtTelefone" value="">
 									</div>
-									<div class="col-md-4">
-										<label>Data de nascimento: </label>
+									<div class="col-md-3">
+										<label>Data Nasc. </label>
 									</div>
-									<div class="col-md-1">
+									<div class="col-md-3">
 										<input class="form-control form-control-sm" type="date" id="dateNascimento" name="dateNascimento" value="">
 									</div>
 								</div>
@@ -177,7 +177,7 @@ if ($_SESSION['administrador'] != 1){
 										<input class="form-control form-control-sm" type="text" id="txtReferencia1" name="txtReferencia1" value="">
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtReferencia2" name="txtReferencia2" value="">
+										<input class="form-control form-control-sm" type="text" id="txtReferencia2" name="txtReferencia2" value="">
 									</div>
 									<div class="col-md-2">
 										<input class="form-control form-control-sm" type="text" id="txtReferencia3" name="txtReferencia3" value="">
@@ -188,7 +188,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>Limite de credito: </label>
 									</div>
 									<div class="col-md-9">
-										R$ &nbsp;<input class="form-control form-control-sm" type="text" id="txtLimite" name="txtLimite" value="">
+										<input class="form-control form-control-sm" type="text" id="txtLimite" name="txtLimite" value="" placeholder="R$">
 									</div>
 								</div>
 								<div class="row rowForm"style="margin-bottom:30px">
