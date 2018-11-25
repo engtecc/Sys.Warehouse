@@ -2,39 +2,45 @@
 /* Margin da row ao banner */
 .rowForm
 {
-  margin-top:25px;
+    margin-top:25px;
 }
 /* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
 .lblAl
 {
-  text-align: left;
-  vertical-align: center;
+    text-align: left;
+    vertical-align: center;
 }
 .confcod
 {
-  font-weight: bold;
+    font-weight: bold;
 }
+
+/*.confTxtBox
+{
+    background: #DCDCDC !important;
+}*/
+
 .confTr
 {
-  text-align: center;
+    text-align: center;
 }
 
 /* Inputs text do formulário */ 
 input:focus
 {
-  border: solid 0.5px #31b0d5;
+    border: solid 0.5px #31b0d5;
 }
 #txtCodBarras
 {
-  width: 50%;
-  height:25px;
-  margin-left:0px;
+    width: 50%;
+    height:25px;
+    margin-left:0px;
 }
 #btnCancelar
 {
-  font-weight: bold;
-  color:white;
-  float: right;
+    font-weight: bold;
+    color:white;
+    float: right;
 }
 
 #btnRemover
@@ -43,13 +49,13 @@ input:focus
 }
 #btnAdicionar
 {
-  float: right !important;
+    float: right !important;
 }
 
 #btnAdicionar
 {
-  float: right;
-  font-weight: bold;
+    float: right;
+    font-weight: bold;
 }
 
 #btnFinalizar
@@ -84,96 +90,89 @@ input:focus
 
 #numValor
 {
-  width:230px;
-  height:25px;
+    width:230px;
+    height:25px;
 }
 
 #txtProd
 {
-  width: 100%;
-  height:25px;
-  margin-left:0px;
+    width: 100%;
+    height:25px;
+    margin-left:0px;
 }
 
 #numQuant
 {
-  height: 25px;
-  width: 200px;
-  margin-left: 0px;
-  text-align: left;
+    height: 25px;
+    width: 200px;
+    margin-left: 0px;
+    text-align: left;
 }
 
 #numTotal
 {
-  font: bold 30px arial, sans-serif;
-  width: 100%;
-  color: gray;
-  text-align: right;
+    font: bold 30px arial, sans-serif;
+    width: 100%;
+    color: gray;
+    text-align: right;
 }
 
 #txtCPF
 {
-  width: 200px;
-  height:25px;
-  margin-left:0px;
-}
-
-#datDia1
-{
-  width: 100%;
-  height:25px !important;
-  margin-left:0px;
+    width: 200px;
+    height:25px;
+    margin-left:0px;
 }
 
 #txtRG
 {
-  float: right;
-  width: 200px;
-  height:25px;
-  margin-left:0px;
+    float: right;
+    width: 200px;
+    height:25px;
+    margin-left:0px;
 }
 
 #txtNome
 {
-  float: right;
-  width: 100%;
-  height:25px;
-  margin-left:0px;
+    float: right;
+    width: 100%;
+    height:25px;
+    margin-left:0px;
 }
 
 #txtNome_representante
 {
-  float: right;
-  width: 100%;
-  height:25px;
-  margin-left:0px;
+    float: right;
+    width: 100%;
+    height:25px;
+    margin-left:0px;
 }
 
 #numLim
 {
-  float: right;
-  width: 200px;
-  height:25px;
-  margin-left:0px;
+    float: right;
+    width: 200px;
+    height:25px;
+    margin-left:0px;
 }
 
 #selPag
 {
-  float: left;
-  width: 100%;
-  height:25px;
-  margin-left:0px; 
+    float: left;
+    width: 100%;
+    height:25px;
+    margin-left:0px; 
 }
 
 .divTable
 {
-  border: 1px solid #dee2e6; 
-  height: 300px;
+    border: 1px solid #dee2e6; 
+    height: 300px;
 }
 
 .rowTable
 {
-  margin
+    margin
 }
 
 
