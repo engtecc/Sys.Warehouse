@@ -106,9 +106,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<form method="post" action="" class="form-signin" enctype="multipart/form-data" id="formTrocarSenha">
 		<input type="hidden" name="id" value="<?=$_GET['id']?>">
 		<label for="inputEmail">Senha:</label>
-		<input type="text" id="txtSenha" class="form-control" name="txtSenha" required autofocus><br>    
+		<input type="password" id="txtSenha" class="form-control" name="txtSenha" required autofocus><br>    
 		<label for="inputPassword">Confirmar senha:</label>
-		<input type="text" id="txtConfirmarSenha" class="form-control" name="txtConfirmarSenha" required><br>
+		<input type="password" id="txtConfirmarSenha" class="form-control" name="txtConfirmarSenha" required><br>
 		<div class="checkbox mb-3">
 		</div>
 		<div class="text-center">

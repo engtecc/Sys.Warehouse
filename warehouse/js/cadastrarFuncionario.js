@@ -22,6 +22,6 @@ $(document).ready(function(){
     });
 
     $(".ok").click(function(){
-        window.location.replace("../paginas/cadFuncionario.php");
+        window.location.replace("../paginas/cadfuncionario.php");
     });
 });
