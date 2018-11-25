@@ -148,7 +148,7 @@ if ($_SESSION['administrador'] == 0){
 									<h2>Valor da Compra:</h2>
 								</div>
 								<div class="col-md-6">
-									<input type="number" step="any" id="numTotal" value="0000.00">
+									<input class="form-control form-control-sm" type="number" step="any" id="numTotal" value="0000.00">
 								</div>
 							</div>
 							<div class="row rowForm">
