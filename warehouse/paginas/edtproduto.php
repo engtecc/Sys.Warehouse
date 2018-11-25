@@ -64,17 +64,17 @@ if ($_SESSION['administrador'] != 1){
 				$codigo = $_GET["pesq"];
 				$sql = mysqli_query($conexao,"SELECT * FROM produto where codigo_de_barras = '$codigo'");
 				while($row = mysqli_fetch_array($sql)){
-					$codigoInput = "<input style='background: #D8D8D8;' type='text' id='txtCodigoBarras' name='txtCodigoBarras' value='$codigo' readonly>";
+					$codigoInput = "<input class='form-control form-control-sm' style='background: #D8D8D8;' type='text' id='txtCodigoBarras' name='txtCodigoBarras' value='$codigo' readonly>";
 					$nome = $row["nome"];
-					$nomeInput = "<input type='text' id='txtNome' name='txtNome' value='$nome'>";
+					$nomeInput = "<input class='form-control form-control-sm' type='text' id='txtNome' name='txtNome' value='$nome'>";
 					$preco_venda = $row["preco_de_venda"];
-					$preco_vendaInput = "<input type='text' id='txtPrecoVenda' name='txtPrecoVenda' value='$preco_venda'>";
+					$preco_vendaInput = "<input class='form-control form-control-sm' type='text' id='txtPrecoVenda' name='txtPrecoVenda' value='$preco_venda'>";
 					$preco_compra = $row["preco_de_compra"];
-					$preco_compraInput = "<input type='text' id='txtPrecoCompra' name='txtPrecoCompra' value='$preco_compra'>";
+					$preco_compraInput = "<input class='form-control form-control-sm' type='text' id='txtPrecoCompra' name='txtPrecoCompra' value='$preco_compra'>";
 					$quantidade = $row["quantidade_estoque"];
-					$quantidadeInput = "<input type='text' id='txtQuantidade' name='txtQuantidade' value='$quantidade'>";
+					$quantidadeInput = "<input class='form-control form-control-sm' type='text' id='txtQuantidade' name='txtQuantidade' value='$quantidade'>";
 					$validade = $row["validade"];
-					$validadeInput = "<input type='date' id='txtValidade' name='txtValidade' value='$validade'>";
+					$validadeInput = "<input class='form-control form-control-sm' style='width: 230px; height: 28px;'type='date' id='txtValidade' name='txtValidade' value='$validade'>";
 					
 				}
 			}
@@ -115,7 +115,7 @@ if ($_SESSION['administrador'] != 1){
 			<h2 class="subTitulo">Editar Produto</h2>
 			<div class="row">
 				<div class="col-md-2"></div>
-				<div class="col-md-7 mt-3">
+				<div class="col-md-8 mt-3">
 					<div class="row">
 						<div class="col-md-12">
 							<form action="" method="POST" id="formedtProduto" enctype="multipart/form-data"> 
@@ -126,51 +126,51 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-4 lblAl">
+									<div class="col-md-3 lblAl">
 										<label>Nome: </label>
 									</div>
-									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo($nomeInput) ?>
+									<div class="col-md-9">
+										<?php echo($nomeInput) ?>
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-4 lblAl">
+									<div class="col-md-3 lblAl">
 										<label>Quantidade: </label>
 									</div>
-									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($quantidadeInput); ?> 	
+									<div class="col-md-9">
+										<?php echo ($quantidadeInput); ?> 	
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-4 lblAl">
+									<div class="col-md-3 lblAl">
 										<label>Preço da compra: </label>
 									</div>
-									<div class="col-md-8">
-										R$&nbsp;<?php echo($preco_compraInput); ?>
+									<div class="col-md-9">
+										<?php echo($preco_compraInput); ?>
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-4 lblAl">
+									<div class="col-md-3 lblAl">
 										<label>Preço de venda: </label>
 									</div>
-									<div class="col-md-8">
-										R$&nbsp;<?php echo($preco_vendaInput); ?>
+									<div class="col-md-9">
+										<?php echo($preco_vendaInput); ?>
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-4 lblAl">
+									<div class="col-md-3 lblAl">
 										<label>Validade: </label>
 									</div>
-									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo($validadeInput); ?>
+									<div class="col-md-9">
+										<?php echo($validadeInput); ?>
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-4 lblAl">
+									<div class="col-md-3 lblAl">
 										<label>Código de barras: </label>
 									</div>
-									<div class="col-md-8">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php  echo($codigoInput);?>
+									<div class="col-md-9">
+										<?php  echo($codigoInput);?>
 									</div>
 								</div>
 								<div class="row rowForm"style="margin-bottom:30px">
