@@ -66,23 +66,23 @@ if ($_SESSION['administrador'] == 0){
 						<label>Produto: </label>
 					</div>
 					<div class="col-md-9">
-						<input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd"value="'.$nome.'" readonly>
+						<input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly>
 					</div>
 				</div>
 				<div class="row rowForm">
-					<div class="col-md-3 lblAl">
+					<div class="col-md-3 lblAl">	
 						<label>Data: </label>
 					</div>
-					<div class="col-md-3">
-						<input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value= '.$data.'>
+					<div class="col-md-4">
+						<input style="background: #D8D8D8;" class="form-control form-control-sm" name="datDia" id="datDia1" type="date" value= '.$data.'>
 					</div>
 				</div>
 				<div class="row rowForm">
 					<div class="col-md-3 lblAl">
 						<label>Quantidade: </label>
 					</div>
-					<div class="col-md-3">
-						<input type="number" id="numQuant"  value="1" min="0" step="1" class="text-center">
+					<div class="col-md-4">
+						<input type="number" id="numQuant"  value="1" min="0" step="1" class="text-center form-control ">
 					</div>
 				</div>';
 		
@@ -105,13 +105,11 @@ if ($_SESSION['administrador'] == 0){
 								</div> 
 							</div> 
 							<div class="row rowForm">
-								<div class="col-md-3 lblAl"style="margin-top:10px;">
+								<div class="col-md-3 lblAl">
 									<label>Cód. Barras:</label>
 								</div>
-								<div class="col-md-7" style="margin-top:10px;">
-									<input class="confTxtBox" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
-								</div>
-								<div class="col-md-2">
+								<div class="col-md-9">
+									<input class="form-control form-control-sm" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
 									<input type="submit" id="btnCancelar" value="Pesquisar" class="btn btn-success">
 								</div>
 							</div>
@@ -122,7 +120,7 @@ if ($_SESSION['administrador'] == 0){
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-primary" href="" role="button">Adicionar</a>
+									<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
 								</div>
 								<div class="col-md-2">
 									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
