@@ -5,16 +5,17 @@
         $.ajax({
             url: '../crud/trocarsenha.php',
             type: 'post',
-            data:  new FormData(this),            
+            data:  $(this).serialize(),            
             cache: false,
             contentType: false,
             processData: false,
             success: function(data){
+                echo($data);
                 if(data == "falha"){
                     $('.errosenha').html('As senhas não correspondem!');
                 }else if(data == "alterada"){
                     $('#modalok').modal('show');
-                }else if(data == "erro"){
+                }else{
                     $('#modalerro').modal('show');
                 }
             }       

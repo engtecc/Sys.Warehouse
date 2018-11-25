@@ -59,7 +59,7 @@
 		<div class="checkbox mb-3">
 		</div>
 		<div class="text-center">
-			<button class="btn btn-success btn-block" type="submit">Concluir</button>
+			<button class="btn btn-success btn-block" name="btnConcluir" type="submit">Concluir</button>
 		</div>
 		<p class="mt-2 pb-0"><small class="text-error errosenha"></small></p>   
 	</form>
