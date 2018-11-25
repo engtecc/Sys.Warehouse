@@ -124,7 +124,7 @@ if ($_SESSION['administrador'] != 1){
 										<label style="margin-left:65px;">Estado: </label>
 									</div>
 									<div class="col-md-2">
-										<select class="form-control form-control-sm" name="slcEstado" id="slcEstado">
+										<select class="form-control form-control-sm" style="font-size: 13px; height: 30px;" name="slcEstado" id="slcEstado">
 											<option value="mg">Minas Gerais</option>
 											<option value="ac">Acre</option>
 											<option value="al">Alagoas</option>
@@ -163,10 +163,10 @@ if ($_SESSION['administrador'] != 1){
 										<input class="form-control form-control-sm" type="text" id="txtTelefone" name="txtTelefone" value="">
 									</div>
 									<div class="col-md-3">
-										<label>Data Nasc. </label>
+										<label>Data Nasc.: </label>
 									</div>
 									<div class="col-md-3">
-										<input class="form-control form-control-sm" type="date" id="dateNascimento" name="dateNascimento" value="">
+										<input class="form-control form-control-sm" style="width: 180px; height: 30px;" type="date" id="dateNascimento" name="dateNascimento" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
