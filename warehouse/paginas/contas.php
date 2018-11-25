@@ -55,6 +55,46 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
+<?php 
+require_once ("../crud/bd.php");
+	if($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		$nome = $_POST["txtFornecedor"];
+		$select = "SELECT cnpj FROM fornecedor WHERE nome = '$nome'";
+		$sql = mysqli_query($conexao,$select);
+		if($result = mysqli_fetch_array($sql)){
+			$cnpj = $result["cnpj"];
+			$valor = $_POST["txtValor"];
+			$vencimento = $_POST["dateVencimento"];
+			$tipo = $_POST["txtTipo"];
+			$sql = "INSERT INTO pagamento(tipo) VALUES('$tipo')";
+			mysqli_query($conexao,$sql);
+			$last_id = $conexao->insert_id;
+			$sql = "INSERT INTO compra(cnpj,hora_data,valor_total,id_entrada,id_pagamento) VALUES ('$cnpj','$vencimento','$valor',1,$last_id)";
+			if($stmt = $conexao->prepare($sql))
+			{
+				if($stmt->execute())
+				{
+					echo("<script language='javascript'> 
+							$('#modalok').modal('show');
+							$('.ok').click(function(){
+								window.location.replace('principal.php');
+							});
+						</script>");
+				}else{
+					echo("<script language='javascript'>
+							$('#modalerro').modal('show');
+							$('.ok').click(function(){
+								window.location.replace('contas.php');
+							});
+						</script>");
+				}
+			}
+		}else{
+			echo("<script language='javascript'> $('#modalerro').modal('show');</script>");
+		}
+	}
+?>
 	<div class="container">
 		<h2 class="subTitulo">Lançamento de Contas</h2>
 		<div class="row">
@@ -70,31 +110,41 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
+								<div class="col-md-4 lblAl">
 									<label>Fornecedor: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="text" id="txtForn">
+									<input type="text" id="txtForn" name="txtFornecedor" placeholder="Ex: Nome do fornecedor">
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Valor: </label>
+								<div class="col-md-4 lblAl">
+									<label>Tipo de Pagamento: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="number" value="0.00" min="0.00" step="0.01" id="numValor">
+									<select name="slcTipo">
+										<option value="prazo">À prazo</option>
+										<option value="vista">À vista</option>
+										<option value="cartão">Cartão</option>
+									</select>
 								</div>
 							</div>
 							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
+								<div class="col-md-4 lblAl">
 									<label>Vencimento: </label>
 								</div>
 								<div class="col-md-6">
-									<input type="date" id="dateVenc">
+									<input type="date" id="dateVenc" name="dateVencimento">
 								</div>
 							</div>
-
-
+							<div class="row rowForm">
+								<div class="col-md-4 lblAl">
+									<label>Valor: </label>
+								</div>
+								<div class="col-md-6">
+									<input type="text" id="numValor" name="txtValor"  placeholder="Ex: 100.50">
+								</div>
+							</div>
 							<div class="row rowForm"style="margin-bottom:30px">
 								<div class="col-md-9"></div>
 								<div class="col-md-3" align="center">
@@ -104,16 +154,6 @@ if ($_SESSION['administrador'] != 1){
 						</form>
 					</div>
 				</div>
-
-
-
-
-
-
-
-
-
-
 			</div>
 		</div>
 	</div>
