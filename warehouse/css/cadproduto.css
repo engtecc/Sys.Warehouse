@@ -17,8 +17,7 @@ input:focus
 }
 #txtNome
 {
-    width:378px;
-    height:25px; 
+    width:378px; 
 }
 #btnCancelar
 {
@@ -27,20 +26,16 @@ input:focus
 #txtQuantidade
 {
     width:230px;
-    height:25px;
 }
 #txtPrecoCompra
 {
     width:230px;
-    height:25px;
 }
 #txtPrecoVenda
 {
     width:230px;
-    height:25px;
 }
 #txtCodigoBarras
 {
     width:230px;
-    height:25px;
 } 

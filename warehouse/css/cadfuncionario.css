@@ -18,25 +18,21 @@ input:focus
 #txtNome
 {
     width:520px;
-    height:25px;
     margin-left:0px;
     
 }
 #txtLogin
 {
     width: 130px;
-    height: 25px;
 }
 #txtSenha
 {
     width: 130px;
-    height: 25px;
     margin-right: -3000px;
 }
 #txtConfirmarSenha
 {
     width: 130px;
-    height: 25px;
     margin-left: -55px;   
 }
 #btnCancelar
@@ -46,43 +42,35 @@ input:focus
 #txtCpf
 {
     width:230px;
-    height:25px;
 }
 #txtRG
 {
     width:234px;
-    height:25px;
 }
 #txtRua
 {
     width:520px;
-    height:25px;
 }
 #txtNumero
 {
     width:80px;
-    height:25px;
 }
 #txtBairro
 {
     width:160px;
-    height:25px;
     margin-left:10px;
 }
 #txtCidade
 {
     width:211px;
-    height:25px;
 }
 #slcEstado
 {
     width:200px;
-    height: 25px;
     text-align: center;
     margin-left:32px;
 }
 #txtTelefone
 {
     width:211px;
-    height:25px;
 }

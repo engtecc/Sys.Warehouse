@@ -45,35 +45,30 @@ input:focus
 #txtProduto
 {
     width:280px;
-    height:25px; 
     margin-left:30px;
 }
 
 #txtFuncionario
 {
     width:280px;
-    height:25px;
     margin-left:50px; 
 }
 
 #txtFornecedor
 {
     width:280px;
-    height:25px; 
     margin-left:30px;
 }
 
 #txtCliente
 {
     width:280px;
-    height:25px;
     margin-left:50px; 
 }
 
 #txtEmprestimo
 {
     width:280px;
-    height:25px;
     margin-left:30px;
 }
 

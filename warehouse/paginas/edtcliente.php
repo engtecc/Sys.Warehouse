@@ -65,33 +65,33 @@ if ($_SESSION['administrador'] != 1){
 				$sql = mysqli_query($conexao,"SELECT * FROM cliente as c ,pessoa as p, endereco as e, referenci_comercial as r where c.id_cliente = '$codigo' and c.id_pessoa = p.id_pessoa and e.id_endereco = c.id_endereco and r.id_referencia_comercial = c.id_referencia_comercial");
 				while($row = mysqli_fetch_array($sql)){
 					$limite = $row["limite_de_credito"];
-					$limiteInput = "<input type='text' id='txtLimite' name='txtLimite' value='$limite'>";
+					$limiteInput = "<input class='form-control form-control-sm' type='text' id='txtLimite' name='txtLimite' value='$limite'>";
 					$cpf = $row["cpf"];
-					$cpfInput = "<input type='text' id='txtCpf' name='txtCpf' value='$cpf'>";
+					$cpfInput = "<input  class='form-control form-control-sm'  type='text' id='txtCpf' name='txtCpf' value='$cpf'>";
 					$rg = $row["rg"];
-					$rgInput = "<input type='text' id='txtRG' name='txtRG' value='$rg'>";
+					$rgInput = "<input class='form-control form-control-sm'  type='text' id='txtRG' name='txtRG' value='$rg'>";
 					$nome = $row["nome"];
-					$nomeInput = "<input type='text' id='txtNome' name='txtNome' value='$nome'>";
+					$nomeInput = "<input class='form-control form-control-sm'  type='text' id='txtNome' name='txtNome' value='$nome'>";
 					$telefone = $row["telefone"];
-					$telefoneInput = "<input type='text' id='txtTelefone' name='txtTelefone' value='$telefone'>";
+					$telefoneInput = "<input class='form-control form-control-sm'  type='text' id='txtTelefone' name='txtTelefone' value='$telefone'>";
 					$rua = $row["rua"];
-					$ruaInput = "<input type='text' id='txtRua' name='txtRua' value='$rua'>";
+					$ruaInput = "<input  class='form-control form-control-sm' type='text' id='txtRua' name='txtRua' value='$rua'>";
 					$numero = $row["numero"];
-					$numeroInput = "<input type='text' id='txtNumero' name='txtNumero' value='$numero'>";
+					$numeroInput = "<input class='form-control form-control-sm'  type='text' id='txtNumero' name='txtNumero' value='$numero'>";
 					$bairro = $row["bairro"];
-					$bairroInput = "<input type='text' id='txtBairro' name='txtBairro' value='$bairro'>";
+					$bairroInput = "<input class='form-control form-control-sm'  type='text' id='txtBairro' name='txtBairro' value='$bairro'>";
 					$cidade = $row["cidade"];
-					$cidadeInput = "<input type='text' id='txtCidade' name='txtCidade' value='$cidade'>";
+					$cidadeInput = "<input class='form-control form-control-sm'  type='text' id='txtCidade' name='txtCidade' value='$cidade'>";
 					$estado = $row["estado"];
-					$estadoInput = "<input type='text' id='slcEstado' name='slcEstado' value='$estado'>";
+					$estadoInput = "<input class='form-control form-control-sm'  type='text' id='slcEstado' name='slcEstado' value='$estado'>";
 					$referencia1 = $row["referencia_1"];
-					$referencia1Input = "<input type='text' id='txtReferencia1' name='txtReferencia1' value='$referencia1'>";
+					$referencia1Input = "<input class='form-control form-control-sm'  type='text' id='txtReferencia1' name='txtReferencia1' value='$referencia1'>";
 					$referencia2 = $row["referencia_2"];
-					$referencia2Input = "<input type='text' id='txtReferencia2' name='txtReferencia2' value='$referencia2'>";
+					$referencia2Input = "<input class='form-control form-control-sm'  type='text' id='txtReferencia2' name='txtReferencia2' value='$referencia2'>";
 					$referencia3 = $row["referencia_3"];
-					$referencia3Input = "<input type='text' id='txtReferencia3' name='txtReferencia3' value='$referencia3'>";
+					$referencia3Input = "<input class='form-control form-control-sm'  type='text' id='txtReferencia3' name='txtReferencia3' value='$referencia3'>";
 					$nascimento = $row["data_de_nascimento"];
-					$nascimentoInput =  "<input type='date' id='dateNascimento' name='dateNascimento' value='$nascimento'>";
+					$nascimentoInput =  "<input class='form-control form-control-sm' style='width: 180px; height: 30px;' type='date' id='dateNascimento' name='dateNascimento' value='$nascimento'>";
 				}
 			}
 			if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -250,7 +250,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>Limite de credito: </label>
 									</div>
 									<div class="col-md-9">
-										R$ &nbsp;<?php echo($limiteInput);?>
+										<?php echo($limiteInput);?>
 									</div>
 								</div>
 								<div class="row rowForm"style="margin-bottom:30px">

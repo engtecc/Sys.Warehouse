@@ -50,13 +50,13 @@ if ($_SESSION['administrador'] != 1){
 							<a class="text-opcoes" href="cadfornecedor.php"><img class="rounded-circle" src="../imagens/fornecedor.png" alt="Generic placeholder image" width="100" height="100"><h5>Cadastrar<br>fornecedor</h5></a>
 						</div>
 						<div class="col-lg-4 espacamento">
-							<a class="text-opcoes" href="consultar.php"><img class="rounded-circle" src="../imagens/consultar.png" alt="Generic placeholder image" width="100" height="100"><h5>consultar</h5></a>
+							<a class="text-opcoes" href="consultar.php"><img class="rounded-circle" src="../imagens/consultar.png" alt="Generic placeholder image" width="100" height="100"><h5>Consultar</h5></a>
 						</div>
 						<div class="col-lg-4 espacamento">
 							<a class="text-opcoes" href="cadfuncionario.php"><img class="rounded-circle" src="../imagens/funcionario.png" alt="Generic placeholder image" width="100" height="100"><h5>Cadastrar<br>funcionário</h5></a>
 						</div>
 						<div class="col-lg-4 espacamento">
-							<a class="text-opcoes" href="cadproduto.php"><img class="rounded-circle" src="../imagens/produto.png" alt="Generic placeholder image" width="100" height="100"><h5>Cadastrar<br>produtos</h5></a>
+							<a class="text-opcoes" href="cadproduto.php"><img class="rounded-circle" src="../imagens/produto.png" alt="Generic placeholder image" width="100" height="100"><h5>Cadastrar<br>produto</h5></a>
 						</div>
 						<div class="col-lg-4 espacamento">
 							<a class="text-opcoes" href="contas.php"><img class="rounded-circle" src="../imagens/contas.png" alt="Generic placeholder image" width="100" height="100"><h5>Lançar<br>contas</h5></a>

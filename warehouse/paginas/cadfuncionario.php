@@ -76,7 +76,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>Nome: </label>
 									</div>
 									<div class="col-md-9">
-										<input type="text" id="txtNome" name="txtNome" value="">
+										<input class="form-control form-control-sm" type="text" id="txtNome" name="txtNome" value="">
 									</div>
 								</div>
 								<div class="row" style="margin-top:30px;">
@@ -84,13 +84,13 @@ if ($_SESSION['administrador'] != 1){
 										<label>Login: </label>							
 									</div>
 									<div class="col-md-3">
-										<input type="text" id="txtLogin" name="txtLogin" value="">
+										<input class="form-control form-control-sm"  type="text" id="txtLogin" name="txtLogin" value="">
 									</div>
 									<div class="col-md-3 lblAl" >
 										<label style="margin-right:-5px;">Senha: </label>
 									</div>
 									<div class="col-md-2">
-										<input type="password" id="txtSenha" name='txtSenha' value="">
+										<input class="form-control form-control-sm"  type="password" id="txtSenha" name='txtSenha' value="">
 									</div>
 								</div>
 								<div class="row">
@@ -102,7 +102,7 @@ if ($_SESSION['administrador'] != 1){
 												<label>Confirmar senha: </label>
 											</div>
 											<div class="col-md-2">
-												<input type="password" id="txtConfirmarSenha" name="txtConfirmarSenha" value="">
+												<input class="form-control form-control-sm"  type="password" id="txtConfirmarSenha" name="txtConfirmarSenha" value="">
 											</div>
 										</div>
 									</div>
@@ -112,13 +112,13 @@ if ($_SESSION['administrador'] != 1){
 										<label>CPF: </label>
 									</div>
 									<div class="col-md-5">
-										<input type="text" id="txtCpf" name="txtCpf" value="">
+										<input class="form-control form-control-sm"  type="text" id="txtCpf" name="txtCpf" value="">
 									</div>
 									<div class="col-md-1">
 										<label>&nbsp;&nbsp;&nbsp;RG: </label>
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtRG" name="txtRG" value="">
+										<input class="form-control form-control-sm"  type="text" id="txtRG" name="txtRG" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -126,7 +126,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>Rua: </label>
 									</div>
 									<div class="col-md-9">
-										<input type="text" id="txtRua" name="txtRua" value="">
+										<input class="form-control form-control-sm"  type="text" id="txtRua" name="txtRua" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -134,13 +134,13 @@ if ($_SESSION['administrador'] != 1){
 										<label>Número: </label>
 									</div>
 									<div class="col-md-2">
-										<input type="text" id="txtNumero" name="txtNumero" value="">
+										<input class="form-control form-control-sm" type="text" id="txtNumero" name="txtNumero" value="">
 									</div>
 									<div class="col-md-1" style="margin-left:55px;">
 										<label>Bairro: </label>
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtBairro" name="txtBairro" value="">
+										<input class="form-control form-control-sm" type="text" id="txtBairro" name="txtBairro" value="">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -148,13 +148,13 @@ if ($_SESSION['administrador'] != 1){
 										<label>Cidade: </label>
 									</div>
 									<div class="col-md-4">
-										<input type="text" id="txtCidade" name="txtCidade" value="">
+										<input class="form-control form-control-sm" type="text" id="txtCidade" name="txtCidade" value="">
 									</div>
 									<div class="col-md-2 lblAl" >
 										<label style="margin-left:65px;">Estado: </label>
 									</div>
 									<div class="col-md-2">
-										<select id="slcEstado" name="slcEstado">
+										<select class="form-control form-control-sm" style="font-size: 14px; height: 30px;"  id="slcEstado" name="slcEstado">
 											<option value="mg">Minas Gerais</option>
 											<option value="ac">Acre</option>
 											<option value="al">Alagoas</option>
@@ -190,7 +190,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>Telefone: </label>
 									</div>
 									<div class="col-md-3">
-										<input type="text" id="txtTelefone"  name="txtTelefone" value="">
+										<input class="form-control form-control-sm" type="text" id="txtTelefone"  name="txtTelefone" value="">
 									</div>
 								</div>								
 								<div class="row rowForm"style="margin-bottom:30px">

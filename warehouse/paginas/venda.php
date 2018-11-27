@@ -137,7 +137,7 @@ if ($_SESSION['administrador'] == 0){
 									<label>Cód. Barras:</label>
 								</div>
 								<div class="col-md-7" style="margin-top:10px;">
-									<input class="confTxtBox" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
+									<input class="form-control form-control-sm" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
 								</div>
 								<div class="col-md-2">
 									<input type="submit" name="btnPesquisar" id="btnCancelar" value="Pesquisar" class="btn btn-success">
@@ -184,7 +184,7 @@ if ($_SESSION['administrador'] == 0){
 									<h2>Valor da Compra:</h2>
 								</div>
 								<div class="col-md-6">
-									<input type="number" step="any" id="numTotal" value="0000.00">
+									<input class="form-control form-control-sm" type="number" step="any" id="numTotal" value="0000.00">
 								</div>
 							</div>
 							<div class="row rowForm">
