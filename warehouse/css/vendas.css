@@ -158,7 +158,10 @@ input:focus
 {
     border: 1px solid #dee2e6; 
 }
-
+#datDia1
+{
+    width:170px;
+}
 
 
 

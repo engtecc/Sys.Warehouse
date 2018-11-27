@@ -33,7 +33,7 @@ CREATE TABLE `cliente` (
   `id_referencia_comercial` int(11) NOT NULL,
   `limite_de_credito` decimal(10,2) NOT NULL,
   `id_pessoa` int(11) NOT NULL,
-  `id_endereco` int(11) DEFAULT NULL
+  `id_endereco` int(11) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

@@ -53,7 +53,7 @@ if ($_SESSION['administrador'] == 0){
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modalok">Produto alterado com sucesso!</h5>
+					<h5 class="modal-title" id="modalok">Produto adicionado à lista de vendas com sucesso!</h5>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -86,29 +86,32 @@ if ($_SESSION['administrador'] == 0){
 		$nome = $resultado["nome"];
 		$preco = $resultado["preco_de_venda"];
 		$data = date('Y-m-d');
-		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl"><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="text" id="numQuant" name="txtQuantidade" class="text-center"></div></div>';
+		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="date" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="text" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
 		if(isset($_POST["btnAdicionar"]))
 		{
 			if($_POST["txtQuantidade"]!= "")
 			{
 				$quantidade = $_POST["txtQuantidade"];
 
+				$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
+				$tabela = '<thead class="thead-light">
+				<tr style="text-align: center;">
+				<th style="width: 5%;">'.$_SESSION["iterador"].'</th>
+				<th style="width: 55%;">'.$nome.'</th>
+				<th style="width: 15%;">'.$preco.'</th>
+				<th style="width: 5%;">'.$quantidade.'</th>
+				<th style="width: 15%;">'.$quantidade*$preco.'</th>	
+				<th style="width:5%;"><a href=""><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
+				</tr></thead>';
+
 				array_push($_SESSION["dbgriddados"],$codigo);
 				array_push($_SESSION["dbgriddados"],$nome);
 				array_push($_SESSION["dbgriddados"],$data);
 				array_push($_SESSION["dbgriddados"],$quantidade);
 				array_push($_SESSION["dbgriddados"],$quantidade*$preco);
-
-				$tabela = '<thead class="thead-light">
-				<tr style="text-align: center;">
-				<th style="width: 5%;">'.$_SESSION["iterador"].'</th>
-				<th style="width: 60%;">'.$nome.'</th>
-				<th style="width: 15%;">'.$preco.'</th>
-				<th style="width: 5%;">'.$quantidade.'</th>
-				<th style="width: 15%;">'.$quantidade*$preco.'</th>	
-				</tr></thead>';
 				array_push($_SESSION["dbgrid"],$tabela);
 				$_SESSION["iterador"] = $_SESSION["iterador"] +1;
+
 				echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
 			}else{
 				echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
@@ -150,10 +153,9 @@ if ($_SESSION['administrador'] == 0){
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									<input type="submit" id="btnRemover" class="btn btn-primary" name="btnAdicionar" role="button" value ="Adicionar">
 								</div>
 								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
+									<input type="submit" id="btnRemover" class="btn btn-primary" name="btnAdicionar" role="button" value ="Adicionar">
 								</div>
 							</div>
 							<div style="height: 10px;"></div>
@@ -163,10 +165,11 @@ if ($_SESSION['administrador'] == 0){
 										<thead class="thead-light">
 											<tr style="text-align: center;">
 												<th style="width: 5%;">#</th>
-												<th style="width: 60%;">Nome Produto</th>
+												<th style="width: 55%;">Nome Produto</th>
 												<th style="width: 15%;">Preço</th>
 												<th style="width: 5%;">Quant.</th>
-												<th style="width: 15%;">Preço Total</th>	
+												<th style="width: 15%;">Preço Total</th>
+												<th style="width:5%;">Excluir</th>	
 											</tr>
 											<?php
 												foreach($_SESSION["dbgrid"] as $key => $valor)
@@ -184,15 +187,15 @@ if ($_SESSION['administrador'] == 0){
 									<h2>Valor da Compra:</h2>
 								</div>
 								<div class="col-md-6">
-									<input class="form-control form-control-sm" type="number" step="any" id="numTotal" value="0000.00">
+									<input class="form-control form-control-sm" type="number" step="any" id="numTotal" value=<?php echo($_SESSION["valortotal"]) ?>>
 								</div>
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-6">
-									<a id="btnCliente" class="btn btn-primary cliente" href="vendacliente.php" role="button" style="display: none;">Finalizar com Cliente</a>
+									<a id="btnCliente" class="btn btn-primary cliente" href="vendacliente.php" role="button">Finalizar com Cliente</a>
 								</div>
 								<div class="col-md-6">
-									<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
+									<a id="btnFinalizar" class="btn btn-success" herf="../crud/vendaInserir.php">Finalizar Compra</a>
 								</div>
 							</div>
 						</form>
