@@ -71,7 +71,6 @@ input:focus
   float: right;
   width: 100%;
   font: bold 30px arial, sans-serif;
-  color: ;
 }
 
 #btnEmpre
@@ -167,13 +166,8 @@ input:focus
 .divTable
 {
     border: 1px solid #dee2e6; 
-    height: 300px;
 }
 
-.rowTable
-{
-    margin
-}
 
 
 

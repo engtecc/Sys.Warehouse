@@ -6,7 +6,9 @@ require_once('bd.php');
 
 $login = $_POST['login'];
 $senha = md5($_POST['senha']);
-
+$_SESSION["dbgrid"] =array();
+$_SESSION["dbgriddados"] = array();
+$_SESSION["iterador"] = 1;
 $sql = "SELECT * FROM funcionario WHERE login = '$login' AND senha = '$senha'";
 
 $resultado = $conexao->query($sql);

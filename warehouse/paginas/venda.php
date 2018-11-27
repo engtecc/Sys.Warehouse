@@ -28,7 +28,7 @@ if(!isset($_SESSION['login'])){
 
 <?php
 if ($_SESSION['administrador'] == 0){
-	echo "<script>
+	echo "<script language='javascript'>
 		$(document).ready(function() {
 			$('.cancelar').hide();
 			$('.sair').show();
@@ -49,6 +49,30 @@ if ($_SESSION['administrador'] == 0){
 		<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
+	<div class="modal fade" id="modalok" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalok">Produto alterado com sucesso!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalerro" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalerro">Falha ao adicionar! Quantidade vazia.</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <?php
 	
 	require_once ("../crud/bd.php");
@@ -56,36 +80,40 @@ if ($_SESSION['administrador'] == 0){
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$codigo = $_POST["txtCodBarras"];
-		$select  = "SELECT nome from produto where codigo_de_barras = '$codigo'";
+		$select  = "SELECT nome,preco_de_venda from produto where codigo_de_barras = '$codigo'";
 		$sql = mysqli_query($conexao,$select);
 		$resultado = mysqli_fetch_array($sql);
 		$nome = $resultado["nome"];
+		$preco = $resultado["preco_de_venda"];
 		$data = date('Y-m-d');
-		$cont ='<div class="row rowForm">
-					<div class="col-md-3 lblAl">
-						<label>Produto: </label>
-					</div>
-					<div class="col-md-9">
-						<input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd"value="'.$nome.'" readonly>
-					</div>
-				</div>
-				<div class="row rowForm">
-					<div class="col-md-3 lblAl">
-						<label>Data: </label>
-					</div>
-					<div class="col-md-3">
-						<input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value= '.$data.'>
-					</div>
-				</div>
-				<div class="row rowForm">
-					<div class="col-md-3 lblAl">
-						<label>Quantidade: </label>
-					</div>
-					<div class="col-md-3">
-						<input type="number" id="numQuant"  value="1" min="0" step="1" class="text-center">
-					</div>
-				</div>';
-		
+		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl"><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" name="datDia" id="datDia1" type="date" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="text" id="numQuant" name="txtQuantidade" class="text-center"></div></div>';
+		if(isset($_POST["btnAdicionar"]))
+		{
+			if($_POST["txtQuantidade"]!= "")
+			{
+				$quantidade = $_POST["txtQuantidade"];
+
+				array_push($_SESSION["dbgriddados"],$codigo);
+				array_push($_SESSION["dbgriddados"],$nome);
+				array_push($_SESSION["dbgriddados"],$data);
+				array_push($_SESSION["dbgriddados"],$quantidade);
+				array_push($_SESSION["dbgriddados"],$quantidade*$preco);
+
+				$tabela = '<thead class="thead-light">
+				<tr style="text-align: center;">
+				<th style="width: 5%;">'.$_SESSION["iterador"].'</th>
+				<th style="width: 60%;">'.$nome.'</th>
+				<th style="width: 15%;">'.$preco.'</th>
+				<th style="width: 5%;">'.$quantidade.'</th>
+				<th style="width: 15%;">'.$quantidade*$preco.'</th>	
+				</tr></thead>';
+				array_push($_SESSION["dbgrid"],$tabela);
+				$_SESSION["iterador"] = $_SESSION["iterador"] +1;
+				echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
+			}else{
+				echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
+			}
+		}
 	}
 ?>
 	<div class="container">
@@ -112,7 +140,7 @@ if ($_SESSION['administrador'] == 0){
 									<input class="confTxtBox" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
 								</div>
 								<div class="col-md-2">
-									<input type="submit" id="btnCancelar" value="Pesquisar" class="btn btn-success">
+									<input type="submit" name="btnPesquisar" id="btnCancelar" value="Pesquisar" class="btn btn-success">
 								</div>
 							</div>
 							<?php echo($cont);?>
@@ -122,25 +150,33 @@ if ($_SESSION['administrador'] == 0){
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-primary" href="" role="button">Adicionar</a>
+									<input type="submit" id="btnRemover" class="btn btn-primary" name="btnAdicionar" role="button" value ="Adicionar">
 								</div>
 								<div class="col-md-2">
 									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
 								</div>
 							</div>
 							<div style="height: 10px;"></div>
-							<div class="row divTable">
-								<table class="table table-sm table-bordered">
-									<thead class="thead-light">
-										<tr style="text-align: center;">
-											<th style="width: 5%;">#</th>
-											<th style="width: 60%;">Nome Produto</th>
-											<th style="width: 15%;">Preço</th>
-											<th style="width: 5%;">Quant.</th>
-											<th style="width: 15%;">Preço Total</th>	
-										</tr>
-									</thead>
-								</table>
+							<div class="cotainer-fluid">
+								<div class="row divTable">
+									<table class="table table-sm table-bordered">
+										<thead class="thead-light">
+											<tr style="text-align: center;">
+												<th style="width: 5%;">#</th>
+												<th style="width: 60%;">Nome Produto</th>
+												<th style="width: 15%;">Preço</th>
+												<th style="width: 5%;">Quant.</th>
+												<th style="width: 15%;">Preço Total</th>	
+											</tr>
+											<?php
+												foreach($_SESSION["dbgrid"] as $key => $valor)
+												{
+													echo($valor);
+												}
+											?>
+										</thead>
+									</table>
+								</div>
 							</div>
 							<div class="row rowForm" style="vertical-align: center;">
 								<div class="col-md-1"></div>
