@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION['login'])){
 	header('location: ../index.php');
 }
+
 ?>
 
 <!doctype html>
@@ -73,6 +74,25 @@ if ($_SESSION['administrador'] == 0){
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modalvendaok" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalok">Venda Efetivada!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+		if($_SESSION["vendaConcluida"] == 1)
+		{
+			echo("<script language='javascript'>$('#modalvendaok').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+	?>
 <?php
 	
 	require_once ("../crud/bd.php");

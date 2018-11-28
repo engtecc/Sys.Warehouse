@@ -10,6 +10,7 @@ $_SESSION["dbgrid"] = array();
 $_SESSION["dbgriddados"] = array();
 $_SESSION["valortotal"] = 0;
 $_SESSION["iterador"] = 1;
+$_SESSION["vendaConcluida"] = 0;
 $sql = "SELECT * FROM funcionario WHERE login = '$login' AND senha = '$senha'";
 
 $resultado = $conexao->query($sql);
@@ -20,7 +21,7 @@ if($resultado){
 	if (isset($dados['login'])) {
 		$_SESSION['login'] = $dados['login'];
 		$_SESSION['administrador'] = $dados['administrador'];
-
+		$_SESSION['id_funcionario'] = $dados['id_funcionario'];
 		if($dados['administrador'] != 1){
 			echo "func";
 		}else{
