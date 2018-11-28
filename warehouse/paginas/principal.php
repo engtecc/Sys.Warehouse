@@ -6,6 +6,11 @@ if(!isset($_SESSION['login'])){
 if ($_SESSION['administrador'] != 1){
 	header('location: venda.php');
 }
+$_SESSION["dbgrid"] = array();
+$_SESSION["dbgriddados"] = array();
+$_SESSION["valortotal"] = 0;
+$_SESSION["iterador"] = 1;
+$_SESSION["vendaConcluida"] = 0;
 ?>
 
 <!doctype html>
