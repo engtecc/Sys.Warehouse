@@ -17,7 +17,7 @@ input:focus
 }
 #txtForn
 {
-    width:520px;
+    width:100%;
     margin-left:0px;   
 }
 #btnCancelar
@@ -39,4 +39,23 @@ input:focus
     color: #585858 !important;
     text-align: top;
     margin-left: 50px;
+}
+
+#numCod
+{
+    width: 100%;
+}
+
+#btnCadastro
+{
+  font-weight: bold;
+}
+
+#btnCancel
+{
+}
+
+#numQuantidade
+{
+    
 }
