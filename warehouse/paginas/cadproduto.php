@@ -106,14 +106,6 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
-									<label>Validade: </label>
-								</div>
-								<div class="col-md-5">
-									<input class="form-control form-control-sm" type="date" id="txtValidade" name="txtValidade" value="" style="width: 230px; height: 30px;">
-								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
 									<label>Código de barras: </label>
 								</div>
 								<div class="col-md-9">

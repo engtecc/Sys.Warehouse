@@ -195,7 +195,7 @@ if ($_SESSION['administrador'] == 0){
 									<a id="btnCliente" class="btn btn-primary cliente" href="vendacliente.php" role="button">Finalizar com Cliente</a>
 								</div>
 								<div class="col-md-6">
-									<a id="btnFinalizar" class="btn btn-success" herf="../crud/vendaInserir.php">Finalizar Compra</a>
+									<a name="" id="btnFinalizar" class="btn btn-success" href="../crud/vendainserir.php" role="button">Finalizar Compra</a>
 								</div>
 							</div>
 						</form>

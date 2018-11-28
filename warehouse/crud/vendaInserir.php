@@ -27,15 +27,13 @@
         }
         $i = $i +1;
     }
-    $select = "SELECT max(id_venda) from venda";
+    $select = "SELECT id_venda from venda ORDER BY id_venda DESC LIMIT 1";
     $sql= mysqli_query($conexao,$select); 
     $resultado = mysqli_fetch_array($sql);
     echo($resultado["id_venda"]);
     $tamanho = count($nome);
-    for($it = 0;$it <$tamanho;$it++)
+    for($iterar = 0; $iterar < $i; $iterar++)
     {
-        $sql = "INSERT INTO"
-        echo($nome[$it]);
+        
     }
-    
 ?>

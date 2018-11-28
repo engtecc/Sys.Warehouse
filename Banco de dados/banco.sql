@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Nov-2018 às 14:37
+-- Generation Time: 28-Nov-2018 às 14:44
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 7.2.12
 
@@ -128,7 +128,7 @@ CREATE TABLE `funcionario` (
   `id_pessoa` int(11) NOT NULL,
   `id_endereco` int(11) NOT NULL,
   `login` varchar(30) NOT NULL,
-  `senha` varchar(30) NOT NULL,
+  `senha` varchar(300) NOT NULL,
   `administrador` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -137,7 +137,7 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `id_pessoa`, `id_endereco`, `login`, `senha`, `administrador`) VALUES
-(1, 1, 1, 'admin', '21232f297a57a5a743894a0e4a801f', 1);
+(1, 1, 1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 -- --------------------------------------------------------
 
