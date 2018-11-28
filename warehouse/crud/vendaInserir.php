@@ -32,5 +32,10 @@
     $resultado = mysqli_fetch_array($sql);
     echo($resultado["id_venda"]);
     $tamanho = count($nome);
+    for($it = 0;$it <$tamanho;$it++)
+    {
+        $sql = "INSERT INTO"
+        echo($nome[$it]);
+    }
     
 ?>
