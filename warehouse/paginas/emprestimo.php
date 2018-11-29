@@ -45,7 +45,7 @@
 									<label>Nome do produto: </label>
 								</div>
 								<div class="col-md-9">
-									<input type="text" id="txtNomeEmp">
+									<input class="form-control" type="text" id="txtNomeEmp">
 								</div>
 							</div>
 							<div class="row rowForm2">
@@ -53,7 +53,7 @@
 									<label>Quantidade: </label>
 								</div>
 								<div class="col-md-3">
-									<input type="number" id="numQuant">
+									<input class="form-control" type="number" id="numQuant">
 								</div>
 							</div>
 							<div class="row rowForm2">
@@ -61,7 +61,7 @@
 									<label>End. de cobrança: </label>
 								</div>
 								<div class="col-md-9">
-									<input type="text" id="txtEndEmp">
+									<input class="form-control" type="text" id="txtEndEmp">
 								</div>
 							</div>
 							<div class="row rowForm2">
@@ -69,7 +69,7 @@
 									<label>Data de Empréstimo: </label>
 								</div>
 								<div class="col-md-3">
-									<input type="date" id="datEmp">
+									<input class="form-control" type="date" id="datEmp">
 								</div>
 							</div>
 							<div class="row rowForm2">
@@ -77,7 +77,7 @@
 									<label>Data de Devolução: </label>
 								</div>
 								<div class="col-md-3">
-									<input type="date" id="datDev">
+									<input class="form-control" type="date" id="datDev">
 								</div>
 							</div>
 							<div class="row rowForm2">
@@ -85,7 +85,7 @@
 									<label>Forma de Pagamento: </label>
 								</div>
 								<div class="col-md-3">
-									<select id="selPag">
+									<select id="selPag" class="form-control">
 										<option selected>...</option>
 										<option>Á vista</option>
 										<option></option>
@@ -101,7 +101,7 @@
 									<label>Valor Recebido: </label>
 								</div>
 								<div class="col-md-3">
-									<input type="number" step="any" id="numValRec">
+									<input class="form-control" type="number" step="any" id="numValRec">
 								</div>
 							</div>
 							<div class="row rowForm2">
@@ -109,7 +109,7 @@
 									<label>Valor a Receber: </label>
 								</div>
 								<div class="col-md-3">
-									<input type="number" step="any" id="numValDev">
+									<input class="form-control" type="number" step="any" id="numValDev">
 								</div>
 							</div>
 
