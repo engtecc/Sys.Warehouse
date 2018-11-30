@@ -45,7 +45,6 @@
             mysqli_query($conexao,$insert);
             $q = $q - $quantidade[$j];
             $update = "UPDATE produto SET quantidade_estoque = '$q' WHERE codigo_de_barras ='$codigo[$j]'";
-            echo($update);
             mysqli_query($conexao,$update);
         }else{
             $_SESSION["vendaConcluida"] = 2;
@@ -55,7 +54,7 @@
     $_SESSION["valortotal"] = 0;
     $_SESSION["dbgriddados"] = array();
     $_SESSION["dbgrid"]= array();
-    $_SESSION["iterador"] = 0;
+    $_SESSION["iterador"] = 1;
     $_SESSION["vendaConcluida"] = 1;
     header("Location: ../paginas/venda.php");
 ?>

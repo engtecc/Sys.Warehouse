@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 if(!isset($_SESSION['login'])){
 	header('location: ../index.php');
@@ -98,10 +98,27 @@ if ($_SESSION['administrador'] == 0){
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modaldelok" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modaldelok">Deleção Efetivada!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php
 		if($_SESSION["vendaConcluida"] == 1)
 		{
 			echo("<script language='javascript'>$('#modalvendaok').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+		if($_SESSION["vendaConcluida"] == 3)
+		{
+			echo("<script language='javascript'>$('#modaldelok').modal('show'); </script>");
 			$_SESSION["vendaConcluida"] = 0;
 		}
 	?>
@@ -119,7 +136,7 @@ if ($_SESSION['administrador'] == 0){
 		$preco = $resultado["preco_de_venda"];
 		$qtd = $resultado["quantidade_estoque"];
 		$data = date('Y-m-d');
-		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="date" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="text" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
+		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="date" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="number" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
 		if(isset($_POST["btnAdicionar"]))
 		{
 			if($_POST["txtQuantidade"]!= "")
@@ -136,7 +153,7 @@ if ($_SESSION['administrador'] == 0){
 					<th style="width: 15%;">'.$preco.'</th>
 					<th style="width: 5%;">'.$quantidade.'</th>
 					<th style="width: 15%;">'.$quantidade*$preco.'</th>	
-					<th style="width:5%;"><a href="deletar.php?del='.$codigo.'"><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
+					<th style="width:5%;"><a href="deletar.php?del='.($_SESSION["iterador"]-1).'"><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
 					</tr></thead>';
 
 					array_push($_SESSION["dbgriddados"],$codigo);
@@ -153,7 +170,6 @@ if ($_SESSION['administrador'] == 0){
 				}
 			}else{
 				echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
-
 			}
 		}
 	}
