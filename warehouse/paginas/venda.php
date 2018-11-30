@@ -107,7 +107,7 @@ if ($_SESSION['administrador'] == 0){
 		$preco = $resultado["preco_de_venda"];
 		$qtd = $resultado["quantidade_estoque"];
 		$data = date('Y-m-d');
-		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="date" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="text" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
+		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="text" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="text" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
 		if(isset($_POST["btnAdicionar"]))
 		{
 			if($_POST["txtQuantidade"]!= "")
@@ -116,32 +116,8 @@ if ($_SESSION['administrador'] == 0){
 				if($_POST["txtQuantidade"] <= $qtd)
 				{
 
-<<<<<<< HEAD
-				$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
-				$tabela = '<thead class="thead-light">
-				<tr style="text-align: center;">
-				<th style="width: 5%;">'.$_SESSION["iterador"].'</th>
-				<th style="width: 55%;">'.$nome.'</th>
-				<th style="width: 15%;">'.$preco.'</th>
-				<th style="width: 5%;">'.$quantidade.'</th>
-				<th style="width: 15%;">'.$quantidade*$preco.'</th>	
-				<th style="width:5%;"><a href=""><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
-				</tr></thead>';
-
-				array_push($_SESSION["dbgriddados"],$codigo);
-				array_push($_SESSION["dbgriddados"],$nome);
-				array_push($_SESSION["dbgriddados"],$data);
-				array_push($_SESSION["dbgriddados"],$quantidade);
-				array_push($_SESSION["dbgriddados"],$quantidade*$preco);
-				array_push($_SESSION["dbgrid"],$tabela);
-				$_SESSION["iterador"] = $_SESSION["iterador"] +1;
-
-				echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
-			}else{
-				echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
-=======
 					$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
-					$tabela = '
+					$tabela = '<thead class="thead-light">
 					<tr style="text-align: center;">
 					<th style="width: 5%;">'.$_SESSION["iterador"].'</th>
 					<th style="width: 55%;">'.$nome.'</th>
@@ -149,22 +125,20 @@ if ($_SESSION['administrador'] == 0){
 					<th style="width: 5%;">'.$quantidade.'</th>
 					<th style="width: 15%;">'.$quantidade*$preco.'</th>	
 					<th style="width:5%;"><a href="deletar.php?del='.($_SESSION["iterador"]-1).'"><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
-					</tr>';
-						
+					</tr></thead>';
+
 					array_push($_SESSION["dbgriddados"],$codigo);
 					array_push($_SESSION["dbgriddados"],$nome);
 					array_push($_SESSION["dbgriddados"],$data);
 					array_push($_SESSION["dbgriddados"],$quantidade);
-					
 					array_push($_SESSION["dbgriddados"],$quantidade*$preco);
 					array_push($_SESSION["dbgrid"],$tabela);
 					$_SESSION["iterador"] = $_SESSION["iterador"] +1;
-					
+
 					echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
-				}else{
-					echo("<script language='javascript'>$('#modalfalha').modal('show'); </script>");
 				}
->>>>>>> 93220025803b11a35dfec3ec9b30301a751b53e2
+			}else{
+				echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
 			}
 		}
 	}

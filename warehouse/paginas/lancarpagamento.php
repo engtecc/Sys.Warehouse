@@ -67,7 +67,7 @@ $_SESSION["vendaConcluida"] = 0;
 						<p id="result"></p> 
 						<?php
 						require_once '../crud/bd.php';
-						$sql = "SELECT * FROM pessoa Order By nome ASC";
+						$sql = "SELECT * FROM cliente,pessoa where cliente.id_pessoa = pessoa.id_pessoa Order By nome ASC";
 						if ($resultado = $conexao->query($sql)){
 							if ($resultado->num_rows > 0){
 								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
@@ -81,7 +81,7 @@ $_SESSION["vendaConcluida"] = 0;
 									echo "<tr>";
 									echo "<td>" .$linha['nome']. "</td>";
 									echo "<td>" .$linha['cpf']. "</td>";
-									echo "<td class='text-center align-middle'><a href='lancarpagamento2.php?id=".$linha['id_pessoa']."'title='Editar' data-toggle='tooltip''><img src='../svg/editar.svg' width='25' height='25'></a>";
+									echo "<td class='text-center align-middle'><a href='lancarpagamento2.php?id=".$linha['id_cliente']."'title='Editar' data-toggle='tooltip''><img src='../svg/editar.svg' width='25' height='25'></a>";
 								}
 
 								echo "</tbody>";

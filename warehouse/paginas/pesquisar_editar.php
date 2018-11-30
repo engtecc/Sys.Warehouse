@@ -141,7 +141,7 @@ if ($_SESSION['administrador'] != 1){
 					$tabela_grid_dinamica .= '</tr></table>';
 				}elseif($radioValue == 5){
 					$key = $_POST["txtEmprestimo"];
-					$sql = mysqli_query($conexao,"SELECT nome,cpf,id_emprestimo,vasilhame,devolucao,data_a_devolver,rua,numero,bairro from venda as v,cliente as c,emprestimo as em,endereco as e, pessoa as p where nome like '%$key%' and c.id_cliente = em.id_cliente and em.id_venda = v.id_venda and e.id_endereco = em.id_endereco and p.id_pessoa = c.id_pessoa");
+					$sql = mysqli_query($conexao,"SELECT nome,cpf,id_emprestimo,vasilhame,devolucao,data_a_devolver,rua,numero,bairro from venda as v,cliente as c,emprestimo as em,endereco as e, pessoa as p where nome like '%$key%' and c.id_cliente = em.id_cliente and e.id_endereco = em.id_endereco and p.id_pessoa = c.id_pessoa");
 					$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
 					$tabela_grid_dinamica .= '<tr class="active" style="color:blue;width:1000px;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>Vasilhame</b></td><td><b>Devolucao</b></td><td><b>Data a devolver</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td></tr>';
 					while($row = mysqli_fetch_array($sql)){

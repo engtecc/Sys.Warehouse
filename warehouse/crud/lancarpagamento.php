@@ -3,7 +3,7 @@ require_once ('bd.php');
 
 $pesquisar = $_POST['pesquisar'];
 
-$query = mysqli_query($conexao, "SELECT * FROM pessoa WHERE nome LIKE '%$pesquisar%' Order By nome ASC");
+$query = mysqli_query($conexao, "SELECT * FROM cliente as c,pessoa as p WHERE nome LIKE '%$pesquisar%' and c.id_pessoa = p.id_pessoa Order By nome ASC");
 $num = mysqli_num_rows($query);
 
 if($num>0){
@@ -18,7 +18,7 @@ if($num>0){
         echo "<tr>";
         echo "<td>" .$row['nome']. "</td>";
         echo "<td>" .$row['cpf']. "</td>";
-        echo "<td class='text-center align-middle'><a href='lancarpagamento2.php?id=".$row['id_pessoa']."'title='Editar' data-toggle='tooltip''><img src='../svg/editar.svg' width='25' height='25'></a>";
+        echo "<td class='text-center align-middle'><a href='lancarpagamento2.php?id=".$row['id_cliente']."'title='Editar' data-toggle='tooltip''><img src='../svg/editar.svg' width='25' height='25'></a>";
     }
     
     echo "</tbody>";

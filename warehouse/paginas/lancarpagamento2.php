@@ -5,18 +5,15 @@ $id = $_GET['id'];
 
 $query = mysqli_query($conexao, "SELECT * FROM pessoa WHERE id_pessoa='$id' LIMIT 1");
 $resultado = mysqli_fetch_assoc($query);
-
+$query = mysqli_query($conexao,"SELECT divida FROM cliente WHERE id_pessoa = '$id'");
+$row = mysqli_fetch_array($query);
+$divida = $row["divida"];
 if(!isset($_SESSION['login'])){
 	header('location: ../index.php');
 }
 if ($_SESSION['administrador'] != 1){
 	header('location: venda.php');
 }
-$_SESSION["dbgrid"] = array();
-$_SESSION["dbgriddados"] = array();
-$_SESSION["valortotal"] = 0;
-$_SESSION["iterador"] = 1;
-$_SESSION["vendaConcluida"] = 0;
 ?>
 
 <!doctype html>
@@ -61,7 +58,7 @@ $_SESSION["vendaConcluida"] = 0;
 									</div>
 									<div class="form-group col-md-4">
 										<label>Dívida:</label>
-										<input class="form-control text-center" type="decimal" min="0,00" id="divida" name="divida" value="" onchange="calcularDivida()">
+										<input class="form-control text-center" type="decimal" min="0,00" id="divida" name="divida" onchange="calcularDivida()" readonly value="<?php echo($divida) ?>">
 									</div>
 									<div class="form-group col-md-4">
 										<label>Valor a ser pago:</label>

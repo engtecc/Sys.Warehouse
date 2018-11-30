@@ -12,8 +12,7 @@
 /* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
 .lblAl
 {
-  text-align: right;
-  vertical-align: center;
+  text-align: left;
 }
 .confcod
 {
