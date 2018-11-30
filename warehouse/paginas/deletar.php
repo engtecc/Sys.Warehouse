@@ -36,7 +36,7 @@ if ($_SESSION['administrador'] != 1){
 	
 	<div class="row" style="margin-top:80px">
 		<div class="col-md-4"></div>
-		<div class="col-md-4 mt-3">
+		<div class="col-md-5 mt-3">
 			<center> 
 				<?php
 					$codigo = $_GET["del"];
@@ -48,13 +48,13 @@ if ($_SESSION['administrador'] != 1){
 						</div>
 						<div class="row">
 						<div class="col-md-6">
-							<a  style="padding:30px;width:150px;"class="btn btn-success" href="deletarvenda.php?del='.$codigo.'" role="button">EXCLUIR</a>
+							<a  style="padding:30px;width:150px; float:right; font-weight:bold;"class="btn btn-success" href="../crud/deletarvenda.php?del='.$codigo.'" role="button">EXCLUIR</a>
 						</div>
 						<div class="col-md-6">
-							<a style="padding:30px;width:150px;" class="btn btn-danger" href="venda.php" role="button">CANCELAR</a>
+							<a style="padding:30px;width:150px; float:left;font-weight:bold;" class="btn btn-danger" href="venda.php" role="button">CANCELAR</a>
 						</div>
-					</div>'
-					);
+					</div>
+					');
 				?>	
 			</center>	
 		</div>

@@ -11,6 +11,7 @@ $_SESSION["dbgriddados"] = array();
 $_SESSION["valortotal"] = 0;
 $_SESSION["iterador"] = 1;
 $_SESSION["vendaConcluida"] = 0;
+$_SESSION["quantidadeTotal"] = 0;
 ?>
 
 <!doctype html>
