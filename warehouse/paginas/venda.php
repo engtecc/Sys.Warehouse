@@ -141,10 +141,9 @@ if ($_SESSION['administrador'] == 0){
 		{
 			if($_POST["txtQuantidade"]!= "")
 			{
+				$quantidade = $_POST["txtQuantidade"];
 				if($_POST["txtQuantidade"] <= $qtd)
 				{
-					$quantidade = $_POST["txtQuantidade"];
-
 					$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
 					$tabela = '<thead class="thead-light">
 					<tr style="text-align: center;">
@@ -155,15 +154,17 @@ if ($_SESSION['administrador'] == 0){
 					<th style="width: 15%;">'.$quantidade*$preco.'</th>	
 					<th style="width:5%;"><a href="deletar.php?del='.($_SESSION["iterador"]-1).'"><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
 					</tr></thead>';
-
+					
+					
 					array_push($_SESSION["dbgriddados"],$codigo);
 					array_push($_SESSION["dbgriddados"],$nome);
 					array_push($_SESSION["dbgriddados"],$data);
 					array_push($_SESSION["dbgriddados"],$quantidade);
+					
 					array_push($_SESSION["dbgriddados"],$quantidade*$preco);
 					array_push($_SESSION["dbgrid"],$tabela);
 					$_SESSION["iterador"] = $_SESSION["iterador"] +1;
-
+					
 					echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
 				}else{
 					echo("<script language='javascript'>$('#modalfalha').modal('show'); </script>");

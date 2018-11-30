@@ -18,7 +18,7 @@
         
         $_SESSION["iterador"] = 1;
         $_SESSION["vendaConcluida"] = 3;
-        header("location: venda.php");
+        header("location: ../paginas/venda.php");
         
     }
 
