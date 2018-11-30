@@ -51,13 +51,22 @@ if ($_SESSION['administrador'] != 1){
 		$pesquisa = 
 			'
 			<div class="row rowForm">
-				<div class="col-md-3 lblal">
+				<div class="col-md-2 lblal">
 					<label style="margin-top:10px;">Nome/CPF: </label>
 				</div>
-				<div class="col-md-5">
-					<input type="text" id="txtPesquisar" name="txtPesquisar"  class="form-control" value="">
+				<div class="col-md-3">
+					<input type="text" style="width:200px;" id="txtPesquisar" name="txtPesquisar"  class="form-control" value="">
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-2"style="margin-left:20px;margin-top:7px;">Pagamento:</div>
+				<div class="col-md-3" ">
+				
+					<select id="selPag" name="selPag" style="width:150px;" class="form-control" >
+						<option value="avista">À vista</option>
+						<option value="prazo">À prazo</option>
+						<option value="cartao">Cartão</option>
+					</select>
+				</div>
+				<div class="col-md-1" style="margin-left:12px;">
 					<input type="submit" style="float:left; width:90px; margin-left:-25px;" id="btnPesquisar" name="btnPesquisar" class="btn btn-warning" value="Buscar">
 				</div>
 			</div>
@@ -69,7 +78,7 @@ if ($_SESSION['administrador'] != 1){
 			$key = $_POST["txtPesquisar"];
 			if($key != "")
 			{
-				$select  = "SELECT nome,cpf,rg,limite_de_credito FROM cliente as c,(SELECT id_pessoa,nome,cpf,rg FROM pessoa WHERE nome LIKE '%$key%' OR cpf LIKE '%$key%') as p WHERE c.id_pessoa = p.id_pessoa";
+				$select  = "SELECT nome,cpf,rg,limite_de_credito,divida FROM cliente as c,(SELECT id_pessoa,nome,cpf,rg FROM pessoa WHERE nome LIKE '%$key%' OR cpf LIKE '%$key%') as p WHERE c.id_pessoa = p.id_pessoa";
 				$resultado = mysqli_query($conexao,$select);
 				$cont = mysqli_num_rows($resultado);
 				if($cont == 1)
@@ -78,33 +87,42 @@ if ($_SESSION['administrador'] != 1){
 					$nome = $row["nome"];
 					$cpf = $row["cpf"];
 					$rg = $row["rg"];
-					$limite = $row["limite_de_credito"]  - $_SESSION["valortotal"];
+					$limite = $row["limite_de_credito"];
+					$divida = $row["divida"];
 					$pesquisado = 
 						'
 						<div class="row rowForm">
-							<div class="col-md-3 lblAl">
+							<div class="col-md-2 lblAl">
 								<label>CPF: </label>
 							</div>
 							<div class="col-md-3">
 								<input class="form-control" type="text" id="txtCPF" value="'.$cpf.'" readonly>
 							</div>
-							<div class="col-md-3 lblAl">
-								<label style="float: left; margin-left: 110px;">RG: </label>
+							<div class="col-md-2"></div>
+							<div class="col-md-2 lblAl">
+								<label style="float: left; margin-left: 30px; margin-top:5px;">RG: </label>
 							</div>
 							<div class="col-md-3">
 								<input class="form-control" type="text" id="txtRG"value="'.$rg.'" readonly>
 							</div>
 						</div>
 						<div class="row rowForm">
-							<div class="col-md-3 lblAl">
+							<div class="col-md-2 lblAl">
 								<label>Nome: </label>
 							</div>
-							<div class="col-md-9">
-								<input class="form-control" type="text" class="confTxtBox" id="txtNome" value="'.$nome.'" readonly>
+							<div class="col-md-10">
+								<input width="540px" class="form-control" type="text" class="confTxtBox" id="txtNome" value="'.$nome.'" readonly>
 							</div>
 						</div>
 						<div class="row rowForm">
-							<div class="col-md-3 lblAl">
+							<div class="col-md-2 lblAl">
+								<label style="float: left; margin-top:7px;" >Divida: </label>
+							</div>
+							<div class="col-md-3">
+								<input class="form-control" type="number" step="any" id="numLimite" value="'.$divida.'" readonly>
+							</div>
+							<div class="col-md-1"></div>
+							<div class="col-md-3 lblAl" style="margin-top:7px;">
 								<label style="float: left;">Limite Restante: </label>
 							</div>
 							<div class="col-md-3">
@@ -113,8 +131,10 @@ if ($_SESSION['administrador'] != 1){
 						</div>
 						'
 					;
+					$divida = $divida + $_SESSION["valortotal"];
+					$limite = $limite - $_SESSION["valortotal"];
 					$tipo = $_POST["selPag"];
-					$link = "../crud/vendaClienteInserir.php?key=$key&limite=$limite&tipo=$tipo";
+					$link = "../crud/vendaClienteInserir.php?key=$key&limite=$limite&tipo=$tipo&divida=$divida";
 				}else{
 					echo("<script language='javascript'>$('#modalpesquisar').modal('show'); </script>");
 				}
@@ -142,31 +162,16 @@ if ($_SESSION['administrador'] != 1){
 							</div> 
 							<?php echo($pesquisa);?>
 							<?php echo($pesquisado)?>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Forma de Pagamento: </label>
-								</div>
-								<div class="col-md-3">
-									<select id="selPag" name="selPag" class="form-control" >
-										<option value="avista">À vista</option>
-										<option value="prazo">À prazo</option>
-										<option value="cartao">Cartão</option>
-									</select>
-								</div>
-								<div class="col-md-3 lblAl">
-									<a href="emprestimo.php"></a>
-								</div>
-							</div>
 							<div class="row rowForm rowTable">
 								<div class="col-md-3 lblAl">
 									<label style="font-weight: bold;">Produtos da Compra:</label>
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
+									
 								</div>
 								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
+									
 								</div>
 							</div>
 							<div style="height: 10px;"></div>
@@ -201,7 +206,7 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-6">
-									<a id="btnEmpre" class="btn btn-outline-info ">Empréstimo</a>
+									
 								</div>
 								<div class="col-md-6">
 									<a id="btnFinalizar" href="<?php echo($link); ?>" class="btn btn-success">Finalizar Compra</a>

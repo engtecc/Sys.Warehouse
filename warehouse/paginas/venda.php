@@ -134,7 +134,7 @@ if ($_SESSION['administrador'] == 0){
 				{
 
 					$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
-					$tabela = '<thead class="thead-light">
+					$tabela = '
 					<tr style="text-align: center;">
 					<th style="width: 5%;">'.$_SESSION["iterador"].'</th>
 					<th style="width: 55%;">'.$nome.'</th>
@@ -142,7 +142,7 @@ if ($_SESSION['administrador'] == 0){
 					<th style="width: 5%;">'.$quantidade.'</th>
 					<th style="width: 15%;">'.$quantidade*$preco.'</th>	
 					<th style="width:5%;"><a href="deletar.php?del='.($_SESSION["iterador"]-1).'"><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
-					</tr></thead>';
+					</tr>';
 						
 					array_push($_SESSION["dbgriddados"],$codigo);
 					array_push($_SESSION["dbgriddados"],$nome);
@@ -213,13 +213,13 @@ if ($_SESSION['administrador'] == 0){
 												<th style="width: 15%;">Preço Total</th>
 												<th style="width:5%;">Excluir</th>	
 											</tr>
-											<?php
-												foreach($_SESSION["dbgrid"] as $key => $valor)
-												{
-													echo($valor);
-												}
-											?>
 										</thead>
+										<?php
+											foreach($_SESSION["dbgrid"] as $key => $valor)
+											{
+												echo($valor);
+											}
+										?>
 									</table>
 								</div>
 							</div>

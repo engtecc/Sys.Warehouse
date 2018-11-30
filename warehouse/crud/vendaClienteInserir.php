@@ -36,10 +36,13 @@
     $select  = "SELECT id_cliente FROM cliente as c,(SELECT id_pessoa FROM pessoa WHERE nome LIKE '%$key%' OR cpf LIKE '%$key%') as p WHERE c.id_pessoa = p.id_pessoa";
     $row = mysqli_fetch_array(mysqli_query($conexao,$select));
     $id_cliente = $row["id_cliente"];
-    $tipo = $_GET["tipo"];
+    $tipo = $_POST["tipo"];
+    $divida = $_GET["divida"];
+    echo($divida);
     if($tipo == "prazo")
     {
-        $update = "UPDATE cliente set limite_de_credito = '$limite' WHERE id_cliente = '$id_cliente'";
+        $update = "UPDATE cliente set limite_de_credito = '$limite', divida='$divida' WHERE id_cliente = '$id_cliente'";
+        echo('entrei');
         mysqli_query($conexao,$update);
     }
     $insert = "INSERT INTO venda(id_funcionario,id_cliente,data_horario,tipo,valor_total) VALUES ('$id_funcionario','$id_cliente','$dataatual','$tipo','$v')";
@@ -67,5 +70,5 @@
     $_SESSION["dbgrid"]= array();
     $_SESSION["iterador"] = 1;
     $_SESSION["vendaConcluida"] = 1;
-    header("Location: ../paginas/venda.php");
+    //header("Location: ../paginas/venda.php");
 ?>
