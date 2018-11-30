@@ -46,7 +46,7 @@ $_SESSION["vendaConcluida"] = 0;
 				<div class="container marketing">
 					<div class="row">
 						<div class="col-lg-4 espacamento">
-							<a class="text-opcoes" href="venda.php"><img class="rounded-circle" src="../imagens/venda.png" alt="Generic placeholder image" width="100" height="100"><h5>Venda</h5></a>
+							<a class="text-opcoes" href="venda.php"><img class="rounded-circle" src="../imagens/venda.png" alt="Generic placeholder image" width="100" height="100"><h5>Vendas</h5></a>
 						</div>
 						<div class="col-lg-4 espacamento">
 							<a class="text-opcoes" href="cadcliente.php"><img class="rounded-circle" src="../imagens/cliente.png" alt="Generic placeholder image" width="100" height="100"><h5>Cadastrar<br>cliente</h5></a>
@@ -74,6 +74,9 @@ $_SESSION["vendaConcluida"] = 0;
 						</div>
 						<div class="col-lg-4 text-center espacamento">
 							<a class="text-opcoes" href="lancarpagamento.php"><img class="rounded-circle" src="../imagens/lancar_pagamento.png" alt="Generic placeholder image" width="100" height="100"><h5>Lançar<br>pagamento</h5></a>
+						</div>
+						<div class="col-lg-4 text-center espacamento">
+							<a class="text-opcoes" href="emprestimo.php"><img class="rounded-circle" src="../imagens/emprestimo.png" alt="Generic placeholder image" width="100" height="100"><h5>Empréstimo</h5></a>
 						</div>
 						<div class="col-lg-4 text-center espacamento">
 							<a class="text-opcoes" href="backup.php"><img class="rounded-circle" src="../imagens/backup.png" alt="Generic placeholder image" width="100" height="100"><h5>Backup</h5></a>
