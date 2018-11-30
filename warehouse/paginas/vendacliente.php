@@ -45,10 +45,10 @@ if ($_SESSION['administrador'] != 1){
 							<div class="row rowForm">
 								<div class="col-md-6" align="right"></div>
 								<div class="col-md-3">
-									<a id="btnAdicionar" class="btn btn-outline-primary" href="cadCliente.php" role="button">Cadastrar Cliente</a>
+									<a id="btnAdicionar" class="btn btn-outline-primary" href="principal.php" role="button">Cadastrar Cliente</a>
 								</div>
 								<div class="col-md-3" align="center">
-									<a id="btnCancelar" class="btn btn-danger" href="venda.php" role="button">Cancelar</a>
+									<a id="btnCancelar" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
 								</div>
 							</div> 
 							<div class="row rowForm">
@@ -56,13 +56,13 @@ if ($_SESSION['administrador'] != 1){
 									<label>CPF: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control" type="text" id="txtCPF">
+									<input type="text" id="txtCPF" placeholder=" Somente Números">
 								</div>
 								<div class="col-md-3 lblAl">
 									<label style="float: left; margin-left: 110px;">RG: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control" type="text" id="txtRG">
+									<input type="text" id="txtRG" placeholder=" Somente Números">
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -70,7 +70,7 @@ if ($_SESSION['administrador'] != 1){
 									<label>Nome: </label>
 								</div>
 								<div class="col-md-9">
-									<input class="form-control" type="text" class="confTxtBox" id="txtNome">
+									<input type="text" class="confTxtBox" id="txtNome">
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -78,13 +78,13 @@ if ($_SESSION['administrador'] != 1){
 									<label>Quantidade: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control" type="number" id="numQuant">
+									<input type="number" id="numQuant">
 								</div>
 								<div class="col-md-3 lblAl">
 									<label style="float: left; margin-left: 25px;">Limite Restante: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control" type="number" step="any" id="numLim">
+									<input type="number" step="any" id="numLim">
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -92,7 +92,7 @@ if ($_SESSION['administrador'] != 1){
 									<label>Forma de Pagamento: </label>
 								</div>
 								<div class="col-md-3">
-									<select id="selPag" class="form-control" >
+									<select id="selPag">
 										<option selected>...</option>
 										<option>Á vista</option>
 										<option></option>
@@ -109,10 +109,10 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									
+									<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
 								</div>
 								<div class="col-md-2">
-									
+									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
 								</div>
 							</div>
 							<div style="height: 10px;"></div>
@@ -126,12 +126,6 @@ if ($_SESSION['administrador'] != 1){
 											<th style="width: 5%;">Quant.</th>
 											<th style="width: 15%;">Preço Total</th>	
 										</tr>
-										<?php
-											foreach($_SESSION["dbgrid"] as $key => $valor)
-											{
-												echo($valor);
-											}
-										?>
 									</thead>
 								</table>
 							</div>
@@ -141,12 +135,12 @@ if ($_SESSION['administrador'] != 1){
 									<h2>Valor da Compra:</h2>
 								</div>
 								<div class="col-md-6">
-									<input type="number" class="form-control" step="any" id="numTotal" value=<?php echo($_SESSION["valortotal"]) ?>>
+									<input type="number" step="any" id="numTotal" value="0000.00">
 								</div>
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-6">
-									<a id="btnEmpre" class="btn btn-outline-info" href="emprestimo.php">Empréstimo</a>
+									<a id="btnEmpre" class="btn btn-outline-info ">Empréstimo</a>
 								</div>
 								<div class="col-md-6">
 									<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>

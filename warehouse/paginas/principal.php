@@ -72,6 +72,12 @@ $_SESSION["vendaConcluida"] = 0;
 						<div class="col-lg-4 espacamento">
 							<a class="text-opcoes" href="relatorios.php"><img class="rounded-circle" src="../imagens/relatorios.png" alt="Generic placeholder image" width="100" height="100"><h5>Relatórios</h5></a>
 						</div>
+						<div class="col-lg-4 text-center espacamento">
+							<a class="text-opcoes" href="lancarpagamento.php"><img class="rounded-circle" src="../imagens/lancar_pagamento.png" alt="Generic placeholder image" width="100" height="100"><h5>Lançar<br>pagamento</h5></a>
+						</div>
+						<div class="col-lg-4 text-center espacamento">
+							<a class="text-opcoes" href="backup.php"><img class="rounded-circle" src="../imagens/backup.png" alt="Generic placeholder image" width="100" height="100"><h5>Backup</h5></a>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-5 mt-5" align="center">
