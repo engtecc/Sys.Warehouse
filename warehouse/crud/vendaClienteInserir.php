@@ -37,7 +37,6 @@
     $row = mysqli_fetch_array(mysqli_query($conexao,$select));
     $id_cliente = $row["id_cliente"];
     $tipo = $_GET["tipo"];
-    echo($tipo);
     if($tipo == "prazo")
     {
         $update = "UPDATE cliente set limite_de_credito = '$limite' WHERE id_cliente = '$id_cliente'";
