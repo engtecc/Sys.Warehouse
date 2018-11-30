@@ -134,23 +134,70 @@ if ($_SESSION['administrador'] != 1){
 							<div class="row rowForm">
 								<div class="col-md-6" align="right"></div>
 								<div class="col-md-3">
-									<a id="btnAdicionar" class="btn btn-outline-primary" href="cadCliente.php" role="button">Cadastrar Cliente</a>
+									<a id="btnAdicionar" class="btn btn-outline-primary" href="principal.php" role="button">Cadastrar Cliente</a>
 								</div>
 								<div class="col-md-3" align="center">
-									<a id="btnCancelar" class="btn btn-danger" href="venda.php" role="button">Cancelar</a>
+									<a id="btnCancelar" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
 								</div>
 							</div> 
+<<<<<<< HEAD
 							<?php echo($pesquisa);?>
 							<?php echo($pesquisado)?>
+=======
+							<div class="row rowForm">
+								<div class="col-md-3 lblAl">
+									<label>CPF: </label>
+								</div>
+								<div class="col-md-3">
+									<input type="text" id="txtCPF" placeholder=" Somente Números">
+								</div>
+								<div class="col-md-3 lblAl">
+									<label style="float: left; margin-left: 110px;">RG: </label>
+								</div>
+								<div class="col-md-3">
+									<input type="text" id="txtRG" placeholder=" Somente Números">
+								</div>
+							</div>
+							<div class="row rowForm">
+								<div class="col-md-3 lblAl">
+									<label>Nome: </label>
+								</div>
+								<div class="col-md-9">
+									<input type="text" class="confTxtBox" id="txtNome">
+								</div>
+							</div>
+							<div class="row rowForm">
+								<div class="col-md-3 lblAl">
+									<label>Quantidade: </label>
+								</div>
+								<div class="col-md-3">
+									<input type="number" id="numQuant">
+								</div>
+								<div class="col-md-3 lblAl">
+									<label style="float: left; margin-left: 25px;">Limite Restante: </label>
+								</div>
+								<div class="col-md-3">
+									<input type="number" step="any" id="numLim">
+								</div>
+							</div>
+>>>>>>> 1fb9a16f560606654a7760131e816a20c1389003
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
 									<label>Forma de Pagamento: </label>
 								</div>
 								<div class="col-md-3">
+<<<<<<< HEAD
 									<select id="selPag" name="selPag" class="form-control" >
 										<option value="avista">À vista</option>
 										<option value="prazo">À prazo</option>
 										<option value="cartao">Cartão</option>
+=======
+									<select id="selPag">
+										<option selected>...</option>
+										<option>Á vista</option>
+										<option></option>
+										<option></option>
+>>>>>>> 1fb9a16f560606654a7760131e816a20c1389003
 									</select>
 								</div>
 								<div class="col-md-3 lblAl">
@@ -163,10 +210,10 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									
+									<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
 								</div>
 								<div class="col-md-2">
-									
+									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
 								</div>
 							</div>
 							<div style="height: 10px;"></div>
@@ -181,12 +228,6 @@ if ($_SESSION['administrador'] != 1){
 											<th style="width: 15%;">Preço Total</th>
 											<th style="width: 5%;">Excluir</th>	
 										</tr>
-										<?php
-											foreach($_SESSION["dbgrid"] as $key => $valor)
-											{
-												echo($valor);
-											}
-										?>
 									</thead>
 								</table>
 							</div>
@@ -196,12 +237,12 @@ if ($_SESSION['administrador'] != 1){
 									<h2>Valor da Compra:</h2>
 								</div>
 								<div class="col-md-6">
-									<input type="number" class="form-control" step="any" id="numTotal" value=<?php echo($_SESSION["valortotal"]) ?>>
+									<input type="number" step="any" id="numTotal" value="0000.00">
 								</div>
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-6">
-									<a id="btnEmpre" class="btn btn-outline-info" href="emprestimo.php">Empréstimo</a>
+									<a id="btnEmpre" class="btn btn-outline-info ">Empréstimo</a>
 								</div>
 								<div class="col-md-6">
 									<a id="btnFinalizar" href="<?php echo($link); ?>" class="btn btn-success">Finalizar Compra</a>

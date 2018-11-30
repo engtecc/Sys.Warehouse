@@ -44,3 +44,77 @@ body {
     margin-top: 30px;
     text-align: center;
 }
+
+
+
+
+.menu ul {font-size: 15px; margin: 0 auto;}
+
+.navbar{
+    background-color: #151515 !important;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.active{
+    font-weight: 700 !important;
+    text-decoration: underline;
+    color: white;
+}
+
+.nav-link:hover{
+    text-decoration: underline !important;
+}
+
+.dropdown-item:hover{
+    color: black;
+}
+
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #151515;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd !important;
+}
+
+.dropdown-content a:active {
+    background-color: #ddd !important;
+    color: black;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.formatacao{
+    font-family: arial;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 12px;
+}

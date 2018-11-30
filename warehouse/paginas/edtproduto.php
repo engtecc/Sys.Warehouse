@@ -58,7 +58,7 @@ if ($_SESSION['administrador'] != 1){
 		</div>
 		<?php
 			require_once ("../crud/bd.php");
-			$nomeInput = $codigoInput = $preco_compraInput = $preco_vendaInput = $quantidadeInput = "";
+			$nomeInput = $codigoInput = $preco_compraInput = $preco_vendaInput = $quantidadeInput = $validadeInput = "";
 			if($_SERVER["REQUEST_METHOD"] == "GET")
 			{
 				$codigo = $_GET["pesq"];
@@ -73,12 +73,14 @@ if ($_SESSION['administrador'] != 1){
 					$preco_compraInput = "<input class='form-control form-control-sm' type='text' id='txtPrecoCompra' name='txtPrecoCompra' value='$preco_compra'>";
 					$quantidade = $row["quantidade_estoque"];
 					$quantidadeInput = "<input class='form-control form-control-sm' type='text' id='txtQuantidade' name='txtQuantidade' value='$quantidade'>";
+					$validade = $row["validade"];
+					$validadeInput = "<input class='form-control form-control-sm' style='width: 230px; height: 28px;'type='date' id='txtValidade' name='txtValidade' value='$validade'>";
 					
 				}
 			}
 			if($_SERVER["REQUEST_METHOD"] == "POST")
 			{
-				$codigo_de_barras = $nome = $preco_de_venda = $preco_de_compra = $quantidade_estoque = $aux  = "";
+				$codigo_de_barras = $nome = $preco_de_venda = $preco_de_compra = $quantidade_estoque = $validade = $aux  = "";
 				if($_SERVER["REQUEST_METHOD"] == "POST"){
 					
 					$codigo_de_barras = $_POST["txtCodigoBarras"];
@@ -86,7 +88,9 @@ if ($_SESSION['administrador'] != 1){
 					$preco_de_venda = $_POST["txtPrecoVenda"];
 					$preco_de_compra = $_POST["txtPrecoCompra"];
 					$quantidade_estoque = $_POST["txtQuantidade"];
-					$sql = "UPDATE produto SET codigo_de_barras = '$codigo_de_barras', nome ='$nome', preco_de_venda = '$preco_de_venda',preco_de_compra= '$preco_de_compra',quantidade_estoque = '$quantidade_estoque'  where codigo_de_barras = '$codigo_de_barras'";					
+					$validade = $_POST["txtValidade"];
+					$sql = "UPDATE produto SET codigo_de_barras = '$codigo_de_barras', nome ='$nome', preco_de_venda = '$preco_de_venda',preco_de_compra= '$preco_de_compra',quantidade_estoque = '$quantidade_estoque' ,validade ='$validade' where codigo_de_barras = '$codigo_de_barras'";
+					
 					if($stmt = $conexao->prepare($sql))
 					{
 						
@@ -151,6 +155,14 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 									<div class="col-md-9">
 										<?php echo($preco_vendaInput); ?>
+									</div>
+								</div>
+								<div class="row rowForm">
+									<div class="col-md-3 lblAl">
+										<label>Validade: </label>
+									</div>
+									<div class="col-md-9">
+										<?php echo($validadeInput); ?>
 									</div>
 								</div>
 								<div class="row rowForm">

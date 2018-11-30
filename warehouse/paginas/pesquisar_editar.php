@@ -38,7 +38,7 @@ if ($_SESSION['administrador'] != 1){
 				if($radioValue == 1)
 				{
 					$key = $_POST["txtProduto"];
-					$sql = mysqli_query($conexao,"SELECT codigo_de_barras,nome,preco_de_venda,preco_de_compra,quantidade_estoque from produto where nome like '%$key%'");
+					$sql = mysqli_query($conexao,"SELECT codigo_de_barras,nome,preco_de_venda,preco_de_compra,quantidade_estoque,validade from produto where nome like '%$key%'");
 					$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
 					$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Código de barras</b></td><td><b>Nome</b></td><td><b>Preço de venda</b></td><td><b>Preço de compra</b></td><td><b>Quantidade</b></td><td><b>Validade</b></td><td><b><Editar</b></td></tr>';
 					while($row = mysqli_fetch_array($sql)){
@@ -48,12 +48,14 @@ if ($_SESSION['administrador'] != 1){
 						$preco_venda = $row["preco_de_venda"];
 						$preco_compra = $row["preco_de_compra"];
 						$quantidade = $row["quantidade_estoque"];
+						$valide = $row["validade"];
 
 						$tabela_grid_dinamica .= '<tr><td>' .$id. '</td>';
 						$tabela_grid_dinamica .= '<td>'.$nome. '</td>';
 						$tabela_grid_dinamica .= '<td>'. $preco_venda .'</td>';
 						$tabela_grid_dinamica .= '<td>'. $preco_compra .'</td>';
-						$tabela_grid_dinamica .= '<td>'. $quantidade .'</td>';		
+						$tabela_grid_dinamica .= '<td>'. $quantidade .'</td>';
+						$tabela_grid_dinamica .= '<td>'. $valide .'</td>';		
 						$tabela_grid_dinamica .= '<td> <a href="edtproduto.php?pesq='.$id.'"><img src="../imagens/iconEditar.png"></a>';
 					}
 					$tabela_grid_dinamica .= '</tr></table>';
@@ -79,6 +81,7 @@ if ($_SESSION['administrador'] != 1){
 						$tabela_grid_dinamica .= '<td>'. $rua .'</td>';
 						$tabela_grid_dinamica .= '<td>'. $numero .'</td>';
 						$tabela_grid_dinamica .= '<td>'. $bairro .'</td>';
+						echo($id);
 						$tabela_grid_dinamica .= '<td align="center" valign="center"><a href="edtfuncionario.php?pesq='.$id.'"><img src="../imagens/iconEditar.png"></a></td>';
 					}
 					$tabela_grid_dinamica .= '</tr></table>';
@@ -108,7 +111,7 @@ if ($_SESSION['administrador'] != 1){
 					$tabela_grid_dinamica .= '</tr></table>';
 				}elseif($radioValue == 4){
 					$key = $_POST["txtCliente"];
-					$sql = mysqli_query($conexao,"SELECT * from cliente as c,pessoa as p,endereco as e,referenci_comercial as r where nome like '%$key%' and c.id_pessoa = p.id_pessoa and c.id_referencia_comercial = r.id_referencia_comercia and p.id_endereco = e.id_endereco");
+					$sql = mysqli_query($conexao,"SELECT * from cliente as c,pessoa as p,endereco as e,referenci_comercial as r where nome like '%$key%' and c.id_pessoa = p.id_pessoa and c.id_referencia_comercial = r.id_referencia_comercial and p.id_endereco = e.id_endereco");
 					$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
 					$tabela_grid_dinamica .= '<tr class="active" style="color:blue;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>RG</b></td><td><b>Telefone</b></td><td><b>Limite</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td><td><b>Referencia 1</b></td><td><b>Referencia 2</b></td><td><b>Referencia 3</b></td><td><b>Editar</b></td></tr>';
 					while($row = mysqli_fetch_array($sql)){
@@ -141,7 +144,7 @@ if ($_SESSION['administrador'] != 1){
 					$tabela_grid_dinamica .= '</tr></table>';
 				}elseif($radioValue == 5){
 					$key = $_POST["txtEmprestimo"];
-					$sql = mysqli_query($conexao,"SELECT vasilhame,devolucao,data_a_devolver,rua,numero,bairro from  emprestimo as em,endereco as e where vasilhame like '%$key%' and e.id_endereco = em.id_endereco;");
+					$sql = mysqli_query($conexao,"SELECT nome,cpf,vasilhame,devolucao,data_a_devolver,rua,numero,bairro from pessoa as p,venda as v,cliente as c,emprestimo as em,endereco as e where nome like '%$key%' and p.id_pessoa = c.id_pessoa and c.id_cliente = v.id_cliente and em.id_emprestimo = v.id_emprestimo and e.id_endereco = em.id_endereco;");
 					$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover">';
 					$tabela_grid_dinamica .= '<tr class="active" style="color:blue;width:1000px;"><td><b>Nome</b></td><td><b>CPF</b></td><td><b>Vasilhame</b></td><td><b>Devolucao</b></td><td><b>Data a devolver</b></td><td><b>Rua</b></td><td><b>Numero</b></td><td><b>Bairro</b></td></tr>';
 					while($row = mysqli_fetch_array($sql)){
@@ -257,7 +260,7 @@ if ($_SESSION['administrador'] != 1){
 												<label>Empréstimo:</label>
 											</div>
 											<div class="col-md-2">
-												<input class="form-control form-control-sm" type="text" id="txtEmprestimo" name="txtEmprestimo" placeholder="Nome do vasilhame">
+												<input class="form-control form-control-sm" type="text" id="txtEmprestimo" name="txtEmprestimo" placeholder="Nome do cliente">
 											</div>
 										</div>
 									</div>

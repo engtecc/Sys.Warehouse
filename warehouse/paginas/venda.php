@@ -74,18 +74,6 @@ if ($_SESSION['administrador'] == 0){
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="modalfalha" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title text-error" id="modalfalha">Falha ao adicionar! Quantidade indisponivel no estoque.</h5>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="modal fade" id="modalvendaok" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -129,12 +117,11 @@ if ($_SESSION['administrador'] == 0){
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$codigo = $_POST["txtCodBarras"];
-		$select  = "SELECT nome,preco_de_venda,quantidade_estoque from produto where codigo_de_barras = '$codigo'";
+		$select  = "SELECT nome,preco_de_venda from produto where codigo_de_barras = '$codigo'";
 		$sql = mysqli_query($conexao,$select);
 		$resultado = mysqli_fetch_array($sql);
 		$nome = $resultado["nome"];
 		$preco = $resultado["preco_de_venda"];
-		$qtd = $resultado["quantidade_estoque"];
 		$data = date('Y-m-d');
 		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="date" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="number" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
 		if(isset($_POST["btnAdicionar"]))
@@ -144,6 +131,17 @@ if ($_SESSION['administrador'] == 0){
 				$quantidade = $_POST["txtQuantidade"];
 				if($_POST["txtQuantidade"] <= $qtd)
 				{
+
+				$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
+				$tabela = '<thead class="thead-light">
+				<tr style="text-align: center;">
+				<th style="width: 5%;">'.$_SESSION["iterador"].'</th>
+				<th style="width: 55%;">'.$nome.'</th>
+				<th style="width: 15%;">'.$preco.'</th>
+				<th style="width: 5%;">'.$quantidade.'</th>
+				<th style="width: 15%;">'.$quantidade*$preco.'</th>	
+				<th style="width:5%;"><a href=""><img src="../imagens/delete.png" style="width:25px;height:25px;"></a></th>
+				</tr></thead>';
 					$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
 					$tabela = '<thead class="thead-light">
 					<tr style="text-align: center;">
@@ -169,6 +167,16 @@ if ($_SESSION['administrador'] == 0){
 				}else{
 					echo("<script language='javascript'>$('#modalfalha').modal('show'); </script>");
 				}
+
+				array_push($_SESSION["dbgriddados"],$codigo);
+				array_push($_SESSION["dbgriddados"],$nome);
+				array_push($_SESSION["dbgriddados"],$data);
+				array_push($_SESSION["dbgriddados"],$quantidade);
+				array_push($_SESSION["dbgriddados"],$quantidade*$preco);
+				array_push($_SESSION["dbgrid"],$tabela);
+				$_SESSION["iterador"] = $_SESSION["iterador"] +1;
+
+				echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
 			}else{
 				echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
 			}
