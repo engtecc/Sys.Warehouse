@@ -265,7 +265,7 @@ if ($_SESSION['administrador'] != 1){
 								<div class="row rowForm">
 									<div class="col-md-9"></div>
 									<div class="col-md-3" align="center">
-										<input type="submit" class="btn btn-warning" id="btnCancelar" value="Pesquisar">
+										<input type="submit" class="btn btn-success" id="btnCancelar" value="Pesquisar">
 									</div>
 								</div> 
 								<div class="row">
