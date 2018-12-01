@@ -106,8 +106,8 @@ if ($_SESSION['administrador'] == 0){
 				$nome = $resultado["nome"];
 				$preco = $resultado["preco_de_venda"];
 				$qtd = $resultado["quantidade_estoque"];
-				$data = date('Y-m-d');
-				$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="text" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="text" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
+				$data = date('d/m/y');
+				$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="text" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="number" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
 				if(isset($_POST["btnAdicionar"]))
 				{
 					if($_POST["txtQuantidade"]!= "")

@@ -36,7 +36,7 @@
     $select  = "SELECT id_cliente FROM cliente as c,(SELECT id_pessoa FROM pessoa WHERE nome LIKE '%$key%' OR cpf LIKE '%$key%') as p WHERE c.id_pessoa = p.id_pessoa";
     $row = mysqli_fetch_array(mysqli_query($conexao,$select));
     $id_cliente = $row["id_cliente"];
-    $tipo = $_POST["tipo"];
+    $tipo = $_GET["tipo"];
     $divida = $_GET["divida"];
     echo($divida);
     if($tipo == "prazo")
@@ -70,5 +70,5 @@
     $_SESSION["dbgrid"]= array();
     $_SESSION["iterador"] = 1;
     $_SESSION["vendaConcluida"] = 1;
-    //header("Location: ../paginas/venda.php");
+    header("Location: ../paginas/venda.php");
 ?>
