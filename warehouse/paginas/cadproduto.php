@@ -92,16 +92,22 @@ if ($_SESSION['administrador'] != 1){
 								<div class="col-md-3 lblAl">
 									<label>Preço de compra: </label>
 								</div>
-								<div class="col-md-9">
-									<input class="form-control form-control-sm" type="text" id="txtPrecoCompra" name="txtPrecoCompra" value="" required placeholder="R$">
+								<div class="input-group input-group-sm mb-3 col-md-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="inputGroup-sizing-sm">R$</span>
+									</div>
+									<input class="form-control form-control-sm " type="text" style="width: 5%; " id="txtPrecoCompra" name="txtPrecoCompra" value="" required placeholder="000.00">
 								</div>
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
 									<label>Preço de venda: </label>
 								</div>
-								<div class="col-md-9">
-									<input class="form-control form-control-sm" type="text" id="txtPrecoVenda" name="txtPrecoVenda" value="" required placeholder="R$">
+								<div class="input-group input-group-sm mb-3 col-md-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="inputGroup-sizing-sm">R$</span>
+									</div>
+									<input class="form-control form-control-sm" type="text" style="width: 80%;" id="txtPrecoVenda" name="txtPrecoVenda" value="" required placeholder="000.00">
 								</div>
 							</div>
 							<div class="row rowForm">
