@@ -3,7 +3,7 @@ require_once ('bd.php');
 
 $pesquisar = $_POST['pesquisar'];
 
-$query = mysqli_query($conexao, "SELECT * FROM cliente as c,pessoa as p WHERE nome LIKE '%$pesquisar%' and c.id_pessoa = p.id_pessoa Order By nome ASC");
+$query = mysqli_query($conexao, "SELECT * FROM cliente as c,pessoa as p WHERE nome LIKE '%$pesquisar%' and c.id_pessoa = p.id_pessoa and divida > 0 Order By nome ASC");
 $num = mysqli_num_rows($query);
 
 if($num>0){
@@ -25,7 +25,7 @@ if($num>0){
     echo "</table>";
 }else{
    echo "<div align='center' class='text-error'>";
-   echo "Cliente não encontrada!";
+   echo "Cliente não encontrado!";
    echo "</div>";
 }
 ?>

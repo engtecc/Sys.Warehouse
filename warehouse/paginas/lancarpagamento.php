@@ -67,7 +67,7 @@ $_SESSION["vendaConcluida"] = 0;
 						<p id="result"></p> 
 						<?php
 						require_once '../crud/bd.php';
-						$sql = "SELECT * FROM cliente,pessoa where cliente.id_pessoa = pessoa.id_pessoa Order By nome ASC";
+						$sql = "SELECT * FROM cliente,pessoa where cliente.id_pessoa = pessoa.id_pessoa and divida > '0' Order By nome ASC";
 						if ($resultado = $conexao->query($sql)){
 							if ($resultado->num_rows > 0){
 								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";

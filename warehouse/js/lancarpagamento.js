@@ -7,27 +7,7 @@ $(document).ready(function() {
             $("#result").html(data);     
         });
     });
-
-    $('#formEditar').submit(function(e) {
-        e.preventDefault();
-
-        $.ajax({
-            url: '../crud/editarlancamento.php',
-            type: 'post',
-            data:  new FormData(this),            
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data){
-                if(data == "erroeditar"){
-                    $('#modalerror').modal('show');
-                }else{
-                    $('#modalok').modal('show'); 
-                }
-            }        
-        });
-    });
-    
+        
     $(".ok").click(function(){
         window.location.replace("../paginas/lancarpagamento.php");
     });

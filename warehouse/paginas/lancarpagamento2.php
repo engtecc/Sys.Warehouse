@@ -14,6 +14,7 @@ if(!isset($_SESSION['login'])){
 if ($_SESSION['administrador'] != 1){
 	header('location: venda.php');
 }
+$link = "../crud/pagarDivida.php?id=$id";
 ?>
 
 <!doctype html>
@@ -42,6 +43,42 @@ if ($_SESSION['administrador'] != 1){
 			<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 		</div>
 	</nav>
+	<div class="modal fade" id="modalok" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalok">Divida paga com sucesso!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalerro" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalerro">Falha ao pagar a divida!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalerromaior" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalerromaior">Falha ao pagar a divida! Valor maior que o necessário!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<h2 class="subTitulo">Lançar pagamento</h2>
 		<div class="row">
@@ -49,7 +86,7 @@ if ($_SESSION['administrador'] != 1){
 			<div class="col-md-8 mt-3">
 				<div class="row">
 					<div class="col-md-12">
-						<form id="formEditar" method="post" enctype="multipart/form-data">
+						<form id="formEditar" method="post" action="">
 							<div class="form-group col-md-12">
 								<div class="form-row">
 									<div class="form-group col-md-12">
@@ -70,9 +107,8 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 									<div class="col-md-12 mt-5" align="center">
 										<a id="btnCancelar" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
-										<button id="btnSalvar" class="btn btn-success">Salvar</button>
+										<input type="submit" id="btnSalvar" value="Salvar" class="btn btn-success">
 									</div>
-
 								</div>
 							</div>
 						</form>
@@ -81,7 +117,27 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
+	<?php
 
+		if($_SERVER["REQUEST_METHOD"] == "POST")
+		{
+			require_once('../crud/bd.php');
+
+			$codigo = $_GET['id'];
+			$divida = $_POST["divida"];
+			$pagar = $_POST["pagar"];
+			$divida = $_POST["faltapagar"];
+			if($divida >= 0){
+				if($resultado = mysqli_query($conexao, "UPDATE cliente SET divida = '$divida' WHERE id_cliente = '$codigo'")){
+					echo "<script language='javascript'> $('#modalok').modal('show');</script>";
+				}else{
+					echo "<script language='javascript'> $('#modalerror').modal('show');</script>";
+				}
+			}else{
+				echo "<script language='javascript'> $('#modalerromaior').modal('show');</script>";
+			}
+		}
+	?>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('#sidebarCollapse').on('click', function () {
