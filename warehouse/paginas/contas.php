@@ -56,8 +56,8 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
-<?php 
-require_once ("../crud/bd.php");
+	<?php 
+	require_once ("../crud/bd.php");
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$nome = $_POST["txtFornecedor"];
@@ -77,149 +77,153 @@ require_once ("../crud/bd.php");
 				if($stmt->execute())
 				{
 					echo("<script language='javascript'> 
-							$('#modalok').modal('show');
-							$('.ok').click(function(){
-								window.location.replace('principal.php');
+						$('#modalok').modal('show');
+						$('.ok').click(function(){
+							window.location.replace('principal.php');
 							});
-						</script>");
+							</script>");
 				}else{
 					echo("<script language='javascript'>
-							$('#modalerro').modal('show');
-							$('.ok').click(function(){
-								window.location.replace('contas.php');
+						$('#modalerro').modal('show');
+						$('.ok').click(function(){
+							window.location.replace('contas.php');
 							});
-						</script>");
+							</script>");
 				}
 			}
 		}else{
 			echo("<script language='javascript'> $('#modalerro').modal('show');</script>");
 		}
 	}
-?>
+	?>
 	<div class="container">
 		<div class="container">
-		<h2 class="subTitulo">Lançar Compras</h2>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8 mt-3">
-				<div class="row">
-					<div class="col-md-12">
-						<form action="#" method="POST" id="formCli"> 
-							<div class="row rowForm">
-								<div class="col-md-4"></div>
-								<div class="col-md-3">
-									<a id="btnCadastro" class="btn btn-outline-primary" href="cadproduto.php" role="button" style="margin-left: 20px;">Cadastrar Produto</a>
+			<h2 class="subTitulo">Lançar Compras</h2>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8 mt-3">
+					<div class="row">
+						<div class="col-md-12">
+							<form action="#" method="POST" id="formCli"> 
+								<div class="row rowForm">
+									<div class="col-md-4"></div>
+									<div class="col-md-3">
+										<a id="btnCadastro" class="btn btn-outline-primary" href="cadproduto.php" role="button" style="margin-left: 20px;">Cadastrar Produto</a>
+									</div>
+									<div class="col-md-3">
+										<a id="btnCadastro" class="btn btn-outline-primary" href="cadfornecedor.php" role="button">Cadastrar Fornecedor</a>
+									</div>
+									<div class="col-md-2">
+										<a id="btnCancel" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
+									</div>
+								</div> 
+								<div class="row rowForm">
+									<div class="col-md-3 lblAl">
+										<label>Fornecedor: </label>
+									</div>
+									<div class="col-md-9">
+										<input class="form-control form-control-sm" type="text" id="txtForn">
+									</div>
 								</div>
-								<div class="col-md-3">
-									<a id="btnCadastro" class="btn btn-outline-primary" href="cadfornecedor.php" role="button">Cadastrar Fornecedor</a>
+								<div class="row rowForm">
+									<div class="col-md-3 lblAl">
+										<label>CNPJ: </label>
+									</div>
+									<div class="col-md-9">
+										<input class="form-control form-control-sm" type="text" class="confTxtBox" id="txtNome">
+									</div>
 								</div>
-								<div class="col-md-2">
-									<a id="btnCancel" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
+								<div class="row rowForm">
+									<div class="col-md-3 lblAl">
+										<label>Código de Barras: </label>
+									</div>
+									<div class="col-md-9">
+										<input class="form-control form-control-sm"  type="number" id="numCod">
+									</div>
 								</div>
-							</div> 
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Fornecedor: </label>
+								<div class="row rowForm">
+									<div class="col-md-3 lblAl">
+										<label>Produto: </label>
+									</div>
+									<div class="col-md-9">
+										<input class="form-control form-control-sm" style="background-color: #DCDCDC" type="number" id="txtProd" >
+									</div>
 								</div>
-								<div class="col-md-9">
-									<input class="form-control form-control-sm" type="text" id="txtForn">
+								<div class="row rowForm">
+									<div class="col-md-3 lblAl">
+										<label>Quantidade:</label>
+									</div>
+									<div class="col-md-3">
+										<input class="form-control form-control-sm" type="number" name="numQuantidade">
+									</div>
+									<div class="col-md-3 lblAl">
+										<label>Forma de Pagamento: </label>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control form-control-sm" id="selPag">
+											<option selected>...</option>
+											<option>Á vista</option>
+											<option></option>
+											<option></option>
+										</select>
+									</div>
+									<div class="col-md-3 lblAl">
+										<a href="emprestimo.php"></a>
+									</div>
 								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>CNPJ: </label>
+								<div class="row rowForm rowTable">
+									<div class="col-md-3 lblAl">
+										<label style="font-weight: bold;">Produtos da Compra:</label>
+									</div>
+									<div class="col-md-5"></div>
+									<div class="col-md-2">
+										<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
+									</div>
+									<div class="col-md-2">
+										<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
+									</div>
 								</div>
-								<div class="col-md-9">
-									<input class="form-control form-control-sm" type="text" class="confTxtBox" id="txtNome">
+								<div style="height: 10px;"></div>
+								<div class="row divTable">
+									<table class="table table-sm table-bordered">
+										<thead class="thead-light">
+											<tr style="text-align: center;">
+												<th style="width: 5%;">#</th>
+												<th style="width: 60%;">Nome Produto</th>
+												<th style="width: 15%;">Preço</th>
+												<th style="width: 5%;">Quant.</th>
+												<th style="width: 15%;">Preço Total</th>	
+											</tr>
+										</thead>
+									</table>
 								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Código de Barras: </label>
+								<div class="row rowForm" style="vertical-align: center;">
+									<div class="col-md-1"></div>
+									<div class="col-md-5">
+										<h2>Valor da Compra:</h2>
+									</div>
+									<div class="input-group mb-3 col-md-6">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="inputGroup-sizing-">R$</span>
+										</div>
+										<input class="form-control form-control-sm" style="width: 87%;"type="number" step="any" id="numTotal">
+										
+									</div>
 								</div>
-								<div class="col-md-9">
-									<input class="form-control form-control-sm"  type="number" id="numCod">
+								<div class="row rowForm">
+									<div class="col-md-6"></div>
+									<div class="col-md-6">
+										<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
+									</div>
 								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Produto: </label>
-								</div>
-								<div class="col-md-9">
-									<input class="form-control form-control-sm" style="background-color: #DCDCDC" type="number" id="txtProd" >
-								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-3 lblAl">
-									<label>Quantidade:</label>
-								</div>
-								<div class="col-md-3">
-									<input class="form-control form-control-sm" type="number" name="numQuantidade">
-								</div>
-								<div class="col-md-3 lblAl">
-									<label>Forma de Pagamento: </label>
-								</div>
-								<div class="col-md-3">
-									<select class="form-control form-control-sm" id="selPag">
-										<option selected>...</option>
-										<option>Á vista</option>
-										<option></option>
-										<option></option>
-									</select>
-								</div>
-								<div class="col-md-3 lblAl">
-									<a href="emprestimo.php"></a>
-								</div>
-							</div>
-							<div class="row rowForm rowTable">
-								<div class="col-md-3 lblAl">
-									<label style="font-weight: bold;">Produtos da Compra:</label>
-								</div>
-								<div class="col-md-5"></div>
-								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
-								</div>
-								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
-								</div>
-							</div>
-							<div style="height: 10px;"></div>
-							<div class="row divTable">
-								<table class="table table-sm table-bordered">
-									<thead class="thead-light">
-										<tr style="text-align: center;">
-											<th style="width: 5%;">#</th>
-											<th style="width: 60%;">Nome Produto</th>
-											<th style="width: 15%;">Preço</th>
-											<th style="width: 5%;">Quant.</th>
-											<th style="width: 15%;">Preço Total</th>	
-										</tr>
-									</thead>
-								</table>
-							</div>
-							<div class="row rowForm" style="vertical-align: center;">
-								<div class="col-md-1"></div>
-								<div class="col-md-5">
-									<h2>Valor da Compra:</h2>
-								</div>
-								<div class="col-md-6">
-									<input type="number" step="any" id="numTotal" value="0000.00">
-								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-6"></div>
-								<div class="col-md-6">
-									<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
-								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
-				</div>
-			</div>  
+				</div>  
+			</div>
 		</div>
-	</div>
-	<br>
-	<br>
-	<br>
-</body>
-</html> 
+		<br>
+		<br>
+		<br>
+	</body>
+	</html> 
