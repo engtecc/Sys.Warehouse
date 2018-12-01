@@ -31,7 +31,7 @@
     $tam = count($nome);
     $v = $_SESSION["valortotal"];
     $id_funcionario = $_SESSION["id_funcionario"];
-    $insert = "INSERT INTO venda(id_funcionario,data_horario,tipo,valor_total) VALUES ('$id_funcionario','$dataatual','avista','$v')";
+    $insert = "INSERT INTO venda(id_funcionario,id_cliente,data_horario,tipo,valor_total) VALUES ('$id_funcionario','1','$dataatual','avista','$v')";
     mysqli_query($conexao,$insert);
     $id_venda = $conexao->insert_id;
     for($j = 0; $j < $tam;$j++)
