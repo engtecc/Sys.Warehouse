@@ -89,6 +89,120 @@ $_SESSION["quantidadeTotal"] = 0;
 				</div>   
 			</center>	
 		</div>
+		<div class="col-md-4 mt-3">
+			<center> 
+				<div class="container marketing">
+					<div class="row">
+						<p id="result"></p> 
+						<?php
+						require_once '../crud/bd.php';
+						$sql = "SELECT * FROM fornecedor LIMIT 3";
+						// $sql = "SELECT * FROM fornecedor Order By data_de_vencimento ASC LIMIT 3";
+						if ($resultado = $conexao->query($sql)){
+							if ($resultado->num_rows > 0){
+								echo "<h4 class='subTitulo'>Contas a pagar</h4>";
+								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
+								echo "<thead><tr>";
+								echo "<th class='text-center' style='width:60%;'>FORNECEDOR</th>";
+								echo "<th class='text-center' style='width:40%;'>DATA DE VENCIMENTO</th>";
+								echo "</tr></thead>";
+								echo "<tbody";
+								while ($linha = $resultado->fetch_array()) {
+									echo "<tr>";
+									echo "<td>" .$linha['nome']. "</td>";
+									echo "<td>" ."Cadê?". "</td>";
+									// echo "<td>" .date("d/m/Y", strtotime($linha['data_de_vencimento'])). "</td>";
+								}
+								echo "</tbody>";
+								echo "</table>";
+								$resultado->free();
+
+							}else{
+								echo "<h4 class='subTitulo'>Contas a pagar</h4>";
+								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
+								echo "<thead><tr>";
+								echo "<th class='text-center' style='width:100%;'>Nenhum registro encontrado!</th>";
+								echo "</tr></thead>";
+								echo "<tbody";
+							}
+						}else{
+							echo "Erro ao executar o comando SQL.";
+						}
+						?>
+					</div>
+					<div class="row">
+						<p id="result"></p> 
+						<?php
+						$sql = "SELECT * FROM cliente, pessoa where cliente.id_pessoa = pessoa.id_pessoa Order By nome ASC LIMIT 3";
+						if ($resultado = $conexao->query($sql)){
+							if ($resultado->num_rows > 0){
+								echo "<h4 class='subTitulo'>Contas a receber</h4>";
+								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
+								echo "<thead><tr>";
+								echo "<th class='text-center' style='width:60%;'>CLIENTE</th>";
+								echo "<th class='text-center' style='width:40%;'>DATA DE VENCIMENTO</th>";
+								echo "</tr></thead>";
+								echo "<tbody";
+								while ($linha = $resultado->fetch_array()) {
+									echo "<tr>";
+									echo "<td>" .$linha['nome']. "</td>";
+									echo "<td>" ."Cadê?". "</td>";
+								}
+								echo "</tbody>";
+								echo "</table>";
+								$resultado->free();
+
+							}else{
+								echo "<h4 class='subTitulo'>Contas a receber</h4>";
+								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
+								echo "<thead><tr>";
+								echo "<th class='text-center' style='width:100%;'>Nenhum registro encontrado!</th>";
+								echo "</tr></thead>";
+								echo "<tbody";
+							}
+						}else{
+							echo "Erro ao executar o comando SQL.";
+						}
+						?>
+					</div>
+					<div class="row">
+						<p id="result"></p> 
+						<?php
+						$sql = "SELECT * FROM emprestimo as e, cliente as c, pessoa as p WHERE e.id_cliente = c.id_cliente AND c.id_pessoa = p.id_pessoa Order By devolucao ASC LIMIT 3";
+						if ($resultado = $conexao->query($sql)){
+							if ($resultado->num_rows > 0){
+								echo "<h4 class='subTitulo'>Empréstimos vencidos</h4>";
+								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
+								echo "<thead><tr>";
+								echo "<th class='text-center' style='width:60%;'>CLIENTE</th>";
+								echo "<th class='text-center' style='width:40%;'>DATA DE DEVOLUÇÃO</th>";
+								echo "</tr></thead>";
+								echo "<tbody";
+								while ($linha = $resultado->fetch_array()) {
+									echo "<tr>";
+									echo "<td>" .$linha['nome']. "</td>";
+									echo "<td>" .date("d/m/Y", strtotime($linha['data_devolucao'])).  "</td>";
+								}
+								echo "</tbody>";
+								echo "</table>";
+								$resultado->free();
+
+							}else{
+								echo "<h4 class='subTitulo'>Empréstimos vencidos</h4>";
+								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
+								echo "<thead><tr>";
+								echo "<th class='text-center' style='width:100%;'>Nenhum registro encontrado!</th>";
+								echo "</tr></thead>";
+								echo "<tbody";
+							}
+						}else{
+							echo "Erro ao executar o comando SQL.";
+						}
+						?>
+					</div>
+				</div>	
+			</center>	
+		</div>
 	</div>
 </body>
 </html>
