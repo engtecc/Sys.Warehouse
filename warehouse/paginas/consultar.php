@@ -101,7 +101,7 @@ if ($_SESSION['administrador'] != 1){
 						</div>
 						<br>
 						<div class="form-row justify-content-end">
-							<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar cliente</button>
+							<button class="btn btn-success " type="button" class="btn btn-primary">Pesquisar cliente</button>
 						</div>
 					</form>
 				</div>
@@ -149,7 +149,7 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 						</div>
 						<div class="form-row justify-content-end mt-4">
-							<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar produto</button>
+							<button class="btn btn-success " type="button" class="btn btn-primary">Pesquisar produto</button>
 						</div>
 					</form>
 				</div>
@@ -185,7 +185,7 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 						</div><br>
 						<div class="form-row justify-content-end mt-5">
-							<button class="btn btn-primary " type="button" class="btn btn-primary">Pesquisar fornecedor</button>
+							<button class="btn btn-success " type="button" class="btn btn-primary">Pesquisar fornecedor</button>
 						</div>
 					</form>
 				</div>
