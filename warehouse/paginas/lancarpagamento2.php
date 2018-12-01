@@ -3,9 +3,9 @@ session_start();
 require_once ('../crud/bd.php');
 $id = $_GET['id'];
 
-$query = mysqli_query($conexao, "SELECT * FROM pessoa WHERE id_pessoa='$id' LIMIT 1");
+$query = mysqli_query($conexao, "SELECT * FROM cliente,pessoa WHERE id_cliente='$id' and cliente.id_pessoa = pessoa.id_pessoa LIMIT 1");
 $resultado = mysqli_fetch_assoc($query);
-$query = mysqli_query($conexao,"SELECT divida FROM cliente WHERE id_pessoa = '$id'");
+$query = mysqli_query($conexao,"SELECT divida FROM cliente WHERE id_cliente = '$id'");
 $row = mysqli_fetch_array($query);
 $divida = $row["divida"];
 if(!isset($_SESSION['login'])){

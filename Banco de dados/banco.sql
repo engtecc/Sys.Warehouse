@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Dez-2018 às 21:20
--- Versão do servidor: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: 01-Dez-2018 às 22:59
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,18 +33,20 @@ CREATE TABLE `cliente` (
   `id_referencia_comercial` int(11) NOT NULL,
   `limite_de_credito` decimal(10,2) NOT NULL,
   `id_pessoa` int(11) NOT NULL,
-  `id_endereco` int(11) NOT NULL
+  `id_endereco` int(11) NOT NULL,
+  `divida` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `id_referencia_comercial`, `limite_de_credito`, `id_pessoa`, `id_endereco`) VALUES
-(1, 1, '4324234.00', 2, 2),
-(2, 2, '0.00', 3, 3),
-(3, 3, '0.00', 4, 4),
-(4, 4, '4324234.00', 5, 5);
+INSERT INTO `cliente` (`id_cliente`, `id_referencia_comercial`, `limite_de_credito`, `id_pessoa`, `id_endereco`, `divida`) VALUES
+(1, 1, '4324219.00', 2, 2, '15.00'),
+(2, 2, '0.00', 3, 3, '0.00'),
+(3, 3, '0.00', 4, 4, '0.00'),
+(4, 4, '4324234.00', 5, 5, '0.00'),
+(5, 5, '1000.00', 6, 6, '0.00');
 
 -- --------------------------------------------------------
 
@@ -69,7 +71,6 @@ CREATE TABLE `compra` (
 CREATE TABLE `emprestimo` (
   `id_emprestimo` int(11) NOT NULL,
   `id_endereco` int(11) NOT NULL,
-  `id_venda` int(11) NOT NULL,
   `vasilhame` tinyint(1) NOT NULL,
   `devolucao` tinyint(1) NOT NULL,
   `data_devolucao` date DEFAULT NULL,
@@ -81,10 +82,10 @@ CREATE TABLE `emprestimo` (
 -- Extraindo dados da tabela `emprestimo`
 --
 
-INSERT INTO `emprestimo` (`id_emprestimo`, `id_endereco`, `id_venda`, `vasilhame`, `devolucao`, `data_devolucao`, `data_a_devolver`, `id_cliente`) VALUES
-(1, 2, 2, 12, 12, '2018-12-13', '2018-11-20', 1),
-(2, 5, 2, 12, 0, '2018-12-29', '2018-12-22', 3),
-(3, 3, 2, 1, 0, '2018-12-08', '2018-12-29', 4);
+INSERT INTO `emprestimo` (`id_emprestimo`, `id_endereco`, `vasilhame`, `devolucao`, `data_devolucao`, `data_a_devolver`, `id_cliente`) VALUES
+(1, 2, 12, 12, '2018-12-13', '2018-11-20', 1),
+(2, 5, 12, 0, '2018-12-29', '2018-12-22', 3),
+(3, 3, 1, 0, '2018-12-08', '2018-12-29', 4);
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,8 @@ INSERT INTO `endereco` (`id_endereco`, `rua`, `numero`, `bairro`, `cidade`, `est
 (2, 'Fazenda Varginha, Km 05', '232', 'Boa esperança', 'Bambuí', 'mg'),
 (3, 'Fazenda Varginha, Km 05', '12', 'Desisto', 'Bambuí', 'mg'),
 (4, '', '', '', '', 'mg'),
-(5, 'Fazenda Varginha, Km 05', '999', '999999999999', 'Bambuí', 'mg');
+(5, 'Fazenda Varginha, Km 05', '999', '999999999999', 'Bambuí', 'mg'),
+(6, 'Herculino Porto', '170', 'Rola-moça', 'Bambuí', 'mg');
 
 -- --------------------------------------------------------
 
@@ -197,7 +199,8 @@ INSERT INTO `pessoa` (`id_pessoa`, `id_endereco`, `cpf`, `rg`, `nome`, `data_de_
 (2, 2, '123', '456', 'josimar', '2018-11-29', '234523453245'),
 (3, 3, '203945235', '23452345', 'José da Silva', '2000-12-24', '234523453245'),
 (4, 4, '234523453', '893275534', 'Ana', '1990-12-01', '092837405983455'),
-(5, 5, '34234234535', '23452345', 'Antônio', '2018-12-22', '9999999999999999999');
+(5, 5, '34234234535', '23452345', 'Antônio', '2018-12-22', '9999999999999999999'),
+(6, 6, '127.307.906', 'MG-17.606.122', 'julio cezar', '2018-12-01', '37999216872');
 
 -- --------------------------------------------------------
 
@@ -212,6 +215,13 @@ CREATE TABLE `produto` (
   `preco_de_compra` decimal(10,2) NOT NULL,
   `quantidade_estoque` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`codigo_de_barras`, `nome`, `preco_de_venda`, `preco_de_compra`, `quantidade_estoque`) VALUES
+(1, 'balalaika', '15.00', '7.00', 98);
 
 -- --------------------------------------------------------
 
@@ -234,7 +244,8 @@ INSERT INTO `referenci_comercial` (`id_referencia_comercia`, `referencia_1`, `re
 (1, '', '', ''),
 (2, '', '', ''),
 (3, '', '', ''),
-(4, '444444444444', '55555555555555', '6666666666666666666');
+(4, '444444444444', '55555555555555', '6666666666666666666'),
+(5, 'Escola', '', '');
 
 -- --------------------------------------------------------
 
@@ -248,6 +259,30 @@ CREATE TABLE `saida_produto` (
   `id_venda` int(11) NOT NULL,
   `quantidade` int(11) NOT NULL,
   `valor_total` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `saida_produto`
+--
+
+INSERT INTO `saida_produto` (`id_saida`, `codigo_de_barras`, `id_venda`, `quantidade`, `valor_total`) VALUES
+(1, 1, 3, 1, '15.00'),
+(2, 1, 4, 1, '15.00');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `temporary`
+--
+
+CREATE TABLE `temporary` (
+  `id_cliente` int(11) NOT NULL,
+  `id_emprestimo` int(11) NOT NULL,
+  `id_endereco` int(11) NOT NULL,
+  `vasilhame` tinyint(1) NOT NULL,
+  `devolucao` tinyint(1) NOT NULL,
+  `data_devolucao` date NOT NULL,
+  `data_a_devolver` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -271,7 +306,9 @@ CREATE TABLE `venda` (
 
 INSERT INTO `venda` (`id_venda`, `id_funcionario`, `id_cliente`, `data_horario`, `tipo`, `valor_total`) VALUES
 (1, 1, 1, '2018-11-01', 'teste', '123.00'),
-(2, 1, 1, '2018-11-01', 'teste', '123.00');
+(2, 1, 1, '2018-11-01', 'teste', '123.00'),
+(3, 1, 1, '2018-12-01', 'avista', '15.00'),
+(4, 1, 1, '2018-12-01', 'prazo', '15.00');
 
 --
 -- Indexes for dumped tables
@@ -297,7 +334,6 @@ ALTER TABLE `compra`
 ALTER TABLE `emprestimo`
   ADD PRIMARY KEY (`id_emprestimo`),
   ADD KEY `endereco_fk_emprestimo` (`id_endereco`),
-  ADD KEY `venda_fk_emprestimo` (`id_venda`),
   ADD KEY `cliente_fk_emprestimo` (`id_cliente`);
 
 --
@@ -357,6 +393,14 @@ ALTER TABLE `saida_produto`
   ADD KEY `venda_fk_saida` (`id_venda`);
 
 --
+-- Indexes for table `temporary`
+--
+ALTER TABLE `temporary`
+  ADD PRIMARY KEY (`id_emprestimo`),
+  ADD KEY `endereco_fk_temporary` (`id_endereco`),
+  ADD KEY `cliente_fk_temporary` (`id_cliente`);
+
+--
 -- Indexes for table `venda`
 --
 ALTER TABLE `venda`
@@ -372,7 +416,7 @@ ALTER TABLE `venda`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `compra`
@@ -390,7 +434,7 @@ ALTER TABLE `emprestimo`
 -- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `entrada_produto`
@@ -408,25 +452,31 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT for table `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `referenci_comercial`
 --
 ALTER TABLE `referenci_comercial`
-  MODIFY `id_referencia_comercia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_referencia_comercia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `saida_produto`
 --
 ALTER TABLE `saida_produto`
-  MODIFY `id_saida` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_saida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `temporary`
+--
+ALTER TABLE `temporary`
+  MODIFY `id_emprestimo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `venda`
 --
 ALTER TABLE `venda`
-  MODIFY `id_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -450,8 +500,7 @@ ALTER TABLE `compra`
 --
 ALTER TABLE `emprestimo`
   ADD CONSTRAINT `cliente_fk_emprestimo` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `endereco_fk_emprestimo` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `venda_fk_emprestimo` FOREIGN KEY (`id_venda`) REFERENCES `venda` (`id_venda`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `endereco_fk_emprestimo` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `entrada_produto`
@@ -485,6 +534,13 @@ ALTER TABLE `pessoa`
 ALTER TABLE `saida_produto`
   ADD CONSTRAINT `produto_fk_saida` FOREIGN KEY (`codigo_de_barras`) REFERENCES `produto` (`codigo_de_barras`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `venda_fk_saida` FOREIGN KEY (`id_venda`) REFERENCES `venda` (`id_venda`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `temporary`
+--
+ALTER TABLE `temporary`
+  ADD CONSTRAINT `cliente_fk_temporary` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `endereco_fk_temporary` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `venda`
