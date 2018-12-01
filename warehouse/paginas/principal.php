@@ -168,10 +168,10 @@ $_SESSION["quantidadeTotal"] = 0;
 					<div class="row">
 						<p id="result"></p> 
 						<?php
-						$sql = "SELECT * FROM emprestimo as e, cliente as c, pessoa as p WHERE e.id_cliente = c.id_cliente AND c.id_pessoa = p.id_pessoa Order By devolucao ASC LIMIT 3";
+						$sql = "SELECT * FROM emprestimo as e, cliente as c, pessoa as p WHERE e.id_cliente = c.id_cliente AND c.id_pessoa = p.id_pessoa Order By data_devolucao ASC LIMIT 3";
 						if ($resultado = $conexao->query($sql)){
 							if ($resultado->num_rows > 0){
-								echo "<h4 class='subTitulo'>Empréstimos vencidos</h4>";
+								echo "<h4 class='subTitulo'>Controle de empréstimos</h4>";
 								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
 								echo "<thead><tr>";
 								echo "<th class='text-center' style='width:60%;'>CLIENTE</th>";
@@ -188,7 +188,7 @@ $_SESSION["quantidadeTotal"] = 0;
 								$resultado->free();
 
 							}else{
-								echo "<h4 class='subTitulo'>Empréstimos vencidos</h4>";
+								echo "<h4 class='subTitulo'>Controle de empréstimos</h4>";
 								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
 								echo "<thead><tr>";
 								echo "<th class='text-center' style='width:100%;'>Nenhum registro encontrado!</th>";
