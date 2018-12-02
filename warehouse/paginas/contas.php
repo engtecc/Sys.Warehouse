@@ -36,7 +36,7 @@ if ($_SESSION['administrador'] != 1){
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modalok">Sucesso!</h5>
+					<h5 class="modal-title" id="modalok">Adicionado com sucesso!</h5>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -48,7 +48,7 @@ if ($_SESSION['administrador'] != 1){
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title text-error" id="modalok">Falha!</h5>
+					<h5 class="modal-title text-error" id="modalok">Codigo de barras não encontrado!</h5>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
@@ -56,7 +56,69 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
-
+	<div class="modal fade" id="modalerroFornecedor" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalerroFornecedor">Fornecedor não encontrado!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalerroFornecedorMuitos" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalerroFornecedorMuitos">Muitos Fornecedores encontrados! Seja mais especifico.</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalerroTipo" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalerroTipo">Escolha uma forma de pagamento.</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+		if($_SESSION["compraConcluida"] == 1)
+		{
+			echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+		if($_SESSION["compraConcluida"] == 2)
+		{
+			echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+		if($_SESSION["compraConcluida"] == 4)
+		{
+			echo("<script language='javascript'>$('#modalerroFornecedor').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+		if($_SESSION["compraConcluida"] == 3)
+		{
+			echo("<script language='javascript'>$('#modalerroFornecedorMuitos').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+		if($_SESSION["compraConcluida"] == 5)
+		{
+			echo("<script language='javascript'>$('#modalerroTipo').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+	?>
 	<div class="container">
 		<div class="container">
 			<h2 class="subTitulo">Lançar Compras</h2>
@@ -69,10 +131,10 @@ if ($_SESSION['administrador'] != 1){
 								<div class="row rowForm">
 									<div class="col-md-4"></div>
 									<div class="col-md-3">
-										<a id="btnCadastro" class="btn btn-outline-primary" href="cadproduto.php" role="button" style="margin-left: 20px;">Cadastrar Produto</a>
+										<a id="btnCadastro" class="btn btn-outline-primary" href="cadproduto.php" role="button" style="margin-left:-25px;">Cadastrar Produto</a>
 									</div>
 									<div class="col-md-3">
-										<a id="btnCadastro" class="btn btn-outline-primary" href="cadfornecedor.php" role="button">Cadastrar Fornecedor</a>
+										<a id="btnCadastro" class="btn btn-outline-primary" href="cadfornecedor.php" role="button" style="margin-left:-25px;">Cadastrar Fornecedor</a>
 									</div>
 									<div class="col-md-2">
 										<a id="btnCancel" class="btn btn-danger" href="principal.php" role="button">Cancelar</a>
@@ -167,13 +229,12 @@ if ($_SESSION['administrador'] != 1){
 											<span class="input-group-text" id="inputGroup-sizing-">R$</span>
 										</div>
 										<input class="form-control form-control-sm" style="width: 87%;"type="number" step="any" id="numTotal" value="<?php echo $_SESSION["valortotalCompra"]; ?>" >
-										
 									</div>
 								</div>
 								<div class="row rowForm">
 									<div class="col-md-6"></div>
 									<div class="col-md-6">
-										<a id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
+										<a href="finalizarCompra" id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
 									</div>
 								</div>
 							</form>
