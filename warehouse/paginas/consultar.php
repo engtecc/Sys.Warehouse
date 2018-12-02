@@ -33,7 +33,48 @@ if ($_SESSION['administrador'] != 1){
 		<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
+	<?php
+		if(isset($_POST["btnCliente"]))
+		{
+			if($_POST["gridConsulta"] == "option1")
+			{
+				header("Location: ../crud/consultas/devedores.php");
+			}
+			if($_POST["gridConsulta"] == "option2")
+			{
+				$cpf = $_POST["cpf"];
+				header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
+			}
+			if($_POST["gridConsulta"] == "option3")
+			{
+				$data = $_POST["data"];
+				header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
+			}
+			if($_POST["gridConsulta"] == "option4")
+			{
+				$nome = $_POST["nome"];
+				header("Location: ../crud/consultas/clienteNome.php?nome=$nome");
+			}
+		}
+		if(isset($_POST["btnProduto"]))
+		{
+			if($_POST["gridConsulta"] == "option5")
+			{
+				header("Location: ../crud/consultas/devedores.php");
+			}
+			if($_POST["gridConsulta"] == "option6")
+			{
+				$cpf = $_POST["cpf"];
+				header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
+			}
+			if($_POST["gridConsulta"] == "option7")
+			{
+				$data = $_POST["data"];
+				header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
+			}
 
+		}
+	?>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -45,15 +86,15 @@ if ($_SESSION['administrador'] != 1){
 				</div>
 			</div>
 		</div>
-
-		<div class="row">
+		<form style="width: 100%;" action="" method="POST">
+		<div class="row" style="margin-bottom:100px;">
 			<div class="col-md-1"></div>
 			<div class="col-md-3 mr-5 ml-3">
 				<div class="row">
 					<h2 class="subTitulo">Consultar cliente</h2>
 				</div>
 				<div class ="row">
-					<form style="width: 100%;">
+					
 						<div class="form-row align-items-center">
 							<div class="col-md-12 rowForm">
 								<div class="form-check">
@@ -70,7 +111,7 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 							</div>
 							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="text" name="cpf" id="gridConsulta2" placeholder="apenas números" required="" maxlength="11" pattern="[0-9]+$">
+								<input class="form-control form-control-sm" type="text" name="cpf" id="gridConsulta2" placeholder="apenas números" maxlength="11" pattern="[0-9]+$">
 							</div>
 						</div>
 						<div class="form-row rowForm align-items-center">
@@ -101,9 +142,8 @@ if ($_SESSION['administrador'] != 1){
 						</div>
 						<br>
 						<div class="form-row justify-content-end">
-							<button class="btn btn-success " type="button" class="btn btn-primary">Pesquisar cliente</button>
+							<input type="submit" class="btn btn-success " name="btnCliente" type="button" class="btn btn-primary" value="Pesquisar Cliente">
 						</div>
-					</form>
 				</div>
 			</div>
 			<div class="col-md-4 ml-3">
@@ -111,47 +151,45 @@ if ($_SESSION['administrador'] != 1){
 					<h2 class="subTitulo">Consultar produto</h2>
 				</div>
 				<div class ="row">
-					<form style="width: 85%;">
 						<div class="form-row rowForm align-items-center">
 							<div class="col-md-4">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="produto1" value="option2">
+									<input class="form-check-input" type="radio" name="gridConsulta" id="produto1" value="option5">
 									<label class="form-check-label" for="produto1">Quantidade:</label>
 								</div>
 							</div>
 
 							<div class="col-md-8">
-								<input class="form-control form-control-sm " type="text" name="quantiadde" id="fornecedor1" placeholder="quantidade">
+								
 							</div>
 						</div>
 						<br>
 						<div class="form-row align-items-center">
 							<div class="col-md-4">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="produto2" value="option4">
-									<label class="form-check-label" for="produto2">Vasilhame:</label>
+									<input class="form-check-input" type="radio" name="gridConsulta" id="produto2" value="option6">
+									<label class="form-check-label" for="produto2">Vasilhame</label>
 								</div>
 							</div>
 
 							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="text" name="vasilhame" id="fornecedor2" placeholder="vasilhame">
+								
 							</div>
 						</div><br>
 						<div class="form-row align-items-center">
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="produto3" value="option2">
-									<label class="form-check-label" for="produto3">Nome do vasilhame:</label>
+									<input class="form-check-input" type="radio" name="gridConsulta" id="produto3" value="option7">
+									<label class="form-check-label" for="produto3">Nome do vasilhame</label>
 								</div>
 							</div><br>
-							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="text" name="quantiadde" id="produto3" placeholder="nome do vasilhame">
+							<div class="col-md-6">
+								
 							</div>
 						</div>
-						<div class="form-row justify-content-end mt-4">
-							<button class="btn btn-success " type="button" class="btn btn-primary">Pesquisar produto</button>
+						<div class="form-row justify-content-end mt-4" ">
+							<input type="submit" name="btnProduto" style="margin-top:43px;" class="btn btn-success " type="button" class="btn btn-primary" value="Pesquisar Produto">
 						</div>
-					</form>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -159,11 +197,10 @@ if ($_SESSION['administrador'] != 1){
 					<h2 class="subTitulo">Consultar fornecedor</h2>
 				</div>
 				<div class ="row">
-					<form style="width: 90%;">
 						<div class="form-row rowForm align-items-center">
 							<div class="col-md-4">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option2">
+									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option8">
 									<label class="form-check-label" for="fornecedor1">Contas:</label>
 								</div>
 							</div>
@@ -175,7 +212,7 @@ if ($_SESSION['administrador'] != 1){
 						<div class="form-row align-items-center">
 							<div class="col-md-4">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option4">
+									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option9">
 									<label class="form-check-label" for="fornecedor2">Nome do fornecedor:</label>
 								</div>
 							</div>
@@ -185,15 +222,11 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 						</div><br>
 						<div class="form-row justify-content-end mt-5">
-							<button class="btn btn-success " type="button" class="btn btn-primary">Pesquisar fornecedor</button>
+							<input type="submit" name="btnFornecedor" style="margin-top:10px;" class="btn btn-success " type="button" class="btn btn-primary" value="Pesquisar fornecedor">
 						</div>
-					</form>
 				</div>
 			</div>
-		</div>
-		
-		<div class="row ml-5">
-			<h2 class="subTitulo" style="text-align: left;">Resultados:</h2>
+		</form>
 		</div>
 	</div>
 </body>
