@@ -6,12 +6,21 @@ if(!isset($_SESSION['login'])){
 if ($_SESSION['administrador'] != 1){
 	header('location: venda.php');
 }
+// Venda
 $_SESSION["dbgrid"] = array();
 $_SESSION["dbgriddados"] = array();
 $_SESSION["valortotal"] = 0;
 $_SESSION["iterador"] = 1;
 $_SESSION["vendaConcluida"] = 0;
+
 $_SESSION["quantidadeTotal"] = 0;
+
+// Compra
+$_SESSION["dbCompra"] = array();
+$_SESSION["dbCompraDados"] = array();
+$_SESSION["valortotalCompra"] = 0;
+$_SESSION["iteradorCompra"] = 1;
+$_SESSION["compraConcluida"] = 0;
 ?>
 
 <!doctype html>
@@ -89,6 +98,7 @@ $_SESSION["quantidadeTotal"] = 0;
 				</div>   
 			</center>	
 		</div>
+		<div class="col-md-1"></div>
 		<div class="col-md-4 mt-3">
 			<center> 
 				<div class="container marketing">

@@ -56,46 +56,7 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
-	<?php 
-	require_once ("../crud/bd.php");
-	if($_SERVER["REQUEST_METHOD"] == "POST")
-	{
-		$nome = $_POST["txtFornecedor"];
-		$select = "SELECT cnpj FROM fornecedor WHERE nome = '$nome'";
-		$sql = mysqli_query($conexao,$select);
-		if($result = mysqli_fetch_array($sql)){
-			$cnpj = $result["cnpj"];
-			$valor = $_POST["txtValor"];
-			$vencimento = $_POST["dateVencimento"];
-			$tipo = $_POST["txtTipo"];
-			$sql = "INSERT INTO pagamento(tipo) VALUES('$tipo')";
-			mysqli_query($conexao,$sql);
-			$last_id = $conexao->insert_id;
-			$sql = "INSERT INTO compra(cnpj,hora_data,valor_total,id_entrada,id_pagamento) VALUES ('$cnpj','$vencimento','$valor',1,$last_id)";
-			if($stmt = $conexao->prepare($sql))
-			{
-				if($stmt->execute())
-				{
-					echo("<script language='javascript'> 
-						$('#modalok').modal('show');
-						$('.ok').click(function(){
-							window.location.replace('principal.php');
-							});
-							</script>");
-				}else{
-					echo("<script language='javascript'>
-						$('#modalerro').modal('show');
-						$('.ok').click(function(){
-							window.location.replace('contas.php');
-							});
-							</script>");
-				}
-			}
-		}else{
-			echo("<script language='javascript'> $('#modalerro').modal('show');</script>");
-		}
-	}
-	?>
+
 	<div class="container">
 		<div class="container">
 			<h2 class="subTitulo">Lançar Compras</h2>
@@ -104,7 +65,7 @@ if ($_SESSION['administrador'] != 1){
 				<div class="col-md-8 mt-3">
 					<div class="row">
 						<div class="col-md-12">
-							<form action="#" method="POST" id="formCli"> 
+							<form action="../crud/contasGrid.php" method="POST" id="formCli"> 
 								<div class="row rowForm">
 									<div class="col-md-4"></div>
 									<div class="col-md-3">
@@ -122,7 +83,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>Fornecedor: </label>
 									</div>
 									<div class="col-md-9">
-										<input class="form-control form-control-sm" type="text" id="txtForn">
+										<input class="form-control form-control-sm" type="text" id="txtForn" name="txtFornecedor">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -130,7 +91,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>CNPJ: </label>
 									</div>
 									<div class="col-md-9">
-										<input class="form-control form-control-sm" type="text" class="confTxtBox" id="txtNome">
+										<input class="form-control form-control-sm" type="text" class="confTxtBox" id="txtNome" name="txtCnpj">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -138,15 +99,7 @@ if ($_SESSION['administrador'] != 1){
 										<label>Código de Barras: </label>
 									</div>
 									<div class="col-md-9">
-										<input class="form-control form-control-sm"  type="number" id="numCod">
-									</div>
-								</div>
-								<div class="row rowForm">
-									<div class="col-md-3 lblAl">
-										<label>Produto: </label>
-									</div>
-									<div class="col-md-9">
-										<input class="form-control form-control-sm" style="background-color: #DCDCDC" type="number" id="txtProd" >
+										<input class="form-control form-control-sm"  type="number" id="numCod" name="txtBarras">
 									</div>
 								</div>
 								<div class="row rowForm">
@@ -160,11 +113,11 @@ if ($_SESSION['administrador'] != 1){
 										<label>Forma de Pagamento: </label>
 									</div>
 									<div class="col-md-3">
-										<select class="form-control form-control-sm" id="selPag">
-											<option selected>...</option>
-											<option>Á vista</option>
-											<option></option>
-											<option></option>
+										<select class="form-control form-control-sm" id="selPag" name="slcTipo">
+											<option selected value="vazio">...</option>
+											<option value="avista">À vista</option>
+											<option value="prazo">À prazo</option>
+											<option value="cartao">Cartão</option>
 										</select>
 									</div>
 									<div class="col-md-3 lblAl">
@@ -177,7 +130,7 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 									<div class="col-md-5"></div>
 									<div class="col-md-2">
-										<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
+										<input type ="submit" id="btnRemover" class="btn btn-primary" role="button" value="Adicionar">
 									</div>
 									<div class="col-md-2">
 										<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
@@ -193,8 +146,15 @@ if ($_SESSION['administrador'] != 1){
 												<th style="width: 15%;">Preço</th>
 												<th style="width: 5%;">Quant.</th>
 												<th style="width: 15%;">Preço Total</th>	
+												<th style="width: 5%;">Excluir</th>
 											</tr>
 										</thead>
+										<?php
+											foreach($_SESSION["dbCompra"] as $key => $valor)
+											{
+												echo($valor);
+											}
+										?>
 									</table>
 								</div>
 								<div class="row rowForm" style="vertical-align: center;">
@@ -206,7 +166,7 @@ if ($_SESSION['administrador'] != 1){
 										<div class="input-group-prepend">
 											<span class="input-group-text" id="inputGroup-sizing-">R$</span>
 										</div>
-										<input class="form-control form-control-sm" style="width: 87%;"type="number" step="any" id="numTotal">
+										<input class="form-control form-control-sm" style="width: 87%;"type="number" step="any" id="numTotal" value="<?php echo $_SESSION["valortotalCompra"]; ?>" >
 										
 									</div>
 								</div>

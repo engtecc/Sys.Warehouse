@@ -58,6 +58,18 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modalTipo" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalTipo">Escolha um tipo de pagamento!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php
 		require_once("../crud/bd.php");
 		$pesquisa = 
@@ -73,6 +85,7 @@ if ($_SESSION['administrador'] != 1){
 				<div class="col-md-3" ">
 				
 					<select id="selPag" name="selPag" style="width:150px;" class="form-control" >
+						<option selected value="vazio">...</option>
 						<option value="avista">À vista</option>
 						<option value="prazo">À prazo</option>
 						<option value="cartao">Cartão</option>
@@ -90,68 +103,72 @@ if ($_SESSION['administrador'] != 1){
 			$key = $_POST["txtPesquisar"];
 			if($key != "")
 			{
-				$select  = "SELECT nome,cpf,rg,limite_de_credito,divida FROM cliente as c,(SELECT id_pessoa,nome,cpf,rg FROM pessoa WHERE nome LIKE '%$key%' OR cpf LIKE '%$key%') as p WHERE c.id_pessoa = p.id_pessoa";
-				if($resultado = mysqli_query($conexao,$select)){
-					$cont = mysqli_num_rows($resultado);
-					if($cont == 1)
-					{
-						$row = mysqli_fetch_array($resultado);	
-						$nome = $row["nome"];
-						$cpf = $row["cpf"];
-						$rg = $row["rg"];
-						$limite = $row["limite_de_credito"];
-						$divida = $row["divida"];
-						$pesquisado = 
-							'
-							<div class="row rowForm">
-								<div class="col-md-2 lblAl">
-									<label>CPF: </label>
+				if($_POST["selPag"] != "vazio"){
+					$select  = "SELECT nome,cpf,rg,limite_de_credito,divida FROM cliente as c,(SELECT id_pessoa,nome,cpf,rg FROM pessoa WHERE nome LIKE '%$key%' OR cpf LIKE '%$key%') as p WHERE c.id_pessoa = p.id_pessoa";
+					if($resultado = mysqli_query($conexao,$select)){
+						$cont = mysqli_num_rows($resultado);
+						if($cont == 1)
+						{
+							$row = mysqli_fetch_array($resultado);	
+							$nome = $row["nome"];
+							$cpf = $row["cpf"];
+							$rg = $row["rg"];
+							$limite = $row["limite_de_credito"];
+							$divida = $row["divida"];
+							$pesquisado = 
+								'
+								<div class="row rowForm">
+									<div class="col-md-2 lblAl">
+										<label>CPF: </label>
+									</div>
+									<div class="col-md-3">
+										<input class="form-control" type="text" id="txtCPF" value="'.$cpf.'" readonly>
+									</div>
+									<div class="col-md-2"></div>
+									<div class="col-md-2 lblAl">
+										<label style="float: left; margin-left: 30px; margin-top:5px;">RG: </label>
+									</div>
+									<div class="col-md-3">
+										<input class="form-control" type="text" id="txtRG"value="'.$rg.'" readonly>
+									</div>
 								</div>
-								<div class="col-md-3">
-									<input class="form-control" type="text" id="txtCPF" value="'.$cpf.'" readonly>
+								<div class="row rowForm">
+									<div class="col-md-2 lblAl">
+										<label>Nome: </label>
+									</div>
+									<div class="col-md-10">
+										<input width="540px" class="form-control" type="text" class="confTxtBox" id="txtNome" value="'.$nome.'" readonly>
+									</div>
 								</div>
-								<div class="col-md-2"></div>
-								<div class="col-md-2 lblAl">
-									<label style="float: left; margin-left: 30px; margin-top:5px;">RG: </label>
+								<div class="row rowForm">
+									<div class="col-md-2 lblAl">
+										<label style="float: left; margin-top:7px;" >Divida: </label>
+									</div>
+									<div class="col-md-3">
+										<input class="form-control" type="number" step="any" id="numLimite" value="'.$divida.'" readonly>
+									</div>
+									<div class="col-md-1"></div>
+									<div class="col-md-3 lblAl" style="margin-top:7px;">
+										<label style="float: left;">Limite Restante: </label>
+									</div>
+									<div class="col-md-3">
+										<input class="form-control" type="number" step="any" id="numLimite" value="'.$limite.'" readonly>
+									</div>
 								</div>
-								<div class="col-md-3">
-									<input class="form-control" type="text" id="txtRG"value="'.$rg.'" readonly>
-								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-2 lblAl">
-									<label>Nome: </label>
-								</div>
-								<div class="col-md-10">
-									<input width="540px" class="form-control" type="text" class="confTxtBox" id="txtNome" value="'.$nome.'" readonly>
-								</div>
-							</div>
-							<div class="row rowForm">
-								<div class="col-md-2 lblAl">
-									<label style="float: left; margin-top:7px;" >Divida: </label>
-								</div>
-								<div class="col-md-3">
-									<input class="form-control" type="number" step="any" id="numLimite" value="'.$divida.'" readonly>
-								</div>
-								<div class="col-md-1"></div>
-								<div class="col-md-3 lblAl" style="margin-top:7px;">
-									<label style="float: left;">Limite Restante: </label>
-								</div>
-								<div class="col-md-3">
-									<input class="form-control" type="number" step="any" id="numLimite" value="'.$limite.'" readonly>
-								</div>
-							</div>
-							'
-						;
-						$divida = $divida + $_SESSION["valortotal"];
-						$limite = $limite - $_SESSION["valortotal"];
-						$tipo = $_POST["selPag"];
-						$link = "../crud/vendaClienteInserir.php?key=$key&limite=$limite&tipo=$tipo&divida=$divida";
+								'
+							;
+							$divida = $divida + $_SESSION["valortotal"];
+							$limite = $limite - $_SESSION["valortotal"];
+							$tipo = $_POST["selPag"];
+							$link = "../crud/vendaClienteInserir.php?key=$key&limite=$limite&tipo=$tipo&divida=$divida";
+						}else{
+							echo("<script language='javascript'>$('#modalpesquisar').modal('show'); </script>");
+						}
 					}else{
-						echo("<script language='javascript'>$('#modalpesquisar').modal('show'); </script>");
+						echo("<script language='javascript'>$('#modalpesquisarf').modal('show'); </script>");
 					}
 				}else{
-					echo("<script language='javascript'>$('#modalpesquisarf').modal('show'); </script>");
+					echo("<script language='javascript'>$('#modalTipo').modal('show'); </script>");
 				}
 			}
 		}
