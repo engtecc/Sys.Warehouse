@@ -12,7 +12,9 @@
     vertical-align: center;
 }
 
-.margem3 { 
+.margem3 {
+    background: #900;
+    color: #FFF;    
     margin: 15px;
     height: 30px;
 }
@@ -34,4 +36,9 @@ input[id=btnPesquisar]
     height: 40px;
     display: block;
     float: right;
+}
+
+#btnCancelar
+{
+    margin-right:-243px;
 }

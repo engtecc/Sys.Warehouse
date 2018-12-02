@@ -20,7 +20,6 @@ if ($_SESSION['administrador'] != 1){
 	<link rel="icon" href="../imagens/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
-	<link rel="stylesheet" type="text/css" href="../css/cadCliente.css">
 	<link rel="stylesheet" type="text/css" href="../css/consulta.css">
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/cadastrarCliente.js"></script>
@@ -84,7 +83,7 @@ if ($_SESSION['administrador'] != 1){
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row rowForm">
-					<div class="col-md-8"></div>
+					<div class="col-md-9"></div>
 					<div class="col-md-1" align="center">
 						<a id="btnCancelar" class="btn btn-danger" style="float: right;" href="principal.php" role="button">Cancelar</a>
 					</div>
