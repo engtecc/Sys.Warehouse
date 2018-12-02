@@ -44,6 +44,18 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modalCompra" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalCompra">Compra efetuada!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="modal fade" id="modalerro" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -116,6 +128,11 @@ if ($_SESSION['administrador'] != 1){
 		if($_SESSION["compraConcluida"] == 5)
 		{
 			echo("<script language='javascript'>$('#modalerroTipo').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+		if($_SESSION["compraConcluida"] == -1)
+		{
+			echo("<script language='javascript'>$('#modalCompra').modal('show'); </script>");
 			$_SESSION["vendaConcluida"] = 0;
 		}
 	?>
@@ -234,7 +251,7 @@ if ($_SESSION['administrador'] != 1){
 								<div class="row rowForm">
 									<div class="col-md-6"></div>
 									<div class="col-md-6">
-										<a href="finalizarCompra" id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
+										<a href="../crud/finalizarCompra.php" id="btnFinalizar" class="btn btn-success">Finalizar Compra</a>
 									</div>
 								</div>
 							</form>
