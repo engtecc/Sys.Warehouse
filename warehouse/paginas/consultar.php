@@ -21,10 +21,15 @@ if ($_SESSION['administrador'] != 1){
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
 	<link rel="stylesheet" type="text/css" href="../css/cadCliente.css">
+	<link rel="stylesheet" type="text/css" href="../css/consulta.css">
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/cadastrarCliente.js"></script>
 	<script src="../js/script.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery.mask.min.js"></script>
+	<script src="../js/maskscript.js"></script>
+
 </head>
 
 <body>
@@ -34,47 +39,156 @@ if ($_SESSION['administrador'] != 1){
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
 	<?php
-		if(isset($_POST["btnCliente"]))
+	if(isset($_POST["btnCliente"]))
+	{
+		if($_POST["gridConsulta"] == "option1")
 		{
-			if($_POST["gridConsulta"] == "option1")
-			{
-				header("Location: ../crud/consultas/devedores.php");
-			}
-			if($_POST["gridConsulta"] == "option2")
-			{
-				$cpf = $_POST["cpf"];
-				header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
-			}
-			if($_POST["gridConsulta"] == "option3")
-			{
-				$data = $_POST["data"];
-				header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
-			}
-			if($_POST["gridConsulta"] == "option4")
-			{
-				$nome = $_POST["nome"];
-				header("Location: ../crud/consultas/clienteNome.php?nome=$nome");
-			}
+			header("Location: ../crud/consultas/devedores.php");
 		}
-		if(isset($_POST["btnProduto"]))
+		if($_POST["gridConsulta"] == "option2")
 		{
-			if($_POST["gridConsulta"] == "option5")
-			{
-				header("Location: ../crud/consultas/devedores.php");
-			}
-			if($_POST["gridConsulta"] == "option6")
-			{
-				$cpf = $_POST["cpf"];
-				header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
-			}
-			if($_POST["gridConsulta"] == "option7")
-			{
-				$data = $_POST["data"];
-				header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
-			}
+			$cpf = $_POST["cpf"];
+			header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
+		}
+		if($_POST["gridConsulta"] == "option3")
+		{
+			$data = $_POST["data"];
+			header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
+		}
+		if($_POST["gridConsulta"] == "option4")
+		{
+			$nome = $_POST["nome"];
+			header("Location: ../crud/consultas/clienteNome.php?nome=$nome");
+		}
+	}
+	if(isset($_POST["btnProduto"]))
+	{
+		if($_POST["gridConsulta"] == "option5")
+		{
+			header("Location: ../crud/consultas/devedores.php");
+		}
+		if($_POST["gridConsulta"] == "option6")
+		{
+			$cpf = $_POST["cpf"];
+			header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
+		}
+		if($_POST["gridConsulta"] == "option7")
+		{
+			$data = $_POST["data"];
+			header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
+		}
 
-		}
+	}
 	?>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row rowForm">
+					<div class="col-md-8"></div>
+					<div class="col-md-1" align="center">
+						<a id="btnCancelar" class="btn btn-danger" style="float: right;" href="principal.php" role="button">Cancelar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<form style="width: 100%;" action="" method="POST">
+		<div class="row rowForm">
+			<div class="col-md-4">
+				<h2 class="subTitulo">Consultar Cliente</h2>
+				<div class="rowForm col-md-4 margem3">
+					<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta1" value="option1" checked>
+					<label class="form-check-label" for="gridConsulta1">Devedores</label>
+				</div>
+				<div class="col-md-12 rowForm margem3">
+					<div class="row">
+						<div class="col-md-4">
+							<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta2" value="option2">
+							<label class="form-check-label" for="gridConsulta2">CPF:</label>
+						</div>
+						<div class="col-md-8">
+							<input class="form-control form-control-sm" type="text" name="cpf" id="txtCpf" placeholder="apenas números">
+							<!--<input class="form-control form-control-sm" type="text" name="cpf" id="gridConsulta2" placeholder="apenas números">-->
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 rowForm margem3">
+					<div class="row">
+						<div class="col-md-4">
+							<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta3" value="option3" style="">
+							<label class="form-check-label" for="gridConsulta3">Aniversariante:</label>
+						</div>
+						<div class="col-md-8">
+							<input class="form-control form-control-sm" type="date" name="data">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 rowForm margem3">
+					<div class="row">
+						<div class="col-md-4">
+							<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta4" value="option4">
+							<label class="form-check-label" for="gridConsulta4">Nome Cliente:</label>
+						</div>
+						<div class="col-md-8">
+							<input class="form-control form-control-sm" type="text" name="nome">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h2 class="subTitulo">Consultar Produto</h2>
+				<div class="col-md-4 rowForm margem3">
+					<input class="form-check-input" type="radio" name="gridConsulta" id="produto1" value="option5">
+					<label class="form-check-label" for="produto1">Quantidade</label>
+				</div>
+				<div class="col-md-4 rowForm margem3">
+					<input class="form-check-input" type="radio" name="gridConsulta" id="produto2" value="option6">
+					<label class="form-check-label" for="produto2">Vasilhame</label>
+				</div>
+				<div class="col-md-5 rowForm margem3">
+					<input class="form-check-input" type="radio" name="gridConsulta" id="produto3" value="option7">
+					<label class="form-check-label" for="produto3">Nome do vasilhame</label>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h2 class="subTitulo">Consultar Fornecedor</h2>
+				<div class="col-md-12 rowForm margem3">
+					<div class="row">
+						<div class="col-md-4">
+							<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option8">
+							<label class="form-check-label" for="fornecedor1">Contas:</label>
+						</div>
+						<div class="col-md-8">
+							<input class="form-control form-control-sm" type="text" name="cpf" id="fornecedor1">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 rowForm margem3">
+					<div class="row">
+						<div class="col-md-4">
+							<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option9">
+							<label class="form-check-label" for="fornecedor2">Nome Fornc.:</label>
+						</div>
+						<div class="col-md-8">
+							<input class="form-control form-control-sm" type="text" name="nome">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 rowForm margem3">
+
+				</div>
+				<div class="col-md-12 rowForm margem3">
+					<div class="row">
+						<div class="col-md-8"></div>
+						<div class="col-md-4">
+							<input type="submit" class="btn btn-success" id="btnPesquisar" value="Pesquisar" style="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>  
+	<!--
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -228,5 +342,5 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</form>
 		</div>
-	</div>
+	</div>-->
 </body>

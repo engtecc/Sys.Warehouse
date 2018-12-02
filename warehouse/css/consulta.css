@@ -1,0 +1,39 @@
+/* Formulario*/
+/* Margin da row ao banner */
+.rowForm
+{
+    margin-top:25px;
+}
+
+/* alinhamento do texto ao centro verticalmente e a direita horizontalmente*/
+.lblAl
+{
+    text-align: right;
+    vertical-align: center;
+}
+
+.margem3 {
+    background: #900;
+    color: #FFF;    
+    margin: 15px;
+    height: 30px;
+}
+
+/* Inputs text do formulário */ 
+input:focus
+{
+    border: solid 0.5px #31b0d5;
+}
+
+input[type=radio]
+{
+    width: 16px;
+    height: 16px;
+}
+input[id=btnPesquisar]
+{
+    width: 200px;
+    height: 40px;
+    display: block;
+    float: right;
+}
