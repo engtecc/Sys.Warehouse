@@ -25,6 +25,9 @@ if ($_SESSION['administrador'] != 1){
 	<script src="../js/script.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/cadastrarProduto.js"></script>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery.mask.min.js"></script>
+	<script src="../js/maskscript.js"></script>
 
 </head>
 <body>
@@ -96,7 +99,7 @@ if ($_SESSION['administrador'] != 1){
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroup-sizing-sm">R$</span>
 									</div>
-									<input class="form-control form-control-sm " type="text" style="width: 5%; " id="txtPrecoCompra" name="txtPrecoCompra" value="" required placeholder="000.00">
+									<input class="form-control form-control-sm " type="text" style="width: 5%; " id="txtPrecoCompra" name="txtPrecoCompra" value="" required>
 								</div>
 							</div>
 							<div class="row rowForm">
@@ -107,7 +110,7 @@ if ($_SESSION['administrador'] != 1){
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroup-sizing-sm">R$</span>
 									</div>
-									<input class="form-control form-control-sm" type="text" style="width: 80%;" id="txtPrecoVenda" name="txtPrecoVenda" value="" required placeholder="000.00">
+									<input class="form-control form-control-sm" type="text" style="width: 80%;" id="txtPrecoVenda" name="txtPrecoVenda" value="" required>
 								</div>
 							</div>
 							<div class="row rowForm">
