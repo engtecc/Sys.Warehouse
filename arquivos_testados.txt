@@ -1,0 +1,97 @@
+TESTADORES:
+	DANIEL WINTER SANTOS ROCHA.
+	RODRIGO MATHEUS RODRIGUES DE OLIVEIRA. 
+
+[DATA DO TESTE]
+	nome_arquivo.extenção
+		Observações.
+
+Obs.: arquivos contidos em pastas serão indentados devidamente. 
+
+[08/11/2018] 
+
+	Banco_de_Dados_ENGTEC.pdf 
+		Falta ";" no final de TODOS os comandos para criar tabela. 
+
+	Diagrama de classe Visio.pdf 
+		As linhas poderiam estar mais organizadas e menos confusas. 
+
+[09/11/2018]
+
+	Módulos do sistema v2.0.docx
+		Em vários lugares a palavra "funcionario" está sem acento, caso se refira ao nome de um módulo desconsiderar. 
+		Conferir a existência do verbo "logar" na língua portuguesa. 
+
+	Pre - Telas.pdf
+		Em "MC 5 - Tela Principal", "Cadastro de Funcionarios" está fora da delimitação.
+		Em "MC 5 - Tela Principal", "Funcionarios" não está acentuado.
+		Em "MC 5 - Tela Principal", "Consulta e editar" está fora do padrão de letra maiúscula e forma verbal. 
+		Em "MC 8 - Tela de Venda", "Emprestimo" está sem acento. 
+		Em "MC 8 - Tela de Venda", a palavra "Quantidade" foi obstruída. 
+		Em "MC 12 - Tela de Consultas", algumas palavras foram obstrídas. 
+		Padronizar palavras iniciando em maiúscula em TODOS os títulos de telas. 
+		Padronizar o uso de ":" em TODOS os nomes de campos.
+
+	Projeto de Banco de Dados 5.0.png
+		Extenção .png com qualidade ruim.
+
+	Projeto de Banco de Dados - Descrição.pdf
+		Em ":Chave estrangeira que pode ser nula;", página 1, falta espaço após o ":". 
+		Em "apresenta dose tabelas", página 1, erro de ortografia em "dose", corrigir para "doze".
+		Na listagem por escrito de tabelas, final da página 1, "Funcionário" deve estar no plural, conforme modelo físico.
+		Em "A figura(1) apresenta", página 1, a figura 1 não foi expecificada. 
+		Na página 2, linha 2, "Saída Produtos", deve ser corrigido para "Saída Produto", confomre modelo físico.
+		Na página 2, linha 5, "tabela Saída", deve ser corrigido para "tabela Saída Produto".
+		Na página 2, linha 6, "Entrada Produtos", deve ser corrigido para "Entrada Produto".
+		Na página 3, abaixo da Figura 3, falta maiúsculas em "telefone", "Pessoa responsável" e "fornecedor", conforme modelo físico.
+		Na página 3, abaixo da Figura 4, falta maiúscula em "Referência comercial".
+		Na página 4, a Tabela Cliente está fora do local devido. 
+		Na página 4, linha 1, "a cima" possui erro de ortografia, corrigir para "acima". 
+		Na página 4, linha 2, em "cliente(S)" o "S" deve ser minúsculo.
+		Na página 4, linha 1, "chave primaria" possui erro de ortografia, corrigir para "chave primária".
+		Na página 4, linha 4, em "atributos de pessoa" o "pessoa" deve iniciar com maiúsculo conforme modelo físico.
+		Na página 4, linha 4, "a também" possui erro de ortografia, corrigir para "há também".
+		Na página 4, linha 4, em "Limite de Credito" o "Credito" deve ser acentuado conforme modelo físico.
+		Na página 4, abaixo da Figura 6, linha 2, "chave primaria" possui erro de ortografia, corrigir para "chave primária".
+		Na página 4, abaixo da Figura 6, linha 3, em "Nome<" deve ser retirado o "<".
+		Na página 5, linha 1, "Tabela Funcionário" está fora de formatação.
+		Na página 5, linha 3, em "atributos de Pessoas" o "Pessoas" deve estar no singular conforme modelo físico. 
+		Na página 5, linha 6, "a o" possui erro de ortografia, corrigir para "ao".
+		Na página 5, abaixo da Figura 8, linha 2, "primaria" possui erro de ortografia, corrigir para "primária".
+		Na página 6, linha 2, "Numero" deve ser acentuado conforme modelo físico.
+		Na página 6, abaixo da Figura 10, linha 2, não necessita do duplo gênero em "realizado(a)".
+		Na página 6, abaixo da Figura 10, linha 2, "chave primaria" possui erro de ortografia, corrigir para "chave primária".
+		Na página 7, linha 1, "Venda" deve estar no plural conforme modelo físico.
+		Na página 7, linha 1, "chave primaria" possui erro de ortografia, corrigir para "chave primária".
+		Na página 7, linha 1, "ID_Vendas" deve estar no singular conforme modelo físico. 
+		Na página 7, linha 2, aparentemente falta pontuação entre as palavras "estrangeira atributos".
+		Na página 7, linha 3, "Pagamentos" deve estar no singular conforme modelo físico.
+		Na página 7, linha 4, "Possui" deve iniciar com letra minúscula.
+		Corrigir TODOS os nomes de variáveis contendo espaço e acentos.
+		Atualizar as correções de nomes de variáveis nos textos que detalham as tabelas. 
+				
+	Requisitos.pdf
+		Em 2.8.1.4, a cidade "Vila Bela da Santíssima Trindade", no MT, possui 32 caracteres. 
+
+	Diagramas BPMN
+		diagramas.pdf (todos)	
+			Conferir a pontuação das frases em todos arquivos.
+
+	Arquivo: Banco_de_Dados
+	Todas as linhas de comando do arquivo estão sem o ";".
+
+	Arquivo:Diagrama de classes Visio.pdf
+
+	Na tabela fornecedor o atributo "CNPF" não existe,ou é CNPJ,ou CPF.
+
+	Arquivo:Móduslos do sistema v1.0
+
+	Em "Linguangens" PostgreSQL está escrito com um "e" a mais em todos os tópicos
+
+	Arquivo:Móduslos do sistema v2.0
+
+	Em "Linguangens" PostgreSQL está escrito com um "e" a mais em todos os tópicos
+
+[03/12/2018]
+
+	Nenhum erro encontrado nos artefatos atualizados até agora. Porém muitos ainda não foram corrigidos. 
