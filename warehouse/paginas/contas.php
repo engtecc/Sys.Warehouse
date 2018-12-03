@@ -104,6 +104,18 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modaldeletar" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modaldeletar">Produto deletado da lista!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php
 		if($_SESSION["compraConcluida"] == 1)
 		{
@@ -133,6 +145,11 @@ if ($_SESSION['administrador'] != 1){
 		if($_SESSION["compraConcluida"] == -1)
 		{
 			echo("<script language='javascript'>$('#modalCompra').modal('show'); </script>");
+			$_SESSION["vendaConcluida"] = 0;
+		}
+		if($_SESSION["compraConcluida"] == 6)
+		{
+			echo("<script language='javascript'>$('#modaldeletar').modal('show'); </script>");
 			$_SESSION["vendaConcluida"] = 0;
 		}
 	?>

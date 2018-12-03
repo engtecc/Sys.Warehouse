@@ -16,7 +16,7 @@
         $cod++;
         unset($_SESSION["dbgriddados"][$cod]);
         
-        $_SESSION["iterador"] = 1;
+        $_SESSION["iterador"]--;
         $_SESSION["vendaConcluida"] = 3;
         header("location: ../paginas/venda.php");
         

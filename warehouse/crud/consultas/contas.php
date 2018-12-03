@@ -49,7 +49,7 @@ if ($_SESSION['administrador'] != 1){
 			
 				<?php
 					require_once '../bd.php';
-					$sql = "SELECT * FROM produto Order By quantidade_estoque";
+					$sql = "SELECT * FROM produto where codigo_de_barras = '10000000' Order By quantidade_estoque";
 					if ($resultado = $conexao->query($sql)){
 						if ($resultado->num_rows > 0){
 							echo '<table class="table table-sm table-bordered" style="margin-top:100px; margin-bottom:150px;">

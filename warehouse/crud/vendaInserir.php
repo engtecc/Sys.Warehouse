@@ -38,7 +38,19 @@
     {
         $insert = "INSERT INTO saida_produto(codigo_de_barras,id_venda,quantidade,valor_total) VALUES ('".$codigo[$j]."','".$id_venda."','".$quantidade[$j]."','".$valortotal[$j]."')";
         mysqli_query($conexao,$insert);
+        $select = "SELECT quantidade_estoque FROM produto where codigo_de_barras = '$codigo[$j]'";
+        $sql = mysqli_query($conexao,$select);
+        $resultado = mysqli_fetch_array($sql);
+        $q = $resultado["quantidade_estoque"];
+        if($q >= $quantidade[$j]){
+            $q = $q - $quantidade[$j];
+            $update = "UPDATE produto SET quantidade_estoque = '$q' where codigo_de_barras = '$codigo[$j]' ";
+            mysqli_query($conexao,$update);
+        }else{
+            
+        }
     }
+
     $_SESSION["valortotal"] = 0;
     $_SESSION["dbgriddados"] = array();
     $_SESSION["dbgrid"]= array();

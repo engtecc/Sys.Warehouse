@@ -49,7 +49,8 @@ if ($_SESSION['administrador'] != 1){
 			
 				<?php
 					require_once '../bd.php';
-					$sql = "SELECT * FROM produto Order By quantidade_estoque";
+					$nome = $_GET["nome"];
+					$sql = "SELECT * FROM compra as c,fornecedor  as f where nome LIKE '%$nome%' and c.cnpj = f.cnpj  Order By nome ASC";
 					if ($resultado = $conexao->query($sql)){
 						if ($resultado->num_rows > 0){
 							echo '<table class="table table-sm table-bordered" style="margin-top:100px; margin-bottom:150px;">
@@ -57,10 +58,12 @@ if ($_SESSION['administrador'] != 1){
 							<tr style="text-align: center;">
 								<th style="width: 5%;">#</th>
 								<th style="width: 30%;">Nome</th>
-								<th style="width: 30%;">Codigo de Barras</th>
-								<th style="width: 20%;">Preço de Venda</th>
-								<th style="width: 20%;">Preço de Compra</th>
-								<th style="width: 3%;">Quantidade estoque</th>
+								<th style="width: 7%;">Cnpj</th>
+								<th style="width: 5%;">Tipo de pagamento</th>
+								<th style="width: 10%;">Telefone</th>
+								<th style="width: 15%;">Nome do representante</th>
+								<th style="width: 10%;">telefone do representante</th>
+								<th style="width: 3%;">Valor total</th>
 							</tr>
 						</thead>';
 							echo "<tbody";
@@ -70,10 +73,12 @@ if ($_SESSION['administrador'] != 1){
 								
 								echo "<td>" .$i. "</td>";
 								echo "<td>" .$linha['nome']. "</td>";
-								echo "<td>" .$linha['codigo_de_barras']. "</td>";
-								echo "<td>" .$linha['preco_de_venda']. "</td>";
-								echo "<td>" .$linha['preco_de_compra']. "</td>";
-								echo "<td>" .$linha['quantidade_estoque']. "</td>";
+								echo "<td>" .$linha['cnpj']. "</td>";
+								echo "<td>" .$linha['tipo']. "</td>";
+								echo "<td>" .$linha['telefone']. "</td>";
+								echo "<td>" .$linha['nome_representante']. "</td>";
+								echo "<td>" .$linha['telefone_representante']. "</td>";
+								echo "<td>" .$linha['valor_total']. "</td>";
 								$i++;
 							}
 

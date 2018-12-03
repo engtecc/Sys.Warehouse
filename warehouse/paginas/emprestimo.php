@@ -136,7 +136,7 @@
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
+									<a id="btnRemover" class="btn btn-primary" href="../crud/adicionarEmprestimo.php" role="button">Adicionar</a>
 								</div>
 								<div class="col-md-2">
 									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
@@ -157,7 +157,7 @@
 									<?php 
 										if($_SERVER["REQUEST_METHOD"] == "POST")
 										{
-											$select = "SELECT * FROM emprestimot";
+											$select = "SELECT * FROM temporary";
 										}
 									?>
 								</table>
