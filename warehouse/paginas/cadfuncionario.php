@@ -25,6 +25,9 @@ if ($_SESSION['administrador'] != 1){
 		<script src="../js/script.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/cadastrarFuncionario.js"></script>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/jquery.mask.min.js"></script>
+		<script src="../js/maskscript.js"></script>
 </head>
 	<body>
 		<nav class="site-header">
@@ -72,25 +75,25 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-3 lblAl">
+									<div class="col-md-3 lblAl" style="text-align: right;">
 										<label>Nome: </label>
 									</div>
 									<div class="col-md-9">
-										<input class="form-control form-control-sm" type="text" id="txtNome" name="txtNome" value="">
+										<input class="form-control form-control-sm" type="text" id="txtNome" name="txtNome" value="" required>
 									</div>
 								</div>
 								<div class="row" style="margin-top:30px;">
-									<div class="col-md-3 lblAl">	
+									<div class="col-md-3 lblAl" style="text-align: right;">	
 										<label>Login: </label>							
 									</div>
 									<div class="col-md-3">
-										<input class="form-control form-control-sm"  type="text" id="txtLogin" name="txtLogin" value="">
+										<input class="form-control form-control-sm"  type="text" id="txtLogin" name="txtLogin" value="" required>
 									</div>
-									<div class="col-md-3 lblAl" >
+									<div class="col-md-3 lblAl" style="text-align: right;">
 										<label style="margin-right:-5px;">Senha: </label>
 									</div>
 									<div class="col-md-2">
-										<input class="form-control form-control-sm"  type="password" id="txtSenha" name='txtSenha' value="">
+										<input class="form-control form-control-sm"  type="password" id="txtSenha" name='txtSenha' value="" required>
 									</div>
 								</div>
 								<div class="row">
@@ -101,20 +104,20 @@ if ($_SESSION['administrador'] != 1){
 											<div class="col-md-7 " style="margin-left:15px;">
 												<label>Confirmar senha: </label>
 											</div>
-											<div class="col-md-2">
-												<input class="form-control form-control-sm"  type="password" id="txtConfirmarSenha" name="txtConfirmarSenha" value="">
+											<div class="col-md-2 ml-2">
+												<input class="form-control form-control-sm"  type="password" id="txtConfirmarSenha" name="txtConfirmarSenha" value="" required>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-3 lblAl">
+									<div class="col-md-3 lblAl" style="text-align: right;">
 										<label>CPF: </label>
 									</div>
 									<div class="col-md-5">
-										<input class="form-control form-control-sm"  type="text" id="txtCpf" name="txtCpf" value="">
+										<input class="form-control form-control-sm"  type="text" id="txtCpf" name="txtCpf" value="" required>
 									</div>
-									<div class="col-md-1">
+									<div class="col-md-1" style="text-align: right;">
 										<label>&nbsp;&nbsp;&nbsp;RG: </label>
 									</div>
 									<div class="col-md-2">
@@ -122,7 +125,7 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-3 lblAl">
+									<div class="col-md-3 lblAl" style="text-align: right;">
 										<label>Rua: </label>
 									</div>
 									<div class="col-md-9">
@@ -130,7 +133,7 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-3 lblAl">
+									<div class="col-md-3 lblAl" style="text-align: right;">
 										<label>Número: </label>
 									</div>
 									<div class="col-md-2">
@@ -144,7 +147,7 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-3 lblAl">
+									<div class="col-md-3 lblAl" style="text-align: right;">
 										<label>Cidade: </label>
 									</div>
 									<div class="col-md-4">
@@ -186,7 +189,7 @@ if ($_SESSION['administrador'] != 1){
 									</div>
 								</div>
 								<div class="row rowForm">
-									<div class="col-md-3 lblAl">
+									<div class="col-md-3 lblAl" style="text-align: right;">
 										<label>Telefone: </label>
 									</div>
 									<div class="col-md-3">

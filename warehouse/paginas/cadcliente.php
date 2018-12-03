@@ -175,7 +175,7 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
-									<label>Referencia Comercial: </label>
+									<label>Referência Comercial: </label>
 								</div>
 								<div class="col-md-3">
 									<input class="form-control form-control-sm" type="text" id="txtReferencia1" name="txtReferencia1" value="" >
@@ -189,7 +189,7 @@ if ($_SESSION['administrador'] != 1){
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl">
-									<label>Limite de credito: </label>
+									<label>Limite de crédito: </label>
 								</div>
 								<div class="col-md-9">
 									<input class="form-control form-control-sm" type="text" id="txtLimite" name="txtLimite" value="" placeholder="R$" required>

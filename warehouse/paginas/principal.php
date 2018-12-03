@@ -50,8 +50,8 @@ $_SESSION["compraConcluida"] = 0;
 	</nav>
 	
 	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-4 mt-3">
+		<div class="col-md-1"></div>
+		<div class="col-md-5 mt-3">
 			<center> 
 				<div class="container marketing">
 					<div class="row">

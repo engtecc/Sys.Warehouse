@@ -1,0 +1,84 @@
+Log de Erros à serem concertados(29/11/2018):
+
+MENU:
+
+Alinhar todos os ícones no meio da tela,deixa mais estilizado
+
+VENDAS(com usuário adm):
+
+Na hora de realizar a venda não está sendo possível colocar o nome do produto ou id,ou coisa do tipo.
+
+VENDAS(com funcionário):
+
+Deveria ser deixado de forma mais clara,que ao tentar vender um produto,mesmo sabendo o código de barras,deve-se
+clicar em pesquisar ao invés de adicionar.
+
+CADASTRO DE CLIENTES:
+
+Os campos CPF e RG,Telefone estão sem máscara.
+Os campos CPF,Número e Telefone,não devem aceitar letras.
+Está sendo permitido cadastrar elementos "cliente" sem nenhum tipo de dados.
+
+O Campo "Referencia Comercial" falta um acento circunflexo o certo seria "Referência Comercial",e falta dizer
+se essa referência é um endereço,um telefone,deixa mais explícito se for um telefone.
+
+Os campos em Cadastro de Clientes: RG,Bairro,Estado e data de nascimento seria interessante estarem alinhados 
+verticalmente.
+
+CADASTRO DE FORNECEDOR:
+
+O cadastro de fornecedor está sendo permitido sem inserir o número de telefone do mesmo.
+Os campos CNPJ,Telefone e Telefone do representante estão sem máscara.
+Os campos CNPJ,Número e Telefone,não devem aceitar letras
+
+Os campos em Cadastro de Fornecedor: Bairro,Estado, seria também interessante estarem alinhados para melhor estilização.
+
+CONSULTAR:
+	CONSULTAR CLIENTE:
+Não é possível utilizar o campo de consultas utilizando os devedores.
+Nada funcionando até então.
+
+	CONSULTAR PRODUTO:
+Na seção vasilhames,não existe forma de consultar esse objeto,em tabela nenhuma,ou cadastro nenhum,pede para informar
+ou cita a existência de algum vasilhame.
+
+	CONSULTAR FORNECEDOR:
+
+Nada funcionando até então.
+
+
+CADASTRAR DE FUNCIONÁRIO:
+
+
+Está sendo possível cadastrar funcionário sem nenhum dado preenchido,a não ser o default de login e senha.
+Está sendo possível cadastrar funcionário com o mesmo login.
+Os Campos CPF e Telefone não deve permitir letras,apenas números.
+A caixa de texto de senha,e de confirmar senha,estão desalinhadas.
+Nos campos,CPF,RG e telefone,faltam máscara.
+
+CADASTRAR PRODUTO:
+
+Nos campos quantidade,preço de compra e preço de venda,está sendo possível inserir letras.
+Ao inserir letras no código de barra está exibindo a mensagem "código já cadastrado",deveria ser código inválido.
+
+
+LANÇAR COMPRAS:
+
+Ao inserir os dados,na hora de colocar os "produtos da compra" ao clica em adicionar ou remover,sou 
+redirecionado a tela inicial do site.
+Nada funcionando até então.
+
+ALTERAR CADASTROS:
+
+A aba Empréstimo necessita de um vasilhame que ainda não é possível informar em nenhuma das funções até então do site.
+A consulta através do "Funcionário" ainda não funciona.
+A pesquisa através do "Cliente" ainda não funciona
+
+
+RELATÓRIOS:
+
+Nada funcionando até então.
+
+
+
+
