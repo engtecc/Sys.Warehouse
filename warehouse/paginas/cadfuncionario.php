@@ -104,7 +104,7 @@ if ($_SESSION['administrador'] != 1){
 											<div class="col-md-7 " style="margin-left:15px;">
 												<label>Confirmar senha: </label>
 											</div>
-											<div class="col-md-2">
+											<div class="col-md-2 ml-2">
 												<input class="form-control form-control-sm"  type="password" id="txtConfirmarSenha" name="txtConfirmarSenha" value="" required>
 											</div>
 										</div>

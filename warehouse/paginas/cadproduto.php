@@ -62,7 +62,7 @@ if ($_SESSION['administrador'] != 1){
 		</div>
 	</div>
 	<div class="container">
-		<h2 class="subTitulo">Lançar pagamento</h2>
+		<h2 class="subTitulo">Cadastrar produto</h2>
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8 mt-3">

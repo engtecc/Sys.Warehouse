@@ -43,7 +43,7 @@ input:focus
 }
 #txtBairro
 {
-    width:160px;
+    width:312px;
     margin-left:10px;
 }
 #txtCidade
@@ -84,6 +84,6 @@ input:focus
 }
 #txtLimite
 {
-    width:200px;
+    width:152px;
     margin-top:15px;
 } 

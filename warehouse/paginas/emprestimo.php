@@ -84,7 +84,7 @@
 							</div>
 							<div class="row rowForm2">
 								<div class="col-md-3 lblAl" style="margin-top:7px; ">
-									<label>Data de Empréstimo: </label>
+									<label>Data de empréstimo: </label>
 								</div>
 								<div class="col-md-3">
 									<input class="form-control"  name="dateEmprestimo" style="width:180px;"type="date" id="datEmp">
@@ -92,7 +92,7 @@
 							</div>
 							<div class="row rowForm2">
 								<div class="col-md-3 lblAl"   style="margin-top:7px;">
-									<label>Data de Devolução: </label>
+									<label>Data de devolução: </label>
 								</div>
 								<div class="col-md-3">
 									<input class="form-control" name="dateDevolucao" style="width:180px;" type="date" id="datDev">
@@ -100,7 +100,7 @@
 							</div>
 							<div class="row rowForm2">
 								<div class="col-md-3 lblAl" style="margin-top:7px;">
-									<label>Forma de Pagamento: </label>
+									<label>Forma de pagamento: </label>
 								</div>
 								<div class="col-md-3">
 									<select class="form-control" name="slcTipo" style="width:180px;" id="selPag">
@@ -128,7 +128,7 @@
 							</div>
 							<div class="row rowForm2">
 								<div class="col-md-3 lblAL " style="margin-top:7px;"><label>Vasilhame:</div>
-								<div class="col-md-3"><select name='slcVasilhame' style="width:180px;" class="form-control"><option value=1>Sim</option> <option value=0>Nao</option></select></div>
+								<div class="col-md-3"><select name='slcVasilhame' style="width:180px;" class="form-control"><option value=1>Sim</option> <option value=0>Não</option></select></div>
 							</div>
 							<div class="row rowForm rowTable">
 								<div class="col-md-3 lblAl" style="margin-top:7px;">

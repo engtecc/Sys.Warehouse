@@ -23,16 +23,16 @@ input:focus
 }
 #txtLogin
 {
-    width: 130px;
+    width: 190px;
 }
 #txtSenha
 {
-    width: 130px;
+    width: 234px;
     margin-right: -3000px;
 }
 #txtConfirmarSenha
 {
-    width: 130px;
+    width: 234px;
     margin-left: -55px;   
 }
 #btnCancelar
@@ -41,7 +41,7 @@ input:focus
 }
 #txtCpf
 {
-    width:230px;
+    width:190px;
 }
 #txtRG
 {
@@ -57,7 +57,7 @@ input:focus
 }
 #txtBairro
 {
-    width:160px;
+    width:314px;
     margin-left:10px;
 }
 #txtCidade
