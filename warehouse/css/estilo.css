@@ -45,13 +45,14 @@ body {
     text-align: center;
 }
 
-
-
+.table-bordered td{
+    border-color: #181818 !important;
+}
 
 .menu ul {font-size: 15px; margin: 0 auto;}
 
 .navbar{
-    background-color: #151515 !important;
+    background-color: #181818 !important;
 }
 
 .nav-link{

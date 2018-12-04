@@ -32,6 +32,50 @@ if ($_SESSION['administrador'] != 1){
 		<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
+	<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark justify-content-between menu">
+		<a class="navbar-brand" href="#"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse"> 
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link formatacao" href="principal.php">PRINCIPAL<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link formatacao" href="venda.php">VENDAS<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle dropbtn formatacao" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CADASTRAR</a>
+					<div class="dropdown-content" aria-labelledby="dropdown01">
+						<a class="dropdown-item" href="cadcliente.php">CLIENTE</a>
+						<a class="dropdown-item" href="cadfornecedor.php">FORNECEDOR</a>
+						<a class="dropdown-item" href="cadfuncionario.php">FUNCIONÁRIO</a>    
+						<a class="dropdown-item" href="cadproduto.php">PRODUTO</a>
+					</div> 
+				</li>
+				<li class="nav-item">
+					<a class="nav-link formatacao" href="pesquisar_editar.php">ALTERAR CADASTROS<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link formatacao" href="consultar.php">CONSULTAR<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle dropbtn formatacao" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LANÇAR</a>
+					<div class="dropdown-content" aria-labelledby="dropdown01">
+						<a class="dropdown-item" href="contas.php">COMPRAS</a>
+						<a class="dropdown-item" href="lancarpagamento.php">PAGAMENTO</a>
+					</div> 
+				</li>
+				<li class="nav-item">
+					<a class="nav-link formatacao" href="emprestimo.php">EMPRÉSTIMO<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link formatacao" href="relatorios.php">RELATÓRIOS<span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 	<div class="modal fade" id="modalok" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -104,18 +148,6 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="modaldeletar" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="modaldeletar">Produto deletado da lista!</h5>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-success btn-sm ok" data-dismiss="modal">Fechar</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<?php
 		if($_SESSION["compraConcluida"] == 1)
 		{
@@ -145,11 +177,6 @@ if ($_SESSION['administrador'] != 1){
 		if($_SESSION["compraConcluida"] == -1)
 		{
 			echo("<script language='javascript'>$('#modalCompra').modal('show'); </script>");
-			$_SESSION["vendaConcluida"] = 0;
-		}
-		if($_SESSION["compraConcluida"] == 6)
-		{
-			echo("<script language='javascript'>$('#modaldeletar').modal('show'); </script>");
 			$_SESSION["vendaConcluida"] = 0;
 		}
 	?>

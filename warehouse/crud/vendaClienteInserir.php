@@ -42,6 +42,7 @@
     if($tipo == "prazo")
     {
         $update = "UPDATE cliente set limite_de_credito = '$limite', divida='$divida' WHERE id_cliente = '$id_cliente'";
+        echo('entrei');
         mysqli_query($conexao,$update);
     }
     $insert = "INSERT INTO venda(id_funcionario,id_cliente,data_horario,tipo,valor_total) VALUES ('$id_funcionario','$id_cliente','$dataatual','$tipo','$v')";

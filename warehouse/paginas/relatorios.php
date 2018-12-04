@@ -29,11 +29,53 @@ if ($_SESSION['administrador'] != 1){
 </head>
 
 <body>
-
-    <nav class="site-header">
-        <div class = "jumbotron text-center removerMargem">
-            <h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
-            <h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
+<body>
+    <div class = "jumbotron text-center removerMargem">
+        <h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
+        <h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark justify-content-between menu">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">Menu
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse"> 
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link formatacao" href="principal.php">PRINCIPAL<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link formatacao" href="venda.php">VENDAS<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropbtn formatacao" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CADASTRAR</a>
+                    <div class="dropdown-content" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="cadcliente.php">CLIENTE</a>
+                        <a class="dropdown-item" href="cadfornecedor.php">FORNECEDOR</a>
+                        <a class="dropdown-item" href="cadfuncionario.php">FUNCIONÁRIO</a>    
+                        <a class="dropdown-item" href="cadproduto.php">PRODUTO</a>
+                    </div> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link formatacao" href="pesquisar_editar.php">ALTERAR CADASTROS<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link formatacao" href="consultar.php">CONSULTAR<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropbtn formatacao" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LANÇAR</a>
+                    <div class="dropdown-content" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="contas.php">COMPRAS</a>
+                        <a class="dropdown-item" href="lancarpagamento.php">PAGAMENTO</a>
+                    </div> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link formatacao" href="emprestimo.php">EMPRÉSTIMO<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link formatacao" href="relatorios.php">RELATÓRIOS<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
         </div>
     </nav>
 
