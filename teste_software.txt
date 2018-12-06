@@ -1,84 +1,121 @@
-Log de Erros ‡ serem concertados(29/11/2018):
+Log de Erros √† serem concertados(29/11/2018):
 
 MENU:
 
-Alinhar todos os Ìcones no meio da tela,deixa mais estilizado
+Alinhar todos os √≠cones no meio da tela,deixa mais estilizado
 
-VENDAS(com usu·rio adm):
+VENDAS(com usu√°rio adm):
 
-Na hora de realizar a venda n„o est· sendo possÌvel colocar o nome do produto ou id,ou coisa do tipo.
+Na hora de realizar a venda n√£o est√° sendo poss√≠vel colocar o nome do produto ou id,ou coisa do tipo.
 
-VENDAS(com funcion·rio):
+VENDAS(com funcion√°rio):
 
-Deveria ser deixado de forma mais clara,que ao tentar vender um produto,mesmo sabendo o cÛdigo de barras,deve-se
-clicar em pesquisar ao invÈs de adicionar.
+Deveria ser deixado de forma mais clara,que ao tentar vender um produto,mesmo sabendo o c√≥digo de barras,deve-se
+clicar em pesquisar ao inv√©s de adicionar.
 
 CADASTRO DE CLIENTES:
 
-Os campos CPF e RG,Telefone est„o sem m·scara.
-Os campos CPF,N˙mero e Telefone,n„o devem aceitar letras.
-Est· sendo permitido cadastrar elementos "cliente" sem nenhum tipo de dados.
+Os campos CPF e RG,Telefone est√£o sem m√°scara.
+Os campos CPF,N√∫mero e Telefone,n√£o devem aceitar letras.
+Est√° sendo permitido cadastrar elementos "cliente" sem nenhum tipo de dados.
+O "Limite de Cr√©dito" est√° sendo permitido inserir letras.
 
-O Campo "Referencia Comercial" falta um acento circunflexo o certo seria "ReferÍncia Comercial",e falta dizer
-se essa referÍncia È um endereÁo,um telefone,deixa mais explÌcito se for um telefone.
+O Campo "Referencia Comercial" falta um acento circunflexo o certo seria "Refer√™ncia Comercial",e falta dizer
+se essa refer√™ncia √© um endere√ßo,um telefone,deixa mais expl√≠cito se for um telefone.
 
 Os campos em Cadastro de Clientes: RG,Bairro,Estado e data de nascimento seria interessante estarem alinhados 
 verticalmente.
 
 CADASTRO DE FORNECEDOR:
 
-O cadastro de fornecedor est· sendo permitido sem inserir o n˙mero de telefone do mesmo.
-Os campos CNPJ,Telefone e Telefone do representante est„o sem m·scara.
-Os campos CNPJ,N˙mero e Telefone,n„o devem aceitar letras
+O cadastro de fornecedor est√° sendo permitido sem inserir o n√∫mero de telefone do mesmo.
+Os campos CNPJ,Telefone e Telefone do representante est√£o sem m√°scara.
+Os campos CNPJ,N√∫mero e Telefone,n√£o devem aceitar letras
 
-Os campos em Cadastro de Fornecedor: Bairro,Estado, seria tambÈm interessante estarem alinhados para melhor estilizaÁ„o.
+Os campos em Cadastro de Fornecedor: Bairro,Estado, seria tamb√©m interessante estarem alinhados para melhor estiliza√ß√£o.
 
 CONSULTAR:
 	CONSULTAR CLIENTE:
-N„o È possÌvel utilizar o campo de consultas utilizando os devedores.
-Nada funcionando atÈ ent„o.
+N√£o √© poss√≠vel utilizar o campo de consultas utilizando os devedores.
+Nada funcionando at√© ent√£o.
 
 	CONSULTAR PRODUTO:
-Na seÁ„o vasilhames,n„o existe forma de consultar esse objeto,em tabela nenhuma,ou cadastro nenhum,pede para informar
-ou cita a existÍncia de algum vasilhame.
+Na se√ß√£o vasilhames,n√£o existe forma de consultar esse objeto,em tabela nenhuma,ou cadastro nenhum,pede para informar
+ou cita a exist√™ncia de algum vasilhame.
 
 	CONSULTAR FORNECEDOR:
 
-Nada funcionando atÈ ent„o.
+Nada funcionando at√© ent√£o.
 
 
-CADASTRAR DE FUNCION¡RIO:
+CADASTRAR DE FUNCION√ÅRIO:
 
 
-Est· sendo possÌvel cadastrar funcion·rio sem nenhum dado preenchido,a n„o ser o default de login e senha.
-Est· sendo possÌvel cadastrar funcion·rio com o mesmo login.
-Os Campos CPF e Telefone n„o deve permitir letras,apenas n˙meros.
-A caixa de texto de senha,e de confirmar senha,est„o desalinhadas.
-Nos campos,CPF,RG e telefone,faltam m·scara.
+Est√° sendo poss√≠vel cadastrar funcion√°rio sem nenhum dado preenchido,a n√£o ser o default de login e senha.
+Est√° sendo poss√≠vel cadastrar funcion√°rio com o mesmo login.
+Os Campos CPF e Telefone n√£o deve permitir letras,apenas n√∫meros.
+A caixa de texto de senha,e de confirmar senha,est√£o desalinhadas.
+Nos campos,CPF,RG e telefone,faltam m√°scara.
 
 CADASTRAR PRODUTO:
 
-Nos campos quantidade,preÁo de compra e preÁo de venda,est· sendo possÌvel inserir letras.
-Ao inserir letras no cÛdigo de barra est· exibindo a mensagem "cÛdigo j· cadastrado",deveria ser cÛdigo inv·lido.
+Nos campos quantidade,pre√ßo de compra e pre√ßo de venda,est√° sendo poss√≠vel inserir letras.
+Ao inserir letras no c√≥digo de barra est√° exibindo a mensagem "c√≥digo j√° cadastrado",deveria ser c√≥digo inv√°lido.
 
 
-LAN«AR COMPRAS:
+LAN√áAR COMPRAS:
 
 Ao inserir os dados,na hora de colocar os "produtos da compra" ao clica em adicionar ou remover,sou 
 redirecionado a tela inicial do site.
-Nada funcionando atÈ ent„o.
+Nada funcionando at√© ent√£o.
 
 ALTERAR CADASTROS:
 
-A aba EmprÈstimo necessita de um vasilhame que ainda n„o È possÌvel informar em nenhuma das funÁıes atÈ ent„o do site.
-A consulta atravÈs do "Funcion·rio" ainda n„o funciona.
-A pesquisa atravÈs do "Cliente" ainda n„o funciona
+A aba Empr√©stimo necessita de um vasilhame que ainda n√£o √© poss√≠vel informar em nenhuma das fun√ß√µes at√© ent√£o do site.
+A consulta atrav√©s do "Funcion√°rio" ainda n√£o funciona.
+A pesquisa atrav√©s do "Cliente" ainda n√£o funciona
 
 
-RELAT”RIOS:
+RELAT√ìRIOS:
 
-Nada funcionando atÈ ent„o.
+Nada funcionando at√© ent√£o.
+
+Log de Erros √† serem concertados(06/12/2018):
+
+CADASTRO DE CLIENTES:
+
+O "Limite de Cr√©dito" est√° sendo permitido inserir letras.
+
+CONSULTAR:
+	CONSULTAR CLIENTE:
+N√£o √© poss√≠vel utilizar o campo de consultas utilizando os devedores.
+Nada funcionando at√© ent√£o.
+
+	CONSULTAR PRODUTO:
+Os campos na frente dos respectivos nomes sumiram.
+
+	CONSULTAR FORNECEDOR:
+
+Nada funcionando at√© ent√£o.
 
 
+LAN√áAR COMPRAS:
 
+Ao inserir os dados,na hora de colocar os "produtos da compra" ao clica em adicionar ou remover,d√° erro.
+// "avista
+Warning: Cannot modify header information - headers already sent by (output started at /storage/ssd4/886/7927886/public_html/crud/contasGrid.php:17) in /storage/ssd4/886/7927886/public_html/crud/contasGrid.php on line 72"
+
+Nada funcionando at√© ent√£o.
+
+ALTERAR CADASTROS:
+
+Ap√≥s o cadastro ser alterado,est√° aparecendo o seguinte erro:
+
+"Fatal error: Uncaught Error: Call to a member function close() on boolean in /storage/ssd4/886/7927886/public_html/paginas/edtcliente.php:185 Stack trace: #0 {main} thrown in /storage/ssd4/886/7927886/public_html/paginas/edtcliente.php on line 185"
+
+mas a pessoa,est√° sendo alterada com sucesso.
+
+BACKUP:
+
+Nada funcionando at√© ent√£o.
 
