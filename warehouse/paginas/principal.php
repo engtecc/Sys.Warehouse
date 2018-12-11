@@ -133,7 +133,7 @@ $_SESSION["compraConcluida"] = 0;
 							<a class="text-opcoes" href="emprestimo.php"><img class="rounded-circle" src="../imagens/emprestimo.png" alt="Generic placeholder image" width="100" height="100"><h5>Empréstimo</h5></a>
 						</div>
 						<div class="col-lg-4 text-center espacamento">
-							<a class="text-opcoes" href="backup.php"><img class="rounded-circle" src="../imagens/backup.png" alt="Generic placeholder image" width="100" height="100"><h5>Backup</h5></a>
+							<a class="text-opcoes" href="../crud/devolverEmprestimo.php"><img class="rounded-circle" src="../imagens/excluiremprestimo.png" alt="Generic placeholder image" width="100" height="100"><h5>Excluir<br>empréstimo</h5></a>
 						</div>
 					</div>
 				</div>
@@ -150,29 +150,28 @@ $_SESSION["compraConcluida"] = 0;
 						<p id="result"></p>
 						<?php
 						require_once '../crud/bd.php';
-						$sql = "SELECT * FROM fornecedor LIMIT 3";
+						$sql = "SELECT * FROM compra as c, fornecedor as f WHERE c.cnpj = f.cnpj Order By c.data_horario LIMIT 3";
 						// $sql = "SELECT * FROM fornecedor Order By data_de_vencimento ASC LIMIT 3";
 						if ($resultado = $conexao->query($sql)){
 							if ($resultado->num_rows > 0){
-								echo "<h4 class='subTitulo'>Contas a pagar</h4><br>";
+								echo "<h4 class='subTitulo'>Lançamento de compras</h4><br>";
 								echo "<table class='table table-bordered table-striped text-center'>";
 								echo "<thead class='thead-dark'><tr>";
 								echo "<th class='text-center' style='width:60%;'>FORNECEDOR</th>";
-								echo "<th class='text-center' style='width:40%;'>DATA DE VENCIMENTO</th>";
+								echo "<th class='text-center' style='width:40%;'>DATA DO LANÇAMENTO</th>";
 								echo "</tr></thead>";
 								echo "<tbody";
 								while ($linha = $resultado->fetch_array()) {
 									echo "<tr>";
 									echo "<td style='borda'>" .$linha['nome']. "</td>";
-									echo "<td>" ."Cadê?". "</td>";
-									// echo "<td>" .date("d/m/Y", strtotime($linha['data_de_vencimento'])). "</td>";
+									echo "<td>" .date("d/m/Y", strtotime($linha['data_horario'])). "</td>";
 								}
 								echo "</tbody>";
 								echo "</table>";
 								$resultado->free();
 
 							}else{
-								echo "<h4 class='subTitulo'>Contas a pagar</h4>";
+								echo "<h4 class='subTitulo'>Lançamento de compras</h4>";
 								echo "<table class='table table-bordered table-striped text-center'>";
 								echo "<thead class='thead-dark'><tr>";
 								echo "<th class='text-center' style='width:100%;'>Nenhum registro encontrado!</th>";
@@ -187,27 +186,27 @@ $_SESSION["compraConcluida"] = 0;
 					<div class="row">
 						<p id="result"></p> 
 						<?php
-						$sql = "SELECT * FROM cliente, pessoa where cliente.id_pessoa = pessoa.id_pessoa Order By nome ASC LIMIT 3";
+						$sql = "SELECT * FROM venda as v, cliente as c, pessoa as p where v.id_cliente = c.id_cliente AND c.id_pessoa = p.id_pessoa Order By v.data_horario DESC LIMIT 3";
 						if ($resultado = $conexao->query($sql)){
 							if ($resultado->num_rows > 0){
-								echo "<h4 class='subTitulo'>Contas a receber</h4>";
+								echo "<h4 class='subTitulo'>Lançamento de vendas</h4>";
 								echo "<table class='table table-bordered table-striped text-center tab'>";
 								echo "<thead class='thead-dark'><tr>";
 								echo "<th class='text-center' style='width:60%;'>CLIENTE</th>";
-								echo "<th class='text-center' style='width:40%;'>DATA DE VENCIMENTO</th>";
+								echo "<th class='text-center' style='width:40%;'>DATA DA VENDA</th>";
 								echo "</tr></thead>";
 								echo "<tbody";
 								while ($linha = $resultado->fetch_array()) {
 									echo "<tr>";
 									echo "<td>" .$linha['nome']. "</td>";
-									echo "<td>" ."Cadê?". "</td>";
+									echo "<td>" .date("d/m/Y", strtotime($linha['data_horario'])). "</td>";
 								}
 								echo "</tbody>";
 								echo "</table>";
 								$resultado->free();
 
 							}else{
-								echo "<h4 class='subTitulo'>Contas a receber</h4>";
+								echo "<h4 class='subTitulo'>Lançamento de vendas</h4>";
 								echo "<table class='table table-bordered table-striped text-center tab'>";
 								echo "<thead class='thead-dark'><tr>";
 								echo "<th class='text-center' style='width:100%;'>Nenhum registro encontrado!</th>";
@@ -222,20 +221,20 @@ $_SESSION["compraConcluida"] = 0;
 					<div class="row">
 						<p id="result"></p> 
 						<?php
-						$sql = "SELECT * FROM emprestimo as e, cliente as c, pessoa as p WHERE e.id_cliente = c.id_cliente AND c.id_pessoa = p.id_pessoa Order By data_devolucao ASC LIMIT 3";
+						$sql = "SELECT * FROM emprestimo Order By data_a_devolver ASC LIMIT 3";
 						if ($resultado = $conexao->query($sql)){
 							if ($resultado->num_rows > 0){
 								echo "<h4 class='subTitulo'>Controle de empréstimos</h4>";
 								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
 								echo "<thead class='thead-dark'><tr>";
 								echo "<th class='text-center' style='width:60%;'>CLIENTE</th>";
-								echo "<th class='text-center' style='width:40%;'>DATA DE DEVOLUÇÃO</th>";
+								echo "<th class='text-center' style='width:40%;'>DATA DA DEVOLUÇÃO</th>";
 								echo "</tr></thead>";
 								echo "<tbody";
 								while ($linha = $resultado->fetch_array()) {
 									echo "<tr>";
-									echo "<td>" .$linha['nome']. "</td>";
-									echo "<td>" .date("d/m/Y", strtotime($linha['data_devolucao'])).  "</td>";
+									echo "<td>" .$linha['Nome']. "</td>";
+									echo "<td>" .date("d/m/Y", strtotime($linha['data_a_devolver'])).  "</td>";
 								}
 								echo "</tbody>";
 								echo "</table>";

@@ -13,6 +13,7 @@
         $cnpj = $_POST["txtCnpj"];
         $codigo = $_POST["txtBarras"];
         $quantidade = $_POST["numQuantidade"];
+        $data = $_POST["numData"];
         $tipo = $_POST["slcTipo"];
         echo($tipo);
         $select  = "SELECT nome,preco_de_venda,quantidade_estoque from produto where codigo_de_barras = '$codigo'";

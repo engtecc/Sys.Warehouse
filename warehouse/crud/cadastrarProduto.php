@@ -1,7 +1,7 @@
 <?php
 require_once ('bd.php');
 
-$codigo_de_barras = $nome = $preco_de_venda = $preco_de_compra = $quantidade_estoque = $validade = "";
+$codigo_de_barras = $nome = $preco_de_venda = $preco_de_compra = $quantidade_estoque = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$codigo_de_barras = $_POST["txtCodigoBarras"];

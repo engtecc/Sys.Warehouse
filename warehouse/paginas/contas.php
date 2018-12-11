@@ -149,36 +149,36 @@ if ($_SESSION['administrador'] != 1){
 		</div>
 	</div>
 	<?php
-		if($_SESSION["compraConcluida"] == 1)
-		{
-			echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
-			$_SESSION["vendaConcluida"] = 0;
-		}
-		if($_SESSION["compraConcluida"] == 2)
-		{
-			echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
-			$_SESSION["vendaConcluida"] = 0;
-		}
-		if($_SESSION["compraConcluida"] == 4)
-		{
-			echo("<script language='javascript'>$('#modalerroFornecedor').modal('show'); </script>");
-			$_SESSION["vendaConcluida"] = 0;
-		}
-		if($_SESSION["compraConcluida"] == 3)
-		{
-			echo("<script language='javascript'>$('#modalerroFornecedorMuitos').modal('show'); </script>");
-			$_SESSION["vendaConcluida"] = 0;
-		}
-		if($_SESSION["compraConcluida"] == 5)
-		{
-			echo("<script language='javascript'>$('#modalerroTipo').modal('show'); </script>");
-			$_SESSION["vendaConcluida"] = 0;
-		}
-		if($_SESSION["compraConcluida"] == -1)
-		{
-			echo("<script language='javascript'>$('#modalCompra').modal('show'); </script>");
-			$_SESSION["vendaConcluida"] = 0;
-		}
+	if($_SESSION["compraConcluida"] == 1)
+	{
+		echo("<script language='javascript'>$('#modalok').modal('show'); </script>");
+		$_SESSION["vendaConcluida"] = 0;
+	}
+	if($_SESSION["compraConcluida"] == 2)
+	{
+		echo("<script language='javascript'>$('#modalerro').modal('show'); </script>");
+		$_SESSION["vendaConcluida"] = 0;
+	}
+	if($_SESSION["compraConcluida"] == 4)
+	{
+		echo("<script language='javascript'>$('#modalerroFornecedor').modal('show'); </script>");
+		$_SESSION["vendaConcluida"] = 0;
+	}
+	if($_SESSION["compraConcluida"] == 3)
+	{
+		echo("<script language='javascript'>$('#modalerroFornecedorMuitos').modal('show'); </script>");
+		$_SESSION["vendaConcluida"] = 0;
+	}
+	if($_SESSION["compraConcluida"] == 5)
+	{
+		echo("<script language='javascript'>$('#modalerroTipo').modal('show'); </script>");
+		$_SESSION["vendaConcluida"] = 0;
+	}
+	if($_SESSION["compraConcluida"] == -1)
+	{
+		echo("<script language='javascript'>$('#modalCompra').modal('show'); </script>");
+		$_SESSION["vendaConcluida"] = 0;
+	}
 	?>
 	<div class="container">
 		<div class="container">
@@ -273,10 +273,10 @@ if ($_SESSION['administrador'] != 1){
 											</tr>
 										</thead>
 										<?php
-											foreach($_SESSION["dbCompra"] as $key => $valor)
-											{
-												echo($valor);
-											}
+										foreach($_SESSION["dbCompra"] as $key => $valor)
+										{
+											echo($valor);
+										}
 										?>
 									</table>
 								</div>

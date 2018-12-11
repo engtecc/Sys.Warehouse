@@ -245,21 +245,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				$tabela_grid_dinamica .= '</tr></table>';
 			}elseif($radioValue == 5){
 				$key = $_POST["txtEmprestimo"];
-				$sql = mysqli_query($conexao,"SELECT nome,cpf,id_emprestimo,vasilhame,devolucao,data_a_devolver,rua,numero,bairro from venda as v,cliente as c,emprestimo as em,endereco as e, pessoa as p where nome like '%$key%' and c.id_cliente = em.id_cliente and e.id_endereco = em.id_endereco and p.id_pessoa = c.id_pessoa");
+				$sql = mysqli_query($conexao,"SELECT id_emprestimo,nome,data_a_devolver,endereco from emprestimo as em where nome like '%$key%'");
 				$tabela_grid_dinamica = '<table cellpadding="10px" class="table table-condensed table-hover text-center">';
-				$tabela_grid_dinamica .= '<tr><td style="width:30%;"><b>Nome</b></td><td style="width:15%;"><b>CPF</b></td><td style="width:10%;"><b>Vasilhame</b></td><td style="width:10%;"><b>Devolução</b></td><td style="width:15%;"><b>Data a devolver</b></td><td style="width:10%;"><b>Editar</b></td><td style="width:10%;"><b>Excluir</b></td></tr>';
+				$tabela_grid_dinamica .= '<tr><td style="width:30%;"><b>Nome</b></td><td style="width:15%;"><b>Endereco</b></td><td style="width:15%;"><b>Data a devolver</b></td><td style="width:10%;"><b>Editar</b></td><td style="width:10%;"><b>Excluir</b></td></tr>';
 				while($row = mysqli_fetch_array($sql)){
 					$id = $row["id_emprestimo"];
-					$nome = $row["nome"];
-					$cpf = $row["cpf"];
-					$vasilhame = $row["vasilhame"];
-					$devolucao = $row["devolucao"];
 					$datadevolver = $row["data_a_devolver"];
-
+					$endereco = $row["endereco"];
+					$nome = $row["nome"];
 					$tabela_grid_dinamica .= '<tr><td>' .$nome. '</td>';
-					$tabela_grid_dinamica .= '<td>'.$cpf. '</td>';
-					$tabela_grid_dinamica .= '<td>'.$vasilhame. '</td>';
-					$tabela_grid_dinamica .= '<td>'. $devolucao .'</td>';
+					$tabela_grid_dinamica .= '<td>'.$endereco. '</td>';
 					$tabela_grid_dinamica .= '<td>'.$datadevolver. '</td>';
 					$tabela_grid_dinamica .= '<td> <a title="Editar" href="edtemprestimo.php?pesq='.$id.'"><img width="25" height="25" src="../svg/editar.svg"></a>';
 					$tabela_grid_dinamica .= '<td> <a title="Excluir" data-toggle="modal" data-target="#modalConfirmacaoEmprestimo" id="'.$id.'" onclick="pegaCodigo5(this.id)" href=""><img width="25" height="25" src="../svg/excluir.svg"></a>';					

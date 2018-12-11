@@ -24,8 +24,7 @@ if ($_SESSION['administrador'] != 1){
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/script.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/cadastrarFuncionario.js"></script>
-	<script src="../js/jquery-3.3.1.min.js"></script>
+	<!-- 	<script src="../js/cadastrarFuncionario.js"></script> -->
 	<script src="../js/jquery.mask.min.js"></script>
 	<script src="../js/maskscript.js"></script>
 </head>
@@ -104,6 +103,82 @@ if ($_SESSION['administrador'] != 1){
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modalConfirmar" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-error" id="modalok">Falha ao tentar trocar a senha! Senhas não correspondem!</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-sm ok">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<?php
+	require_once ('../crud/bd.php');
+
+	$last_id = $nome = $login=  $senha = $confirmar = $cpf = $rg = $rua = $numero = $bairro = $cidade = $estado = $telefone =  "";
+
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		$nome = $_POST["txtNome"];
+		$login = $_POST["txtLogin"];
+		$senha = md5($_POST["txtSenha"]);
+		$confirmar = md5($_POST["txtConfirmarSenha"]);
+		$cpf = $_POST["txtCpf"];
+		$rg = $_POST["txtRG"];
+		$rua = $_POST["txtRua"];
+		$numero = $_POST["txtNumero"];
+		$bairro = $_POST["txtBairro"];
+		$cidade = $_POST["txtCidade"];
+		$estado = $_POST["slcEstado"];
+		$telefone = $_POST["txtTelefone"];
+
+		if ($senha != $confirmar){
+			echo "<script language='javascript'>
+			$('.errosenha').html('As senhas não correspondem!');
+			 
+			$('#modalConfirmar').modal('show');
+			$('.ok').click(function(){
+				window.location.replace('cadfuncionario.php');
+			});
+			</script>";
+		}else{
+			$sql = "INSERT INTO endereco(rua, numero, bairro, cidade,estado)VALUES('$rua', '$numero', '$bairro', '$cidade','$estado')";
+
+			if(mysqli_query($conexao, $sql)){
+				$last_id=mysqli_insert_id($conexao);
+				$sql2 = "INSERT INTO pessoa (id_endereco, cpf, rg, nome,data_de_nascimento,telefone) VALUES ('$last_id','$cpf','$rg','$nome','','$telefone')";
+				if(mysqli_query($conexao,$sql2))
+				{
+					$last_id2 = mysqli_insert_id($conexao);
+					$sql3 = "INSERT INTO funcionario (id_pessoa, login, senha, administrador, id_endereco) VALUES ('$last_id2','$login','$senha','0','$last_id') ";
+					if($stmt = $conexao->prepare($sql3))
+					{
+						if($stmt->execute()){
+							echo "<script language='javascript'>$('#modalok').modal('show');
+							$('.ok').click(function(){
+								window.location.replace('cadfuncionario.php');
+							});
+							</script> ";
+						}else{
+							echo "<script language='javascript'>$('#modalerro').modal('show');
+							$('.ok').click(function(){
+								window.location.replace('cadfuncionario.php');
+							});
+							</script>";
+						}
+					}
+				}
+
+			}
+			$stmt->close();
+			$conexao->close();
+
+		}
+	}
+	?>
 	<div class="container">
 		<h2 class="subTitulo">Cadastrar funcionário</h2>
 		<div class="row">
@@ -111,7 +186,7 @@ if ($_SESSION['administrador'] != 1){
 			<div class="col-md-6 mt-3">
 				<div class="row">
 					<div class="col-md-12">
-						<form action="cadastrarFuncionario.js" method="POST" id="formFuncionario" enctype="multipart/form-data"> 
+						<form action="" method="POST" id="formFuncionario" enctype="multipart/form-data"> 
 							<div class="row rowForm">
 								<div class="col-md-9"></div>
 								<div class="col-md-3" align="center">
@@ -138,6 +213,7 @@ if ($_SESSION['administrador'] != 1){
 								</div>
 								<div class="col-md-2">
 									<input class="form-control form-control-sm"  type="password" id="txtSenha" name='txtSenha' value="" required>
+									<p class="mt-2 pb-0"><small class="text-error errosenha"></small></p>
 								</div>
 							</div>
 							<div class="row">

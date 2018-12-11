@@ -53,8 +53,8 @@ if ($_SESSION['administrador'] != 1){
 					$sql = "SELECT * FROM compra as c,fornecedor  as f where nome LIKE '%$nome%' and c.cnpj = f.cnpj  Order By nome ASC";
 					if ($resultado = $conexao->query($sql)){
 						if ($resultado->num_rows > 0){
-							echo '<table class="table table-sm table-bordered" style="margin-top:100px; margin-bottom:150px;">
-						<thead class="thead-light">
+							echo '<table class="table" style="margin-top:100px; margin-bottom:150px;">
+						<thead class="thead-dark">
 							<tr style="text-align: center;">
 								<th style="width: 5%;">#</th>
 								<th style="width: 30%;">Nome</th>

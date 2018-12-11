@@ -141,7 +141,7 @@ $link = "../crud/pagarDivida.php?id=$id";
 									</div>
 									<div class="form-group col-md-4">
 										<label>Valor a ser pago:</label>
-										<input class="form-control text-center" type="decimal" min="0,00" id="pagar" name="pagar" value="" onchange="calcularDivida()">
+										<input class="form-control text-center" type="decimal" min="0,00" id="pagar" name="pagar" value="" onchange="calcularDivida()" required>
 									</div>
 									<div class="form-group col-md-4">
 										<label>Falta pagar:</label>

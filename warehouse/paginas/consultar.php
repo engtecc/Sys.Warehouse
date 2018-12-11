@@ -32,101 +32,58 @@ if ($_SESSION['administrador'] != 1){
 </head>
 
 <body>
+	
 	<div class = "jumbotron text-center removerMargem">
 		<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
-	<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark justify-content-between menu">
-		<a class="navbar-brand" href="#"></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">Menu
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse"> 
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link formatacao" href="principal.php">PRINCIPAL<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link formatacao" href="venda.php">VENDAS<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle dropbtn formatacao" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CADASTRAR</a>
-					<div class="dropdown-content" aria-labelledby="dropdown01">
-						<a class="dropdown-item" href="cadcliente.php">CLIENTE</a>
-						<a class="dropdown-item" href="cadfornecedor.php">FORNECEDOR</a>
-						<a class="dropdown-item" href="cadfuncionario.php">FUNCIONÁRIO</a>    
-						<a class="dropdown-item" href="cadproduto.php">PRODUTO</a>
-					</div> 
-				</li>
-				<li class="nav-item">
-					<a class="nav-link formatacao" href="pesquisar_editar.php">ALTERAR CADASTROS<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link formatacao active" href="consultar.php">CONSULTAR<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle dropbtn formatacao" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LANÇAR</a>
-					<div class="dropdown-content" aria-labelledby="dropdown01">
-						<a class="dropdown-item" href="contas.php">COMPRAS</a>
-						<a class="dropdown-item" href="lancarpagamento.php">PAGAMENTO</a>
-					</div> 
-				</li>
-				<li class="nav-item">
-					<a class="nav-link formatacao" href="emprestimo.php">EMPRÉSTIMO<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link formatacao" href="relatorios.php">RELATÓRIOS<span class="sr-only">(current)</span></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
 	<?php
-	if(isset($_POST["btnCliente"]))
+	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-		if($_POST["gridConsulta"] == "option1")
+		$cpf = $_POST["txtCpf"];
+		$data = $_POST["txtData"];
+		$nome = $_POST["txtNome"];
+		$radio = $_POST["gridConsulta"] ;
+		$nomefornecedor = $_POST["txtFornecedor"];
+		if($radio == "option1")
 		{
 			header("Location: ../crud/consultas/devedores.php");
 		}
-		if($_POST["gridConsulta"] == "option2")
+		if($radio == "option2")
 		{
-			$cpf = $_POST["cpf"];
 			header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
 		}
-		if($_POST["gridConsulta"] == "option3")
+		if($radio == "option3")
 		{
-			$data = $_POST["data"];
 			header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
 		}
-		if($_POST["gridConsulta"] == "option4")
+		if($radio == "option4")
 		{
-			$nome = $_POST["nome"];
 			header("Location: ../crud/consultas/clienteNome.php?nome=$nome");
 		}
-	}
-	if(isset($_POST["btnProduto"]))
-	{
-		if($_POST["gridConsulta"] == "option5")
+		if($radio == "option5")
 		{
-			header("Location: ../crud/consultas/devedores.php");
+			header("Location: ../crud/consultas/quantidade.php");
 		}
-		if($_POST["gridConsulta"] == "option6")
+		if($radio == "option6")
 		{
-			$cpf = $_POST["cpf"];
-			header("Location: ../crud/consultas/clienteCpf.php?cpf=$cpf");
+			header("Location: ../crud/consultas/nomevasilhame.php");
 		}
-		if($_POST["gridConsulta"] == "option7")
+		if($radio == "option7")
 		{
-			$data = $_POST["data"];
-			header("Location: ../crud/consultas/clienteAniversario.php?data=$data");
+			header("Location: ../crud/consultas/contas.php");
 		}
-
+		if($radio == 'option8')
+		{
+			header("Location: ../crud/consultas/nomefornecedor.php?nome=$nomefornecedor");
+		}
 	}
 	?>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row rowForm">
-					<div class="col-md-9"></div>
+					<div class="col-md-7"></div>
 					<div class="col-md-1" align="center">
 						<a id="btnCancelar" class="btn btn-danger" style="float: right;" href="principal.php" role="button">Cancelar</a>
 					</div>
@@ -136,6 +93,7 @@ if ($_SESSION['administrador'] != 1){
 	</div>
 	<form style="width: 100%;" action="" method="POST">
 		<div class="row rowForm">
+			<div class="col-md-2"></div>
 			<div class="col-md-4">
 				<h2 class="subTitulo">Consultar Cliente</h2>
 				<div class="rowForm col-md-4 margem3">
@@ -149,8 +107,7 @@ if ($_SESSION['administrador'] != 1){
 							<label class="form-check-label" for="gridConsulta2">CPF:</label>
 						</div>
 						<div class="col-md-8">
-							<input class="form-control form-control-sm" type="text" name="cpf" id="txtCpf" placeholder="apenas números">
-							<!--<input class="form-control form-control-sm" type="text" name="cpf" id="gridConsulta2" placeholder="apenas números">-->
+							<input class="form-control form-control-sm" type="number" name="txtCpf" id="txtCpf" placeholder="apenas números">
 						</div>
 					</div>
 				</div>
@@ -161,7 +118,7 @@ if ($_SESSION['administrador'] != 1){
 							<label class="form-check-label" for="gridConsulta3">Aniversariante:</label>
 						</div>
 						<div class="col-md-8">
-							<input class="form-control form-control-sm" type="date" name="data">
+							<input class="form-control form-control-sm" type="date" name="txtData">
 						</div>
 					</div>
 				</div>
@@ -172,217 +129,36 @@ if ($_SESSION['administrador'] != 1){
 							<label class="form-check-label" for="gridConsulta4">Nome Cliente:</label>
 						</div>
 						<div class="col-md-8">
-							<input class="form-control form-control-sm" type="text" name="nome">
+							<input class="form-control form-control-sm" type="text" name="txtNome">
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<h2 class="subTitulo">Consultar Produto</h2>
-				<div class="col-md-4 rowForm margem3">
-					<input class="form-check-input" type="radio" name="gridConsulta" id="produto1" value="option5">
-					<label class="form-check-label" for="produto1">Quantidade</label>
-				</div>
-				<div class="col-md-4 rowForm margem3">
-					<input class="form-check-input" type="radio" name="gridConsulta" id="produto2" value="option6">
-					<label class="form-check-label" for="produto2">Vasilhame</label>
-				</div>
-				<div class="col-md-5 rowForm margem3">
-					<input class="form-check-input" type="radio" name="gridConsulta" id="produto3" value="option7">
-					<label class="form-check-label" for="produto3">Nome do vasilhame</label>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<h2 class="subTitulo">Consultar Fornecedor</h2>
-				<div class="col-md-12 rowForm margem3">
-					<div class="row">
-						<div class="col-md-4">
-							<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option8">
-							<label class="form-check-label" for="fornecedor1">Contas:</label>
-						</div>
-						<div class="col-md-8">
-							<input class="form-control form-control-sm" type="text" name="cpf" id="fornecedor1">
-						</div>
+				<h2 class="subTitulo">Consultar Produto e Fornecedores</h2>
+				<div class="row">
+					<div class="col-md-12 rowForm margem3">
+						<input class="form-check-input" type="radio" name="gridConsulta" id="produto1" value="option5">
+						<label class="form-check-label" for="produto1">Quantidade</label>
 					</div>
 				</div>
-				<div class="col-md-12 rowForm margem3">
-					<div class="row">
-						<div class="col-md-4">
-							<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option9">
-							<label class="form-check-label" for="fornecedor2">Nome Fornc.:</label>
-						</div>
-						<div class="col-md-8">
-							<input class="form-control form-control-sm" type="text" name="nome">
-						</div>
+				<div class="row">
+					<div class="col-md-5" style="margin-left:015px;">
+						<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option8">
+						<label class="form-check-label" for="fornecedor2">Nome do Forncedor:</label>
+					</div>
+					<div class="col-md-6">
+						<input class="form-control form-control-sm" type="text" name="txtFornecedor" style='width:225px;'>
 					</div>
 				</div>
-				<div class="col-md-12 rowForm margem3">
-
-				</div>
-				<div class="col-md-12 rowForm margem3">
-					<div class="row">
-						<div class="col-md-8"></div>
-						<div class="col-md-4">
-							<input type="submit" class="btn btn-success" id="btnPesquisar" value="Pesquisar" style="">
-						</div>
+				<div class="row" style="margin-top:50px;">
+					<div class="col-md-8"></div>
+					<div class="col-md-4">
+						<input type="submit" name="btnPesquisar" class="btn btn-success" id="btnPesquisar" value="Pesquisar" style="">
 					</div>
 				</div>
 			</div>
+			<div class="col-md-2"></div>
 		</div>
 	</form>  
-	<!--
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row rowForm">
-					<div class="col-md-8"></div>
-					<div class="col-md-1" align="center">
-						<a id="btnCancelar" class="btn btn-danger" style="float: right;" href="principal.php" role="button">Cancelar</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<form style="width: 100%;" action="" method="POST">
-		<div class="row" style="margin-bottom:100px;">
-			<div class="col-md-1"></div>
-			<div class="col-md-3 mr-5 ml-3">
-				<div class="row">
-					<h2 class="subTitulo">Consultar cliente</h2>
-				</div>
-				<div class ="row">
-					
-						<div class="form-row align-items-center">
-							<div class="col-md-12 rowForm">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta1" value="option1" checked>
-									<label class="form-check-label" for="gridConsulta1">Devedores</label>
-								</div>
-							</div>
-						</div>
-						<div class="form-row rowForm align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta2" value="option2">
-									<label class="form-check-label" for="gridConsulta2">CPF:</label>
-								</div>
-							</div>
-							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="text" name="cpf" id="gridConsulta2" placeholder="apenas números" maxlength="11" pattern="[0-9]+$">
-							</div>
-						</div>
-						<div class="form-row rowForm align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta3" value="option3">
-									<label class="form-check-label" for="gridConsulta3">Aniversariante:</label>
-								</div>
-							</div>
-
-							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="date" name="data">
-							</div>
-						</div>
-						<br>
-
-						<div class="form-row align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="gridConsulta4" value="option4">
-									<label class="form-check-label" for="gridConsulta4">Nome do cliente:</label>
-								</div>
-							</div>
-
-							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="text" name="nome" placeholder="nome do cliente">
-							</div>
-						</div>
-						<br>
-						<div class="form-row justify-content-end">
-							<input type="submit" class="btn btn-success " name="btnCliente" type="button" class="btn btn-primary" value="Pesquisar Cliente">
-						</div>
-				</div>
-			</div>
-			<div class="col-md-4 ml-3">
-				<div class="row mb-5">
-					<h2 class="subTitulo">Consultar produto</h2>
-				</div>
-				<div class ="row">
-						<div class="form-row rowForm align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="produto1" value="option5">
-									<label class="form-check-label" for="produto1">Quantidade:</label>
-								</div>
-							</div>
-
-							<div class="col-md-8">
-								
-							</div>
-						</div>
-						<br>
-						<div class="form-row align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="produto2" value="option6">
-									<label class="form-check-label" for="produto2">Vasilhame</label>
-								</div>
-							</div>
-
-							<div class="col-md-8">
-								
-							</div>
-						</div><br>
-						<div class="form-row align-items-center">
-							<div class="col-md-6">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="produto3" value="option7">
-									<label class="form-check-label" for="produto3">Nome do vasilhame</label>
-								</div>
-							</div><br>
-							<div class="col-md-6">
-								
-							</div>
-						</div>
-						<div class="form-row justify-content-end mt-4" ">
-							<input type="submit" name="btnProduto" style="margin-top:43px;" class="btn btn-success " type="button" class="btn btn-primary" value="Pesquisar Produto">
-						</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="row mb-5">
-					<h2 class="subTitulo">Consultar fornecedor</h2>
-				</div>
-				<div class ="row">
-						<div class="form-row rowForm align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor1" value="option8">
-									<label class="form-check-label" for="fornecedor1">Contas:</label>
-								</div>
-							</div>
-
-							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="text" name="cpf" id="fornecedor1" placeholder="contas">
-							</div>
-						</div><br>
-						<div class="form-row align-items-center">
-							<div class="col-md-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridConsulta" id="fornecedor2" value="option9">
-									<label class="form-check-label" for="fornecedor2">Nome do fornecedor:</label>
-								</div>
-							</div>
-
-							<div class="col-md-8">
-								<input class="form-control form-control-sm" type="text" name="nome" placeholder="nome do fornecedor">
-							</div>
-						</div><br>
-						<div class="form-row justify-content-end mt-5">
-							<input type="submit" name="btnFornecedor" style="margin-top:10px;" class="btn btn-success " type="button" class="btn btn-primary" value="Pesquisar fornecedor">
-						</div>
-				</div>
-			</div>
-		</form>
-		</div>
-	</div>-->
 </body>

@@ -10,18 +10,20 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success: function(data){
-                if(data == "errocodigo"){
-                    $('#txtCnpj').focus();
-                    $('.errocodigo').html('CPF já cadastrado.');
-                }else{
-                    $('#modalok').modal('show'); 
+                alert (data);
+                if(data == "falha"){
+                    $('.errosenha').html('As senhas não correspondem!');
+                }else if(data == "cadastrado"){
+                    $('#modalok').modal('show');
+                }else if(data == "errocodigo"){
+                    $('#modalerro').modal('show');
                 }
-            } 
+            }  
 
         });
     });
 
     $(".ok").click(function(){
-        window.location.replace("../paginas/cadfuncionario.php");
+        window.location.replace("../paginas/cadFuncionario.php");
     });
 });

@@ -22,7 +22,6 @@ if ($_SESSION['administrador'] != 1){
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css" >
 	<link rel="stylesheet" type="text/css" href="../css/cadfornecedor.css">
 	<script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/script.js"></script>
 	<script src="../js/jquery.mask.min.js"></script>
 	<script src="../js/cadastrarFornecedor.js"></script>

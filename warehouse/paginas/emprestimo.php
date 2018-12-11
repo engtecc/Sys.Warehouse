@@ -70,24 +70,6 @@
 			</ul>
 		</div>
 	</nav>
-	<?php
-		require_once("../crud/bd.php");
-		if($_SERVER["REQUEST_METHOD"] == "POST"){
-			$nome = $_POST["txtNome"];
-			$quantidade =$_post["txtQuantidae"];
-			$end = $_POST["txtCobranca"];
-			$emprestimo = $_POST["dateEmprestimo"];
-			$devolucao = $_POST["dateDevolucao"];
-			$tipo = $_POST["slcTipo"];
-			$recebio = $_POST["txtRecebido"];
-			$receber = $_POST["txtReceber"];
-			$select = "select id_cliente from cliente where nome LIKE '$nome'";
-			$row = mysqli_fetch_array(mysqli_query($conexao,$select));
-			$id_cliente = $row["id_cliente"];
-			$vasilhame = $_POST["slcVasilhame"];
-			mysqli_query($conexao,"INSERT INTO emprestimot (id_cliente,vasilhamet,devolucaot,data_devolucaot,data_a_devolvert,end_cobrancat) VALUES('$id_cliente','$vasilhame','0','$devolucao','$end')");
-		}
-	?>
 	<div class="container">
 		<h2 class="subTitulo">Empréstimo</h2>
 		<div class="row">
@@ -95,7 +77,7 @@
 			<div class="col-md-8 mt-3">
 				<div class="row">
 					<div class="col-md-12">
-						<form action="" method="POST" id="formCli"> 
+						<form action="../crud/adicionarEmprestimo.php" method="POST" id="formCli"> 
 							<div class="row rowForm">
 								<div class="col-md-9" align="right"></div>
 								<div class="col-md-3" align="center">
@@ -118,6 +100,14 @@
 									<input class="form-control"  name="txtQuantidade" type="number" id="numQuant">
 								</div>
 							</div>
+							<div class="row rowForm">
+								<div class="col-md-3 lblAl" style="margin-top:7px;">
+									<label>Nome do cliente: </label>
+								</div>
+								<div class="col-md-9">
+									<input class="form-control" name="txtCliente" type="text" id="txtNomeEmp">
+								</div>
+							</div>
 							<div class="row rowForm2">
 								<div class="col-md-3 lblAl" style="margin-top:7px;">
 									<label>End. de cobrança: </label>
@@ -131,7 +121,7 @@
 									<label>Data de empréstimo: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control"  name="dateEmprestimo" style="width:180px;"type="date" id="datEmp">
+									<input class="form-control" name="dateEmprestimo" style="width:200px;" type="date" id="datEmp">
 								</div>
 							</div>
 							<div class="row rowForm2">
@@ -139,40 +129,8 @@
 									<label>Data de devolução: </label>
 								</div>
 								<div class="col-md-3">
-									<input class="form-control" name="dateDevolucao" style="width:180px;" type="date" id="datDev">
+									<input class="form-control" name="dateDevolucao" style="width:200px;" type="date" id="datDev">
 								</div>
-							</div>
-							<div class="row rowForm2">
-								<div class="col-md-3 lblAl" style="margin-top:7px;">
-									<label>Forma de pagamento: </label>
-								</div>
-								<div class="col-md-3">
-									<select class="form-control" name="slcTipo" style="width:180px;" id="selPag">
-										<option>À vista</option>
-										<option>À prazo</option>
-										<option>Cartão</option>
-									</select>
-								</div>
-							</div>
-							<div class="row rowForm2">
-								<div class="col-md-3 lblAl" style="margin-top:7px;">
-									<label>Valor Recebido: </label>
-								</div>
-								<div class="col-md-3">
-									<input class="form-control"  name="txtRecebio" style="width:180px;"type="number" step="any" id="numValRec">
-								</div>
-							</div>
-							<div class="row rowForm2">
-								<div class="col-md-3" style="margin-top:7px;">
-									<label>Valor a Receber: </label>
-								</div>
-								<div class="col-md-3">
-									<input  class="form-control"  name="txtReceber" style="width:180px;" type="number" step="any" id="numValDev">
-								</div>
-							</div>
-							<div class="row rowForm2">
-								<div class="col-md-3 lblAL " style="margin-top:7px;"><label>Vasilhame:</div>
-								<div class="col-md-3"><select name='slcVasilhame' style="width:180px;" class="form-control"><option value=1>Sim</option> <option value=0>Não</option></select></div>
 							</div>
 							<div class="row rowForm rowTable">
 								<div class="col-md-3 lblAl" style="margin-top:7px;">
@@ -180,7 +138,7 @@
 								</div>
 								<div class="col-md-5"></div>
 								<div class="col-md-2">
-									<a id="btnRemover" class="btn btn-primary" href="principal.php" role="button">Adicionar</a>
+									<input type="submit" id="btnRemover" class="btn btn-primary" role="button" value="Adicionar">
 								</div>
 								<div class="col-md-2">
 									<a id="btnRemover" class="btn btn-dark" href="principal.php" role="button">Remover</a>
@@ -188,20 +146,37 @@
 							</div>
 							<div style="height: 10px;"></div>
 							<div class="row divTable">
-								<table class="table table-sm table-bordered">
-									<thead class="thead-light">
-										<tr style="text-align: center;">
-											<th style="width: 5%;">#</th>
-											<th style="width: 60%;">Nome Produto</th>
-											<th style="width: 15%;">Preço</th>
-											<th style="width: 5%;">Quant.</th>
-											<th style="width: 15%;">Preço Total</th>	
-										</tr>
-									</thead>
+								
 									<?php 
-										if($_SERVER["REQUEST_METHOD"] == "POST")
-										{
-											$select = "SELECT * FROM emprestimot";
+										require_once "../crud/bd.php";
+										$select = "SELECT * FROM temporary";
+										if ($resultado = $conexao->query($select)){
+											if ($resultado->num_rows > 0){
+												echo'<table class="table">';
+												echo '<thead class="thead-light">';
+												echo '<tr style="text-align: center;">';
+												echo '<th style="width: 5%;">#</th>';
+												echo '<th style="width: 30%;">Nome do Produto</th>';
+												echo '<th style="width: 30%;">Nome do Cliente</th>';
+												echo '<th style="width: 10%;">Endereco</th>';
+												echo '<th style="width: 20%;">Data a devolver</th>';
+												echo '</tr>';
+												echo '</thead>';
+												echo "<tbody>";
+												while ($linha = $resultado->fetch_array()) {
+													echo "<tr>";
+													
+													echo "<td>" .$linha['id_emprestimo']. "</td>";
+													echo "<td align='center'>" .$linha['nome_produto']. "</td>";
+													echo "<td align='center'>" .$linha['nome_cliente']. "</td>";
+													echo "<td align='center'>" .$linha['endereco']. "</td>";
+													echo "<td align='center'>" .$linha['data_a_devolver']. "</td>";
+												}
+												echo "</tbody>";
+												echo "</table>";
+												$resultado->free();
+					
+											}
 										}
 									?>
 								</table>
@@ -209,7 +184,7 @@
 							<div class="row rowForm">
 								<div class="col-md-6"></div>
 								<div class="col-md-6">
-									<a id="btnFinalizar" class="btn btn-success">Finalizar Emprestimo</a>
+									<a id="btnFinalizar" class="btn btn-success" href="../crud/finalizarEmprestimo.php">Finalizar Emprestimo</a>
 								</div>
 							</div>
 						</form>

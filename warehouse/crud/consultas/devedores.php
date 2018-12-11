@@ -52,8 +52,8 @@ if ($_SESSION['administrador'] != 1){
 					$sql = "SELECT * FROM cliente,pessoa,endereco where cliente.id_pessoa = pessoa.id_pessoa and cliente.id_endereco = endereco.id_endereco and pessoa.id_endereco = endereco.id_endereco and divida > '0' Order By nome ASC";
 					if ($resultado = $conexao->query($sql)){
 						if ($resultado->num_rows > 0){
-							echo '<table class="table table-sm table-bordered" style="margin-top:100px; margin-bottom:150px;">
-						<thead class="thead-light">
+							echo '<table class="table" style="margin-top:100px; margin-bottom:150px;">
+						<thead class="thead-dark">
 							<tr style="text-align: center;">
 								<th style="width: 5%;">#</th>
 								<th style="width: 23%;">Nome</th>

@@ -60,9 +60,6 @@
             $q = $q - $quantidade[$j];
             $update = "UPDATE produto SET quantidade_estoque = '$q' WHERE codigo_de_barras ='$codigo[$j]'";
             mysqli_query($conexao,$update);
-        }else{
-            $_SESSION["vendaConcluida"] = 2;
-            header("Location: ../paginas/venda.php");
         }
     }
     $_SESSION["valortotal"] = 0;

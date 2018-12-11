@@ -32,6 +32,8 @@ if ($_SESSION['administrador'] == 0){
 	echo "<script language='javascript'>
 	$(document).ready(function() {
 		$('.cancelar').hide();
+		$('.navocultar').hide();
+		$('.botaoCliente').hide();
 		$('.sair').show();
 	});
 	</script>";
@@ -50,7 +52,7 @@ if ($_SESSION['administrador'] == 0){
 		<h1 class="text-titulo"><strong>JANUÁRIO</strong></h1>
 		<h4><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"><strong> DISK CERVEJA </strong><img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"> <img class="rounded-circle" src="../svg/star.svg" alt="Generic placeholder image" width="20" height="20"></h4>
 	</div>
-	<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark justify-content-between menu">
+	<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark justify-content-between menu navocultar">
 		<a class="navbar-brand" href="#"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">Menu
 			<span class="navbar-toggler-icon"></span>
@@ -143,23 +145,24 @@ if ($_SESSION['administrador'] == 0){
 	$cont = $codigo = '';
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-		$codigo = $_POST["txtCodBarras"];
-		$select  = "SELECT nome,preco_de_venda,quantidade_estoque from produto where codigo_de_barras = '$codigo'";
+		$key = $_POST["txtCodBarras"];
+		$select  = "SELECT * from produto where codigo_de_barras = '$key' or nome LIKE '%$key%'";
 		$sql = mysqli_query($conexao,$select);
 		$resultado = mysqli_fetch_array($sql);
 		$nome = $resultado["nome"];
 		$preco = $resultado["preco_de_venda"];
 		$qtd = $resultado["quantidade_estoque"];
+		$codigo = $resultado["codigo_de_barras"];
 		$data = date('d/m/Y');
-		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Data: </label></div><div class="col-md-3"><input style="background: #D8D8D8;" class="form-control" name="datDia" id="datDia1" type="text" value= '.$data.'></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="number" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
+		$cont ='<div class="row rowForm"><div class="col-md-3 lblAl "><label>Produto: </label></div><div class="col-md-9"><input style="background: #D8D8D8;" class="confTxtBox form-control" type="text" step="any" id="txtProd"value="'.$nome.'" readonly></div></div><div class="row rowForm"><div class="col-md-3 lblAl"><label>Quantidade: </label></div><div class="col-md-3"><input type="number" id="numQuant" name="txtQuantidade" class="form-control text-center"></div></div>';
 		if(isset($_POST["btnAdicionar"]))
 		{
 			if($_POST["txtQuantidade"]!= "")
 			{
 				$quantidade = $_POST["txtQuantidade"];
+				echo($qtd);
 				if($_POST["txtQuantidade"] <= $qtd)
 				{
-
 					$_SESSION["valortotal"] = $_SESSION["valortotal"] + ($quantidade*$preco);
 					$tabela = '
 					<tr style="text-align: center;">
@@ -205,10 +208,10 @@ if ($_SESSION['administrador'] == 0){
 							</div> 
 							<div class="row rowForm">
 								<div class="col-md-3 lblAl"style="margin-top:10px;">
-									<label>Cód. FBarras:</label>
+									<label>Pesquisa:</label>
 								</div>
 								<div class="col-md-7" style="margin-top:10px;">
-									<input class="form-control form-control-sm" type="text" id="txtCodBarras" name="txtCodBarras" value=<?php echo($codigo); ?> >
+									<input class="form-control form-control-sm" type="text" id="txtCodBarras" name="txtCodBarras" value="">
 								</div>
 								<div class="col-md-2">
 									<input type="submit" name="btnPesquisar" id="btnCancelar" value="Pesquisar" class="btn btn-success">
@@ -264,7 +267,7 @@ if ($_SESSION['administrador'] == 0){
 							</div>
 							<div class="row rowForm">
 								<div class="col-md-6">
-									<a id="btnCliente" class="btn btn-primary cliente" href="vendacliente.php" role="button">Finalizar com Cliente</a>
+									<a id="btnCliente" class="btn btn-primary cliente botaoCliente" href="vendacliente.php" role="button">Finalizar com Cliente</a>
 								</div>
 								<div class="col-md-6">
 									<a name="" id="btnFinalizar" class="btn btn-success" href="../crud/vendainserir.php" role="button">Finalizar Compra</a>

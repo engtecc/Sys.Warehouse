@@ -113,16 +113,16 @@ $_SESSION["vendaConcluida"] = 0;
 						if ($resultado = $conexao->query($sql)){
 							if ($resultado->num_rows > 0){
 								echo "<table class='table table-bordered table-striped text-center tabelaOcultar'>";
-								echo "<thead><tr>";
+								echo "<thead class='thead-dark'><tr>";
 								echo "<th class='text-center' style='width:60%;'>Nome</th>";
-								echo "<th class='text-center' style='width:20%;'>CPF</th>";
+								echo "<th class='text-center' style='width:20%;'>Dívida</th>";
 								echo "<th class='text-center' style='width:20%;'>Editar</th>";
 								echo "</tr></thead>";
 								echo "<tbody";
 								while ($linha = $resultado->fetch_array()) {
 									echo "<tr>";
 									echo "<td>" .$linha['nome']. "</td>";
-									echo "<td>" .$linha['cpf']. "</td>";
+									echo "<td>" .$linha['divida']. "</td>";
 									echo "<td class='text-center align-middle'><a href='lancarpagamento2.php?id=".$linha['id_cliente']."'title='Editar' data-toggle='tooltip''><img src='../svg/editar.svg' width='25' height='25'></a>";
 								}
 

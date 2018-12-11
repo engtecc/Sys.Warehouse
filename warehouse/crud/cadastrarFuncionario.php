@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$nome = $_POST["txtNome"];
 	$login = $_POST["txtLogin"];
 	$senha = md5($_POST["txtSenha"]);
-	$confirmar = md5 ($_POST["txtConfirmarSenha"]);
+	$confirmar = md5($_POST["txtConfirmarSenha"]);
 	$cpf = $_POST["txtCpf"];
 	$rg = $_POST["txtRG"];
 	$rua = $_POST["txtRua"];
@@ -16,32 +16,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$cidade = $_POST["txtCidade"];
 	$estado = $_POST["slcEstado"];
 	$telefone = $_POST["txtTelefone"];
+	
+	if ($senha != $confirmar){
+		echo "falha";
+	}else{
+		$sql = "INSERT INTO endereco(rua, numero, bairro, cidade,estado)VALUES('$rua', '$numero', '$bairro', '$cidade','$estado')";
 
-	
-	$sql = "INSERT INTO endereco(rua, numero, bairro, cidade,estado)VALUES('$rua', '$numero', '$bairro', '$cidade','$estado')";
-	
-	if(mysqli_query($conexao, $sql)){
-		$last_id=mysqli_insert_id($conexao);
-		$sql2 = "INSERT INTO pessoa (id_endereco, cpf, rg, nome,data_de_nascimento,telefone) VALUES ('$last_id','$cpf','$rg','$nome','','$telefone')";
-		if(mysqli_query($conexao,$sql2))
-		{
-			$last_id2 = mysqli_insert_id($conexao);
-			$sql3 = "INSERT INTO funcionario (id_pessoa, login, senha, administrador, id_endereco) VALUES ('$last_id2','$login','$senha','0','$last_id') ";
-			if($stmt = $conexao->prepare($sql3))
+		if(mysqli_query($conexao, $sql)){
+			$last_id=mysqli_insert_id($conexao);
+			$sql2 = "INSERT INTO pessoa (id_endereco, cpf, rg, nome,data_de_nascimento,telefone) VALUES ('$last_id','$cpf','$rg','$nome','','$telefone')";
+			if(mysqli_query($conexao,$sql2))
 			{
-				if($stmt->execute())
+				$last_id2 = mysqli_insert_id($conexao);
+				$sql3 = "INSERT INTO funcionario (id_pessoa, login, senha, administrador, id_endereco) VALUES ('$last_id2','$login','$senha','0','$last_id') ";
+				if($stmt = $conexao->prepare($sql3))
 				{
-					echo "cadastrado";
-				}else{
-					echo "errocodigo";
+					if($stmt->execute())
+					{
+						echo "cadastrado";
+					}else{
+						echo "errocodigo";
+					}
 				}
 			}
-		}
-		
-	}
 
-	$stmt->close();
-	$conexao->close();
+		}
+		$stmt->close();
+		$conexao->close();
+
+	}
 }
 ?>
 
